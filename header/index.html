@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preload" href="../assets/fonts/montserrat-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../assets/sass/style.min.css">
+    <link rel="stylesheet" href="sass/style.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__wrapper">
+
+                <!-- 1. Logo Thương Hiệu -->
+                <a href="/" class="header__logo" aria-label="Medicare Clinic - Trang Chủ">
+                    <img src="images/logo-medicare.svg" alt="Medicare Clinic" class="header__logo-img" width="160"
+                        height="48">
+                </a>
+
+                <!-- 2. Lớp phủ mờ (Backdrop) khi mở menu trên Mobile -->
+                <div class="header__backdrop" id="header-backdrop"></div>
+
+                <!-- 3. Navigation Menu -->
+                <nav class="header__nav" id="main-nav" aria-label="Menu điều hướng chính">
+                    <ul class="header__menu">
+                        <li class="header__menu-item">
+                            <a href="#" class="header__menu-link header__menu-link--active">Trang Chủ</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="#" class="header__menu-link">Điều Trị</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="#" class="header__menu-link">Thẩm Mỹ</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="#" class="header__menu-link">Sản Phẩm</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- 4. Hành động (Giỏ hàng & Nút mở menu mobile) -->
+                <div class="header__actions">
+                    <!-- Nút Giỏ Hàng -->
+                    <a href="#cart" class="header__action-btn header__action-btn--cart" aria-label="Xem giỏ hàng">
+                        <svg class="header__cart-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                        <span class="header__cart-badge" aria-hidden="true">1</span>
+                    </a>
+
+                    <!-- Nút Toggle Mobile Menu (Hamburger) -->
+                    <button class="header__toggle" id="menu-toggle" type="button" aria-label="Mở danh mục menu"
+                        aria-expanded="false" aria-controls="main-nav">
+                        <span class="header__toggle-bar"></span>
+                        <span class="header__toggle-bar"></span>
+                        <span class="header__toggle-bar"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

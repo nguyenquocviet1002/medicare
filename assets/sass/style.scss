@@ -1,0 +1,78 @@
+@use "normalize";
+@use "fonts";
+@use "sass:map";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+}
+
+:root {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+
+  --font-sans: "Montserrat", "Roboto", sans-serif;
+
+  --color-bg-primary: #3ab8b8;
+  --color-bg-secondary: #f4f4f4;
+  --color-primary: #3ab8b8;
+  --color-accent: #2e1938;
+  --color-accent-hover: #01a3a3;
+  --color-text: #000000;
+  --color-border: #3ab8b8;
+  --color-border-focus: #01a3a3;
+  --color-white: #ffffff;
+  --color-on-primary: var(--color-white);
+  --color-danger: #e53935;
+  --color-shadow-soft: 0 4px 20px rgba(46, 25, 56, 0.06);
+  --color-shadow-button: 0 4px 16px rgba(184, 106, 141, 0.3);
+}
+
+$grid-breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
+.container,
+.container-fluid {
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container {
+  @each $name, $max-width in $container-max-widths {
+    $min-width: map.get($grid-breakpoints, $name);
+
+    @media (min-width: $min-width) {
+      max-width: $max-width;
+    }
+  }
+}

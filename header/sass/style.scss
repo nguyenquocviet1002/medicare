@@ -1,0 +1,306 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-white);
+  box-shadow: var(--color-shadow-soft);
+  z-index: 1000;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80px;
+
+    /* Responsive Tablet & Mobile (< 992px) */
+    @media (max-width: 991.98px) {
+      min-height: 64px;
+    }
+
+    /* Small Mobile (< 576px) */
+    @media (max-width: 575.98px) {
+      min-height: 56px;
+    }
+  }
+
+  /* ==========================================================
+     LOGO
+     ========================================================== */
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+    z-index: 1002;
+
+    &-img {
+      display: block;
+      height: auto;
+      max-height: 48px;
+      object-fit: contain;
+
+      @media (max-width: 991.98px) {
+        max-height: 38px;
+      }
+
+      @media (max-width: 575.98px) {
+        max-height: 32px;
+      }
+    }
+  }
+
+  /* ==========================================================
+     BACKDROP OVERLAY (Mobile)
+     ========================================================== */
+  &__backdrop {
+    display: none;
+
+    @media (max-width: 991.98px) {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+      z-index: 1000;
+
+      &--visible {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  /* ==========================================================
+     NAVIGATION MENU
+     ========================================================== */
+  &__nav {
+    display: flex;
+    align-items: center;
+
+    /* Desktop View (>= 992px) */
+    @media (min-width: 992px) {
+      position: static;
+      display: flex !important;
+    }
+
+    /* Mobile Drawer View (< 992px) */
+    @media (max-width: 991.98px) {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 280px;
+      max-width: 80%;
+      height: 100vh;
+      background-color: var(--color-white);
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+      padding: 5rem 0 2rem 0;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1001;
+      overflow-y: auto;
+      align-items: flex-start;
+
+      &--open {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    /* Màn hình lớn (>= 1400px / 1920px) */
+    @media (min-width: 1400px) {
+      gap: 3rem;
+    }
+
+    /* Mobile / Tablet vertical list (< 992px) */
+    @media (max-width: 991.98px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      width: 100%;
+    }
+  }
+
+  &__menu-item {
+    display: inline-flex;
+
+    @media (max-width: 991.98px) {
+      width: 100%;
+    }
+  }
+
+  &__menu-link {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: color 0.25s ease;
+
+    &:hover {
+      color: var(--color-accent-hover);
+    }
+
+    /* Trạng thái Active */
+    &--active {
+      color: var(--color-primary);
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--color-primary);
+        border-radius: 2px;
+      }
+    }
+
+    /* Tối ưu trải nghiệm chạm trên Mobile */
+    @media (max-width: 991.98px) {
+      width: 100%;
+      padding: 0.85rem 0.75rem;
+      font-size: 1.05rem;
+
+      &:hover {
+        background-color: rgba(58, 184, 184, 0.08);
+      }
+
+      &--active {
+        color: var(--color-primary);
+        background-color: rgba(58, 184, 184, 0.12);
+
+        &::after {
+          display: none; // Ẩn gạch chân trên mobile, chuyển thành nền highlight nhẹ
+        }
+      }
+    }
+  }
+
+  /* ==========================================================
+     ACTIONS & ICONS
+     ========================================================== */
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    z-index: 1002;
+
+    @media (max-width: 575.98px) {
+      gap: 0.85rem;
+    }
+  }
+
+  &__action-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 0.35rem;
+    color: var(--color-text);
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      color 0.25s ease,
+      transform 0.25s ease;
+
+    &:hover {
+      color: var(--color-primary);
+      transform: translateY(-1px);
+    }
+  }
+
+  &__cart-icon {
+    display: block;
+
+    @media (max-width: 575.98px) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--color-danger);
+    color: var(--color-on-primary);
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  /* ==========================================================
+     HAMBURGER BUTTON (Mobile Menu Toggle)
+     ========================================================== */
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    @media (max-width: 991.98px) {
+      display: flex;
+    }
+
+    &-bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-text);
+      border-radius: 2px;
+      transform-origin: left center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Hiệu ứng biến đổi thành dấu 'X' khi mở menu */
+    &--active {
+      .header__toggle-bar {
+        &:nth-child(1) {
+          transform: rotate(45deg) translate(0px, -2px);
+          background-color: var(--color-primary);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+          transform: scaleX(0);
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg) translate(0px, 2px);
+          background-color: var(--color-primary);
+        }
+      }
+    }
+  }
+}
