@@ -1,0 +1,309 @@
+.banner {
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.package-services {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-white);
+  padding: 4.5rem 0;
+
+  @media (max-width: 991.98px) {
+    padding: 3rem 0;
+  }
+
+  /* ==========================================================
+     TIÊU ĐỀ
+     ========================================================== */
+  &__title {
+    margin-top: -100px;
+    font-family: var(--font-sans);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: var(--color-primary);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin-bottom: 2rem;
+  }
+
+  /* ==========================================================
+     THANH TABS (PILL SEGMENTED CONTROL)
+     ========================================================== */
+  &__tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__tabs {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-primary); // Nền xanh ngọc #3ab8b8
+    border-radius: 9999px;
+    padding: 4px;
+    box-shadow: 0 4px 16px rgba(58, 184, 184, 0.2);
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__tab-btn {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-white);
+    background-color: transparent;
+    border: none;
+    padding: 0.65rem 2.25rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+
+    &:hover:not(&--active) {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    /* Tab đang chọn: Nền trắng, chữ xanh ngọc */
+    &--active {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      font-weight: 800;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 575.98px) {
+      padding: 0.5rem 1.25rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  /* ==========================================================
+     KHUNG CARD LIỆU TRÌNH (THẺ NGANG COMBO)
+     ========================================================== */
+  &__content {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; // Khoảng cách giữa các gói liệu trình trong cùng 1 Tab
+  }
+
+  &__card {
+    background-color: var(--color-white);
+    border: 1px solid rgba(58, 184, 184, 0.18);
+    border-radius: 22px;
+    padding: 1.75rem;
+    box-shadow: var(--color-shadow-soft);
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 2rem;
+    align-items: stretch;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(58, 184, 184, 0.16);
+    }
+
+    /* Responsive Tablet & Mobile (< 992px) */
+    @media (max-width: 991.98px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1.25rem;
+    }
+  }
+
+  /* ==========================================================
+     CỘT TRÁI: 2 ẢNH TRƯỚC (BEFORE) & SAU (AFTER)
+     ========================================================== */
+  &__media {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    justify-content: center;
+
+    &-item {
+      position: relative;
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background-color: var(--color-white);
+    }
+
+    &-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Huy hiệu Before / After góc trên bên trái */
+    &-badge {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.25rem 1.15rem;
+      border-radius: 9999px;
+      z-index: 2;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+      @media (max-width: 575.98px) {
+        top: 0.5rem;
+        left: 0.5rem;
+        font-size: 0.75rem;
+        padding: 0.2rem 0.85rem;
+      }
+    }
+  }
+
+  /* ==========================================================
+     CỘT PHẢI: NỘI DUNG GÓI LIỆU TRÌNH
+     ========================================================== */
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__card-title {
+    font-family: var(--font-sans);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+
+    @media (max-width: 575.98px) {
+      font-size: 1.15rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* --- Điểm Nổi Bật Của Gói (Inclusions) --- */
+  &__inclusions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 1.25rem;
+  }
+
+  &__inclusion-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    line-height: 1.35;
+
+    @media (max-width: 575.98px) {
+      font-size: 0.875rem;
+    }
+  }
+
+  &__inclusion-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* --- Danh Sách Tác Dụng (Bullets) --- */
+  &__benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  &__benefit-item {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-text);
+    line-height: 1.55;
+    position: relative;
+    padding-left: 0.85rem;
+
+    &::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--color-text);
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+  }
+
+  /* --- Footer: Giá & Giỏ Hàng --- */
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    margin-top: auto;
+    border-top: 1px solid rgba(58, 184, 184, 0.18);
+  }
+
+  &__price {
+    font-family: var(--font-sans);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-primary);
+
+    @media (max-width: 575.98px) {
+      font-size: 1.15rem;
+    }
+  }
+
+  &__cart-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--color-primary);
+    padding: 0.35rem;
+    cursor: pointer;
+    transition:
+      transform 0.25s ease,
+      color 0.25s ease;
+
+    &:hover {
+      color: var(--color-accent-hover);
+      transform: scale(1.15);
+    }
+  }
+}

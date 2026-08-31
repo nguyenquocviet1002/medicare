@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/sass/style.min.css?v=2">
+    <link rel="stylesheet" href="sass/style.min.css?v=2">
+</head>
+
+<body>
+    <section class="banner">
+        <img src="images/banner.jpg" alt="">
+    </section>
+
+    <section>
+        <div class="container">
+            <div id="combo-page-container"></div>
+        </div>
+    </section>
+
+    <script>
+        /* ==========================================================================
+           TOÀN BỘ DATA OBJECT TRANG CÁC GÓI COMBO (CHUẨN XÁC 100%)
+           ========================================================================== */
+        const comboPageData = {
+            /* ==========================================================================
+               PHÂN NHÓM 1: CÁC GÓI COMBO THẨM MỸ (5 COMBOS)
+               ========================================================================== */
+            aestheticCombos: {
+                sectionId: "combo-tham-my",
+                sectionTitle: "CÁC GÓI COMBO THẨM MỸ",
+                combos: [
+                    {
+                        id: "combo-tai-sinh-da",
+                        title: "COMBO TÁI SINH DA CHUYÊN SÂU",
+                        subtitle: "TRẺ HÓA PHỤC HỒI",
+                        items: [
+                            {
+                                name: "3 REJURAN HEALER",
+                                value: "18.000.000 VNĐ",
+                                image: "images/combos/rejuran-healer-box.jpg"
+                            },
+                            {
+                                name: "1 CFU FULLFACE",
+                                value: "25.000.000 VNĐ",
+                                image: "images/combos/cfu-fullface-treatment.jpg"
+                            }
+                        ],
+                        dealPrice: "35.000.000 VNĐ",
+                        originalPrice: "43.000.000 VNĐ"
+                    },
+                    {
+                        id: "combo-glass-skin",
+                        title: "GLASS SKIN CĂNG BÓNG CHUẨN HÀN",
+                        subtitle: "",
+                        items: [
+                            {
+                                name: "3 BAP KARISMA",
+                                value: "20.000.000 VNĐ",
+                                image: "images/combos/bap-karisma-box.jpg"
+                            },
+                            {
+                                name: "2 MESO TEOXANE",
+                                value: "24.000.000 VNĐ",
+                                image: "images/combos/meso-teoxane-box.jpg"
+                            }
+                        ],
+                        dealPrice: "36.000.000 VNĐ",
+                        originalPrice: "44.000.000 VNĐ"
+                    },
+                    {
+                        id: "combo-lifting-elite",
+                        title: "COMBO LIFTING ELITE",
+                        subtitle: "NÂNG CƠ TRẺ HÓA ĐA TẦNG",
+                        items: [
+                            {
+                                name: "3 KARISMA",
+                                value: "20.000.000 VNĐ",
+                                image: "images/combos/karisma-box.jpg"
+                            },
+                            {
+                                name: "1 CFU FULLFACE",
+                                value: "25.000.000 VNĐ",
+                                image: "images/combos/cfu-lifting-treatment.jpg"
+                            }
+                        ],
+                        dealPrice: "38.000.000 VNĐ",
+                        originalPrice: "45.000.000 VNĐ"
+                    },
+                    {
+                        id: "combo-ultimate-lift",
+                        title: "ULTIMATE LIFT NÂNG CƠ TRẺ HÓA ĐA TẦNG",
+                        subtitle: "NÂNG CƠ TRẺ HÓA ĐA TẦNG THU NHỎ LỖ CHÂN LÔNG",
+                        items: [
+                            {
+                                name: "1 CFU FULL FACE",
+                                value: "25.000.000 VNĐ",
+                                image: "images/combos/cfu-fullface-1.jpg"
+                            },
+                            {
+                                name: "3 KARISMA",
+                                value: "20.000.000 VNĐ",
+                                image: "images/combos/karisma-box-2.jpg"
+                            },
+                            {
+                                name: "1 MESO BOTOX",
+                                value: "4.000.000 VNĐ",
+                                image: "images/combos/meso-botox-treatment.jpg"
+                            }
+                        ],
+                        dealPrice: "40.000.000 VNĐ",
+                        originalPrice: "49.000.000 VNĐ"
+                    },
+                    {
+                        id: "combo-tai-tao-toan-dien",
+                        title: "TÁI TẠO LÀN DA TOÀN DIỆN",
+                        subtitle: "NÂNG CƠ TRẺ HÓA ĐA TẦNG TRẮNG SÁNG",
+                        items: [
+                            {
+                                name: "1 CFU FULL FACE",
+                                value: "25.000.000 VNĐ",
+                                image: "images/combos/cfu-fullface-2.jpg"
+                            },
+                            {
+                                name: "3 KARISMA",
+                                value: "20.000.000 VNĐ",
+                                image: "images/combos/karisma-box-3.jpg"
+                            },
+                            {
+                                name: "3 REJURAN HEALER",
+                                value: "18.000.000 VNĐ",
+                                image: "images/combos/rejuran-healer-syringes.jpg"
+                            }
+                        ],
+                        dealPrice: "52.000.000 VNĐ",
+                        originalPrice: "63.000.000 VNĐ"
+                    }
+                ]
+            },
+
+            /* ==========================================================================
+               PHÂN NHÓM 2: CÁC GÓI COMBO CHO MẮT (4 COMBOS / GÓI ĐƠN)
+               ========================================================================== */
+            eyeCombos: {
+                sectionId: "combo-cho-mat",
+                sectionTitle: "CÁC GÓI COMBO CHO MẮT",
+                combos: [
+                    {
+                        id: "combo-trung-tham-mat",
+                        title: "TRŨNG MẮT + THÂM MẮT",
+                        subtitle: "TRẺ HÓA TRŨNG & THÂM VÙNG MẮT",
+                        items: [
+                            {
+                                name: "3 NUCLEOSKIN",
+                                value: "",
+                                image: "images/combos/nucleoskin-box.jpg"
+                            }
+                        ],
+                        dealPrice: "18.000.000 VNĐ",
+                        originalPrice: "21.000.000 VNĐ"
+                    },
+                    {
+                        id: "combo-tham-mat",
+                        title: "THÂM MẮT",
+                        subtitle: "CẢI THIỆN QUẦNG THÂM MẮT",
+                        items: [
+                            {
+                                name: "5 REJURAN I",
+                                value: "",
+                                image: "images/combos/rejuran-i-box.jpg"
+                            }
+                        ],
+                        dealPrice: "20.000.000 VNĐ",
+                        originalPrice: "25.000.000 VNĐ"
+                    },
+                    {
+                        id: "combo-tham-trung-nang",
+                        title: "THÂM NẶNG + TRŨNG NẶNG",
+                        subtitle: "(INTENSIVE EYE TRŨNG THÂM CHUYÊN SÂU)",
+                        items: [
+                            {
+                                name: "3 REJURAN I",
+                                value: "15.000.000 VNĐ",
+                                image: "images/combos/rejuran-i-single.jpg"
+                            },
+                            {
+                                name: "1 VITAL LIGHT RESTYLANE",
+                                value: "12.000.000 VNĐ",
+                                image: "images/combos/restylane-vital-light.jpg"
+                            }
+                        ],
+                        dealPrice: "24.000.000 VNĐ",
+                        originalPrice: "27.000.000 VNĐ"
+                    },
+                    {
+                        id: "combo-lam-day-trung-mat",
+                        title: "LÀM ĐẦY TRŨNG MẮT",
+                        subtitle: "(UNDER EYE VOLUME RESTORATION)",
+                        items: [
+                            {
+                                name: "1 TEOXANE 2",
+                                value: "12.000.000 VNĐ",
+                                image: "images/combos/teoxane-2-box.jpg"
+                            },
+                            {
+                                name: "3 REJURAN I",
+                                value: "15.000.000 VNĐ",
+                                image: "images/combos/rejuran-i-box-3.jpg"
+                            }
+                        ],
+                        dealPrice: "24.000.000 VNĐ",
+                        originalPrice: "27.000.000 VNĐ"
+                    }
+                ]
+            }
+        };
+
+        /* ==========================================================================
+           HÀM RENDER RA GIAO DIỆN (TỰ ĐỘNG CHÈN DẤU '+' CHO 2 HOẶC 3 ITEMS)
+           ========================================================================== */
+        function renderComboPage() {
+            const container = document.getElementById("combo-page-container");
+            if (!container) return;
+
+            container.innerHTML = Object.values(comboPageData)
+                .map(
+                    (section) => `
+      <section class="combo-section" id="${section.sectionId}">
+        <h2 class="combo-section__title">${section.sectionTitle}</h2>
+
+        <div class="combo-section__list">
+          ${section.combos
+                            .map(
+                                (combo) => `
+            <article class="combo-card">
+              
+              <!-- Header: Tiêu đề & Subtitle -->
+              <div class="combo-card__header">
+                <h3 class="combo-card__title">${combo.title}</h3>
+                ${combo.subtitle ? `<div class="combo-card__subtitle">${combo.subtitle}</div>` : ""}
+              </div>
+
+              <!-- Danh sách sản phẩm / dịch vụ ghép nối -->
+              <div class="combo-card__items combo-card__items--count-${combo.items.length}">
+                ${combo.items
+                                        .map(
+                                            (item, index) => `
+                    ${index > 0 ? `<div class="combo-card__plus-badge" aria-hidden="true">+</div>` : ""}
+                    
+                    <div class="combo-card__item">
+                      <img src="${item.image}" alt="${item.name}" class="combo-card__item-img" loading="lazy">
+                      <div class="combo-card__item-overlay">
+                        <span class="combo-card__item-name">${item.name}</span>
+                        ${item.value ? `<span class="combo-card__item-value">${item.value}</span>` : ""}
+                      </div>
+                    </div>
+                  `
+                                        )
+                                        .join("")}
+              </div>
+
+              <!-- Footer: Giá Ưu Đãi, Giá Gốc & Giỏ Hàng -->
+              <div class="combo-card__footer">
+                <div class="combo-card__price-box">
+                  <span class="combo-card__deal-price">Giá Ưu Đãi: ${combo.dealPrice}</span>
+                  <span class="combo-card__original-price">${combo.originalPrice}</span>
+                </div>
+
+                <button class="combo-card__cart-btn" type="button" aria-label="Thêm ${combo.title} vào giỏ hàng">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                  </svg>
+                </button>
+              </div>
+
+            </article>
+          `
+                            )
+                            .join("")}
+        </div>
+      </section>
+    `
+                )
+                .join("");
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderComboPage();
+        });
+    </script>
+</body>
+
+</html>

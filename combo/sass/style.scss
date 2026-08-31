@@ -1,0 +1,280 @@
+.banner {
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+/* ==========================================================================
+   STYLES SECTION COMBO THẨM MỸ & COMBO CHO MẮT
+   ========================================================================== */
+.combo-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-white);
+  padding: 4.5rem 0;
+
+  @media (max-width: 991.98px) {
+    padding: 3rem 0;
+  }
+
+  &__title {
+    font-family: var(--font-sans);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: var(--color-primary); // Xanh ngọc #3ab8b8
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin-bottom: 3rem;
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__list {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media (max-width: 767.98px) {
+      gap: 1.5rem;
+    }
+  }
+}
+
+/* ==========================================================================
+   COMBO CARD
+   ========================================================================== */
+.combo-card {
+  background-color: #f8fafb;
+  border-radius: 20px;
+  padding: 1.75rem 2rem;
+  box-shadow: var(--color-shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(58, 184, 184, 0.15);
+  }
+
+  @media (max-width: 767.98px) {
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+
+  /* --- Header --- */
+  &__header {
+    text-align: center;
+  }
+
+  &__title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+    font-weight: 800;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: -0.3px;
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+  }
+
+  &__subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* --- Khung Chứa Các Items & Dấu Cộng --- */
+  &__items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+
+    /* Tự động căn chỉnh theo số lượng items */
+    &--count-1 {
+      .combo-card__item {
+        max-width: 540px;
+        aspect-ratio: 16 / 9;
+        margin: 0 auto;
+      }
+    }
+
+    &--count-2 {
+      .combo-card__item {
+        flex: 1 1 0;
+        aspect-ratio: 16 / 10;
+      }
+    }
+
+    &--count-3 {
+      .combo-card__item {
+        flex: 1 1 0;
+        aspect-ratio: 16 / 11;
+
+        .combo-card__item-name {
+          font-size: 0.775rem;
+        }
+
+        .combo-card__item-value {
+          font-size: 0.7rem;
+        }
+      }
+
+      .combo-card__plus-badge {
+        width: 28px;
+        height: 28px;
+        font-size: 1.15rem;
+      }
+    }
+
+    /* Responsive Mobile (< 768px): Xếp dọc */
+    @media (max-width: 767.98px) {
+      flex-direction: column;
+      gap: 0.75rem;
+
+      .combo-card__item {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 16 / 10 !important;
+      }
+    }
+  }
+
+  /* --- Thẻ Item Con --- */
+  &__item {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: var(--color-white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    &-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(58, 184, 184, 0) 35%,
+        rgba(58, 184, 184, 0.75) 70%,
+        rgba(58, 184, 184, 0.95) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      color: var(--color-white);
+    }
+
+    &-name {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    &-value {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      opacity: 0.95;
+      margin-top: 2px;
+    }
+  }
+
+  /* --- Dấu Cộng (+) Nối Ở Giữa --- */
+  &__plus-badge {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(58, 184, 184, 0.35);
+
+    @media (max-width: 767.98px) {
+      margin: 0 auto;
+    }
+  }
+
+  /* --- Footer --- */
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+  }
+
+  &__price-box {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  &__deal-price {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 800;
+    color: var(--color-primary);
+  }
+
+  &__original-price {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: #888888;
+    text-decoration: line-through;
+    font-weight: 500;
+  }
+
+  &__cart-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--color-primary);
+    padding: 0.25rem;
+    cursor: pointer;
+    transition:
+      transform 0.25s ease,
+      color 0.25s ease;
+
+    &:hover {
+      color: var(--color-accent-hover);
+      transform: scale(1.15);
+    }
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}

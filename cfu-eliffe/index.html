@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/sass/style.min.css?v=2">
+    <link rel="stylesheet" href="sass/style.min.css?v=2">
+</head>
+
+<body>
+    <section class="banner">
+        <img src="images/banner.jpg" alt="">
+    </section>
+
+    <!-- ==========================================================================
+         TRANG CFU ÈLIFE (RENDER TỰ ĐỘNG 3 PHÂN NHÓM QUA JAVASCRIPT)
+         ========================================================================== -->
+    <div class="cfu-page">
+        <div class="container">
+
+            <!-- Khung chứa nội dung render động 3 sections -->
+            <div id="cfu-page-container"></div>
+
+        </div>
+    </div>
+
+    <script>
+        /**
+  * ==========================================================================
+  * MEDICARE CLINIC - CFU ÈLIFE DATA OBJECT & RENDER ENGINE
+  * ==========================================================================
+  */
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderCfuPage();
+        });
+
+        /* ==========================================================================
+           TOÀN BỘ DATA OBJECT TRANG CFU ÈLIFE (CHUẨN XÁC 100%)
+           ========================================================================== */
+        const cfuPageData = {
+            /* --- PHÂN NHÓM 1: CFU ÈLIFFE BUỔI LẺ (3 CARDS) --- */
+            singleFace: {
+                sectionId: "cfu-buoi-le",
+                sectionTitle: "CFU ÈLIFFE BUỔI LẺ",
+                type: "detailed",
+                items: [
+                    {
+                        id: "cfu-bong-mat-vien-ham",
+                        title: "CFU ÈLIFE BỌNG MẮT/ VIỀN HÀM/ THÁI DƯƠNG + TRÁN",
+                        image: "images/services/cfu-bong-mat.jpg",
+                        isCompare: false,
+                        benefits: [
+                            "Sóng siêu âm hội tụ vi điểm làm săn chắc vùng da quanh mắt, tan mỡ bọng mắt và giảm nếp nhăn li ti",
+                            "Siết gọn cơ viền hàm, tiêu biến mỡ thừa và định hình đường nét khuôn mặt góc cạnh, thanh thoát",
+                            "Nâng cao cung mày, kéo căng nếp nhăn trán và làm săn chắc vùng thái dương bị chùng"
+                        ],
+                        indications: "Bọng mỡ mắt dưới, quầng thâm, nếp nhăn đuôi mắt. Đường viền hàm chảy xệ. Nếp nhăn tĩnh trán, rãnh nhăn trán lão hóa",
+                        price: "5.000.000 VNĐ"
+                    },
+                    {
+                        id: "cfu-ma-co",
+                        title: "CFU ÈLIFE MÁ/CỔ",
+                        image: "images/services/cfu-ma-co-compare.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Co rút lớp cơ SMAS, nâng đỡ mô mỡ má bị xệ, làm đầy rãnh cười và tăng độ săn chắc",
+                            "Tái tạo collagen tầng sâu, xóa mờ nếp nhăn vùng cổ và siết chặt da cổ chùng nhão"
+                        ],
+                        indications: "Má chảy xệ, rãnh sâu, cơ mặt kém đàn hồi. Da cổ lão hóa, xuất hiện ngấn cổ rõ rệt, da chùng nhão",
+                        price: "8.000.000 VNĐ"
+                    },
+                    {
+                        id: "cfu-nong",
+                        title: "CFU ÈLIFE NỌNG",
+                        image: "images/services/cfu-nong-compare.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Hóa lỏng và đào thải mô mỡ dày nọng cằm, co rút da chùng giúp cằm V-line rõ nét"
+                        ],
+                        indications: "Cằm đôi (nọng cằm dày), mỡ thừa tích tụ dưới cằm, da dưới cằm lỏng lẻo",
+                        price: "10.000.000 VNĐ"
+                    }
+                ]
+            },
+
+            /* --- PHÂN NHÓM 2: CFU ÈLIFE BODY (3 CARDS) --- */
+            body: {
+                sectionId: "cfu-body",
+                sectionTitle: "CFU ÈLIFE BODY",
+                type: "detailed",
+                items: [
+                    {
+                        id: "cfu-giam-mo-hoi-nach",
+                        title: "CFU GIẢM MỒ HÔI NÁCH",
+                        image: "images/services/cfu-giam-mo-hoi-nach.jpg",
+                        isCompare: false,
+                        benefits: [
+                            "Sử dụng sóng siêu âm hội tụ tác động chính xác vào tuyến mồ hôi vùng nách",
+                            "Giảm tiết mồ hôi và hỗ trợ ức chế vi khuẩn gây mùi khó chịu",
+                            "Giữ vùng nách khô thoáng lâu dài, không xâm lấn và không cần nghỉ dưỡng"
+                        ],
+                        indications: "Đổ mồ hôi nách nhiều, tăng tiết mồ hôi do cơ địa, vùng nách ẩm ướt khó chịu",
+                        price: "5.000.000 VNĐ"
+                    },
+                    {
+                        id: "cfu-giam-mo-hoi-nach-botox",
+                        title: "CFU GIẢM MỒ HÔI NÁCH + BOTOX",
+                        image: "images/services/cfu-giam-mo-hoi-nach-botox.jpg",
+                        isCompare: false,
+                        benefits: [
+                            "Tác động kép: CFU làm suy yếu tuyến mồ hôi kết hợp Botox phong bế dẫn truyền thần kinh",
+                            "Kiểm soát và ức chế triệt để tình trạng tăng tiết mồ hôi tức thì",
+                            "Khử mùi hiệu quả, mang lại vùng nách khô ráo vượt trội và duy trì bền vững"
+                        ],
+                        indications: "Tăng tiết mồ hôi nách mức độ nặng, mùi hôi nách lâu năm, cần hiệu quả khô thoáng cấp tốc",
+                        price: "8.000.000 VNĐ"
+                    },
+                    {
+                        id: "cfu-thon-gon-tay",
+                        title: "CFU THON GỌN TAY",
+                        image: "images/services/cfu-thon-gon-tay.jpg",
+                        isCompare: false,
+                        benefits: [
+                            "Sóng siêu âm hội tụ tác động nhiệt phá hủy mô mỡ thừa vùng bắp tay",
+                            "Kích thích tăng sinh collagen & elastin, siết cơ và làm săn chắc vùng da chùng nhão",
+                            "Thu gọn chu vi bắp tay, tạo đường nét thon gọn tự nhiên mà không cần phẫu thuật"
+                        ],
+                        indications: "Bắp tay to, tích tụ mỡ thừa khó giảm, da cánh tay lỏng lẻo kém săn chắc",
+                        price: "10.000.000 VNĐ"
+                    }
+                ]
+            },
+
+            /* --- PHÂN NHÓM 3: CFU ÈLIFFE THEO LIỆU TRÌNH (2 PACKAGES CÓ GIÁ GỐC) --- */
+            packages: {
+                sectionId: "cfu-lieu-trinh",
+                sectionTitle: "CFU ÈLIFFE THEO LIỆU TRÌNH",
+                type: "simple",
+                items: [
+                    {
+                        id: "cfu-full-face",
+                        title: "CFU FULL FACE",
+                        image: "images/services/cfu-full-face-package.jpg",
+                        price: "25.000.000 VNĐ",
+                        originalPrice: "28.000.000 VNĐ"
+                    },
+                    {
+                        id: "cfu-full-face-co",
+                        title: "FULL FACE + VÙNG CỔ",
+                        image: "images/services/cfu-full-face-co-package.jpg",
+                        price: "30.000.000 VNĐ",
+                        originalPrice: "36.000.000 VNĐ"
+                    }
+                ]
+            }
+        };
+
+        /* ==========================================================================
+           HÀM RENDER TỰ ĐỘNG RA GIAO DIỆN
+           ========================================================================== */
+        function renderCfuPage() {
+            const container = document.getElementById("cfu-page-container");
+            if (!container) return;
+
+            container.innerHTML = Object.values(cfuPageData)
+                .map((section) => {
+                    // 1. Render Phân Nhóm Chi Tiết (Buổi Lẻ & Body)
+                    if (section.type === "detailed") {
+                        return `
+          <section class="cfu-section" id="${section.sectionId}">
+            <h2 class="cfu-section__title">${section.sectionTitle}</h2>
+            <div class="cfu-section__grid">
+              ${section.items
+                                .map(
+                                    (item) => `
+                <article class="cfu-card">
+                  <div class="cfu-card__media">
+                    <img src="${item.image}" alt="${item.title}" class="cfu-card__img" loading="lazy">
+                    ${item.isCompare
+                                            ? `
+                      <span class="cfu-card__badge cfu-card__badge--before">Before</span>
+                      <span class="cfu-card__badge cfu-card__badge--after">After</span>
+                    `
+                                            : ""
+                                        }
+                  </div>
+                  
+                  <div class="cfu-card__body">
+                    <h3 class="cfu-card__title">${item.title}</h3>
+                    
+                    <div class="cfu-card__subtitle">TÁC DỤNG</div>
+                    <ul class="cfu-card__list">
+                      ${item.benefits.map((b) => `<li class="cfu-card__list-item">${b}</li>`).join("")}
+                    </ul>
+                    
+                    <div class="cfu-card__subtitle">CHỈ ĐỊNH</div>
+                    <p class="cfu-card__text">${item.indications}</p>
+                    
+                    <div class="cfu-card__footer">
+                      <span class="cfu-card__price">Giá: ${item.price}</span>
+                      <button class="cfu-card__cart-btn" type="button" aria-label="Thêm ${item.title} vào giỏ hàng">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                          <line x1="3" y1="6" x2="21" y2="6"></line>
+                          <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              `
+                                )
+                                .join("")}
+            </div>
+          </section>
+        `;
+                    }
+
+                    // 2. Render Phân Nhóm Combo Liệu Trình (Có Giá Gốc Gạch Ngang)
+                    if (section.type === "simple") {
+                        return `
+          <section class="cfu-section" id="${section.sectionId}">
+            <h2 class="cfu-section__title">${section.sectionTitle}</h2>
+            <div class="cfu-section__grid cfu-section__grid--package">
+              ${section.items
+                                .map(
+                                    (item) => `
+                <article class="cfu-package-card">
+                  <div class="cfu-package-card__media">
+                    <img src="${item.image}" alt="${item.title}" class="cfu-package-card__img" loading="lazy">
+                  </div>
+                  
+                  <h3 class="cfu-package-card__title">${item.title}</h3>
+                  
+                  <div class="cfu-package-card__footer">
+                    <div class="cfu-package-card__price-box">
+                      <span class="cfu-package-card__price">Giá: ${item.price}</span>
+                      <span class="cfu-package-card__original-price">${item.originalPrice}</span>
+                    </div>
+                    
+                    <button class="cfu-package-card__cart-btn" type="button" aria-label="Thêm ${item.title} vào giỏ hàng">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </article>
+              `
+                                )
+                                .join("")}
+            </div>
+          </section>
+        `;
+                    }
+                })
+                .join("");
+        }
+    </script>
+</body>
+
+</html>

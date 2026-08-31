@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/sass/style.min.css?v=2">
+    <link rel="stylesheet" href="sass/style.min.css?v=2">
+</head>
+
+<body>
+    <section class="banner">
+        <img src="images/banner.jpg" alt="">
+    </section>
+
+    <section class="single-services" id="single-services" aria-label="Dịch Vụ Buổi Lẻ">
+        <div class="container">
+
+            <!-- Tiêu Đề Chính -->
+            <h2 class="single-services__title">DỊCH VỤ BUỔI LẺ</h2>
+
+            <!-- Thanh Điều Hướng Tabs (Render động qua JS) -->
+            <div class="single-services__tabs-wrapper">
+                <div class="single-services__tabs" id="single-services-tabs" role="tablist"></div>
+            </div>
+
+            <!-- Khung Chứa Nội Dung Render (Sections + Grid / Wide Cards) -->
+            <div id="single-services-content"></div>
+
+        </div>
+    </section>
+
+    <script>
+        /**
+     * ==========================================================================
+     * MEDICARE CLINIC - DỊCH VỤ BUỔI LẺ (SINGLE SESSION SERVICES ENGINE)
+     * ==========================================================================
+     */
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initSingleServices();
+        });
+
+        /* ==========================================================================
+           DATA OBJECT (TOÀN BỘ DỮ LIỆU 4 TABS CHUẨN XÁC 100%)
+           ========================================================================== */
+        const singleServicesData = {
+            /* ==================== TAB 1: LASER ==================== */
+            laser: {
+                id: "laser",
+                tabName: "LASER",
+                sections: [
+                    {
+                        sectionTitle: "LASER ĐẶC TRỊ VÙNG MẶT",
+                        layout: "grid",
+                        items: [
+                            {
+                                id: "laser-co2-fractional",
+                                title: "LASER CO2 FRACTIONAL",
+                                image: "images/services/laser-co2-fractional.jpg",
+                                isCompare: false,
+                                benefits: [
+                                    "Tạo các vi cột tổn thương nhiệt siêu nhỏ xuyên từ thượng bì xuống trung bì theo dạng phân đoạn",
+                                    "Kích thích cơ chế tái tạo mô tự nhiên & Thúc đẩy tăng sinh collagen và elastin mới",
+                                    "Hỗ trợ tái cấu trúc nền da và cải thiện kết cấu da",
+                                    "Giúp làm mịn bề mặt da và thu nhỏ lỗ chân lông",
+                                    "Hỗ trợ tăng độ săn chắc và cải thiện độ đàn hồi của da"
+                                ],
+                                indications: "Sẹo rỗ sau mụn, Lỗ chân lông to, Bề mặt da sần, kết cấu da không mịn, Da không đều màu.",
+                                price: "2.000.000 VNĐ"
+                            },
+                            {
+                                id: "dau-dot-vi-diem",
+                                title: "ĐẦU ĐỐT VI ĐIỂM",
+                                image: "images/services/dau-dot-vi-diem.jpg",
+                                isCompare: false,
+                                benefits: [
+                                    "Tạo vi tổn thương nhiệt rất nhỏ và chính xác trên bề mặt da",
+                                    "Hỗ trợ loại bỏ các mô da không mong muốn",
+                                    "Kích thích quá trình tái tạo mô mới",
+                                    "Thúc đẩy tăng sinh collagen, giúp da phục hồi tốt hơn",
+                                    "Hỗ trợ làm phẳng và cải thiện bề mặt da"
+                                ],
+                                indications: "Sẹo rỗ, Sẹo lồi nhỏ, U mềm treo (skin tag), Mụn thịt.",
+                                price: "1.500.000 VNĐ"
+                            },
+                            {
+                                id: "laser-pt",
+                                title: "LASER PT",
+                                image: "images/services/laser-pt.jpg",
+                                isCompare: false,
+                                benefits: [
+                                    "Giúp làm dịu nhanh các nốt mụn viêm, mụn sưng đỏ",
+                                    "Hỗ trợ giảm vi khuẩn gây mụn và hạn chế mụn lan rộng",
+                                    "Giúp giảm sưng, hỗ trợ mụn xẹp nhanh hơn",
+                                    "Hỗ trợ phục hồi da và hạn chế thâm sau mụn",
+                                    "Góp phần ổn định nền da và giảm nguy cơ tái phát mụn"
+                                ],
+                                indications: "Sẹo rỗ, sẹo lồi nhỏ, mụn thịt, u mềm treo",
+                                price: "2.000.000 VNĐ"
+                            },
+                            {
+                                id: "laser-fractional",
+                                title: "LASER FRACTIONAL",
+                                image: "images/services/laser-fractional.jpg",
+                                isCompare: false,
+                                benefits: [
+                                    "Kích thích tăng sinh Collagen & Elastin, tái cấu trúc nền da",
+                                    "Làm đầy sẹo rỗ, se khít lỗ chân lông, làm mịn bề mặt da",
+                                    "Tăng độ săn chắc, đàn hồi và giúp da đều màu"
+                                ],
+                                indications: "Sẹo rỗ sau mụn, lỗ chân lông to, da sần sùi kém mịn, da lão hóa chùng nhão nhẹ, da không đều màu",
+                                price: "3.000.000 VNĐ"
+                            },
+                            {
+                                id: "laser-1064",
+                                title: "LASER 1064",
+                                image: "images/services/laser-1064.jpg",
+                                isCompare: false,
+                                benefits: [
+                                    "Tác động vào sắc tố nằm sâu trong da, hỗ trợ cải thiện các vấn đề tăng sắc tố sâu",
+                                    "Hỗ trợ giảm viêm và làm dịu vùng da tổn thương",
+                                    "Kích thích hoạt động của nguyên bào sợi, thúc đẩy quá trình tăng sinh collagen",
+                                    "Hỗ trợ phục hồi cấu trúc da và cải thiện độ đàn hồi",
+                                    "Góp phần ổn định nền da và hỗ trợ quá trình tái tạo da"
+                                ],
+                                indications: "Da đang có tình trạng viêm hoặc tổn thương sau mụn, Da có sắc tố sâu, thâm, nám.",
+                                price: "3.000.000 VNĐ"
+                            },
+                            {
+                                id: "laser-532",
+                                title: "LASER 532",
+                                image: "images/services/laser-532.jpg",
+                                isCompare: false,
+                                benefits: [
+                                    "Hỗ trợ phá vỡ sắc tố nông, giúp cải thiện thâm sau mụn",
+                                    "Tác động vào các mao mạch giãn ở vùng viêm, giúp giảm đỏ và làm dịu da",
+                                    "Hỗ trợ giảm viêm và ổn định vùng da đang có mụn",
+                                    "Góp phần làm sáng và đều màu da sau quá trình điều trị mụn"
+                                ],
+                                indications: "Thâm sau mụn (PIH), Nám nông, tàn nhang nhẹ, Đốm nâu, tăng sắc tố bề mặt, Hồng ban sau viêm, Da không đều màu, xỉn màu.",
+                                price: "2.000.000 VNĐ"
+                            }
+                        ]
+                    },
+                    {
+                        sectionTitle: "LASER PHỤC HỒI & TÁI TẠO BODY",
+                        layout: "grid",
+                        items: [
+                            {
+                                id: "laser-fractional-body",
+                                title: "LASER FRACTIONAL (BODY/LƯNG)",
+                                image: "images/services/laser-body-fractional.jpg",
+                                isCompare: true,
+                                benefits: [
+                                    "Kích thích tăng sinh collagen & elastin, làm phẳng sẹo và vết thâm body",
+                                    "Tái tạo bề mặt da mịn màng, se khít lỗ chân lông và ngừa dày sừng trên da"
+                                ],
+                                indications: "Thâm mụn lưng/ngực/mông, sẹo rỗ body, viêm nang lông",
+                                price: "5.000.000 VNĐ"
+                            },
+                            {
+                                id: "laser-toning",
+                                title: "LASER TONING",
+                                image: "images/services/laser-body-toning.jpg",
+                                isCompare: true,
+                                benefits: [
+                                    "Phá vỡ melanin dưới da, làm mờ thâm nám, tàn nhang & thâm sạm trên da",
+                                    "Trẻ hóa nền da, se khít lỗ chân lông và làm đều màu da toàn diện"
+                                ],
+                                indications: "Nám mảng, nám sâu, tàn nhang, đốm nâu, da xỉn màu",
+                                price: "5.000.000 VNĐ"
+                            },
+                            {
+                                id: "laser-nach-2in1",
+                                title: "LASER NÁCH 2IN1",
+                                image: "images/services/laser-body-nach.jpg",
+                                isCompare: true,
+                                benefits: [
+                                    "Khử thâm sạm sâu, làm sáng mịn và đều màu vùng da dưới cánh tay",
+                                    "Thu nhỏ lỗ chân lông, hạn chế tiết mồ hôi và giảm sần sùi"
+                                ],
+                                indications: "Thâm nách sau cạo/nhổ/wax, da nách sần sùi, lỗ chân lông to",
+                                price: "3.000.000 VNĐ"
+                            },
+                            {
+                                id: "laser-fractional-toning-combo",
+                                title: "LASER FRACTIONAL + TONING (COMBO CHUYÊN SÂU)",
+                                image: "images/services/laser-body-combo.jpg",
+                                isCompare: true,
+                                benefits: [
+                                    "Tác động kép: Vừa làm phẳng kết cấu da sần/sẹo, vừa xử lý sắc tố thâm sạm tầng sâu",
+                                    "Phục hồi, tái sinh toàn diện nền da sáng khỏe và mịn màng tối đa"
+                                ],
+                                indications: "Tình trạng kết hợp thâm đốm, thâm sạm nặng và sẹo/sần bề mặt diện rộng",
+                                price: "3.000.000 VNĐ"
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            /* ==================== TAB 2: PEEL ==================== */
+            peel: {
+                id: "peel",
+                tabName: "PEEL",
+                sections: [
+                    {
+                        sectionTitle: "PEEL ĐẶC TRỊ VÙNG MẶT",
+                        layout: "grid",
+                        items: [
+                            {
+                                id: "peel-tri-seo",
+                                title: "PEEL TRỊ SẸO",
+                                image: "images/services/peel-tri-seo.jpg",
+                                isCompare: true,
+                                benefits: [
+                                    "Loại bỏ tế bào sừng già cỗi, thúc đẩy tái tạo tế bào mới",
+                                    "Tăng sinh collagen, làm đầy sẹo lõm và làm mịn bề mặt da",
+                                    "Thông thoáng lỗ chân lông, giúp da khỏe và hấp thụ dưỡng chất tối ưu"
+                                ],
+                                indications: "Sẹo rỗ/sẹo lõm, da sần sùi kém mịn, da không đều màu",
+                                price: "1.500.000 VNĐ"
+                            },
+                            {
+                                id: "peel-sac-to-da",
+                                title: "PEEL SẮC TỐ DA",
+                                image: "images/services/peel-sac-to.jpg",
+                                isCompare: true,
+                                benefits: [
+                                    "Đào thải lớp tế bào sừng chứa melanin tích tụ trên bề mặt",
+                                    "Làm mờ nám, tàn nhang và các đốm nâu tăng sắc tố",
+                                    "Tái tạo nền da sáng mịn, đều màu và tăng khả năng hấp thu dưỡng chất"
+                                ],
+                                indications: "Nám nông, tàn nhang, thâm sạm, da xỉn màu và không đều màu trên da",
+                                price: "1.500.000 VNĐ"
+                            },
+                            {
+                                id: "peel-tri-mun",
+                                title: "PEEL TRỊ MỤN",
+                                image: "images/services/peel-tri-mun.jpg",
+                                isCompare: true,
+                                benefits: [
+                                    "Loại bỏ da chết và bã nhờn tích tụ trên da, giải phóng bít tắc cổ nang lông",
+                                    "Hỗ trợ gom khô cồi mụn, giảm sưng viêm nhanh chóng",
+                                    "Làm sạch sâu, giúp bề mặt da thông thoáng và ổn định nền da"
+                                ],
+                                indications: "Mụn ẩn, mụn đầu đen, mụn viêm sưng, trên da nhiều dầu thừa bít tắc",
+                                price: "1.500.000 VNĐ"
+                            }
+                        ]
+                    },
+                    {
+                        sectionTitle: "PEEL PHỤC HỒI & TÁI TẠO BODY",
+                        layout: "grid",
+                        items: [
+                            {
+                                id: "peel-nguc",
+                                title: "PEEL NGỰC",
+                                image: "images/services/peel-body-nguc.jpg",
+                                isCompare: true,
+                                benefits: [
+                                    "Đào thải bã nhờn, thông thoáng cổ nang lông và gom cồi mụn vùng ngực",
+                                    "Mờ thâm mụn, loại bỏ tế bào sừng già cỗi giúp bề mặt da sáng mịn"
+                                ],
+                                indications: "Mụn viêm, mụn ẩn, thâm mụn, da vùng ngực sần sùi kém mịn",
+                                price: "3.500.000 VNĐ"
+                            },
+                            {
+                                id: "peel-mong",
+                                title: "PEEL MÔNG",
+                                image: "images/services/peel-body-mong.jpg",
+                                isCompare: true,
+                                benefits: [
+                                    "Xử lý triệt để lớp sừng dày, chai sần tích tụ do ma sát và ngồi nhiều",
+                                    "Đào thải hắc sắc tố, làm sáng hồng và mịn màng vùng da mông"
+                                ],
+                                indications: "Mông thâm sạm, da mông thô ráp sần sùi, mụn li ti hạt kê vùng mông",
+                                price: "3.000.000 VNĐ"
+                            },
+                            {
+                                id: "peel-nach",
+                                title: "PEEL NÁCH",
+                                image: "images/services/peel-body-nach.jpg",
+                                isCompare: true,
+                                benefits: [
+                                    "Phá hủy hắc sắc tố bề mặt, làm sáng và đều màu vùng da dưới cánh tay",
+                                    "Làm mịn bề mặt, se khít lỗ chân lông và giảm tình trạng sần da gà do cạo/nhổ"
+                                ],
+                                indications: "Vùng da nách thâm & sạm màu, sần sùi, thô ráp sau tẩy/triệt lông nhiều lần",
+                                price: "1.500.000 VNĐ"
+                            },
+                            {
+                                id: "peel-lung-tay-chan",
+                                title: "PEEL LƯNG / 2 TAY / 2 CHÂN",
+                                image: "images/services/peel-body-lung-tay-chan.jpg",
+                                isCompare: true,
+                                benefits: [
+                                    "Giải phóng bít tắc nang lông, giảm viêm sưng và ngăn ngừa mụn body lây lan",
+                                    "Đào thải sắc tố sạm xỉn, cải thiện viêm nang lông và làm đều màu da diện rộng"
+                                ],
+                                indications: "Mụn lưng, thâm mụn body, viêm nang lông, da tay chân thô ráp",
+                                price: "5.000.000 VNĐ"
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            /* ==================== TAB 3: LĂN KIM ==================== */
+            "lan-kim": {
+                id: "lan-kim",
+                tabName: "LĂN KIM",
+                sections: [
+                    {
+                        sectionTitle: "",
+                        layout: "wide",
+                        items: [
+                            {
+                                id: "lan-kim-dac-tri-seo-ro",
+                                title: "LĂN KIM ĐẶC TRỊ SẸO RỖ",
+                                image: "images/services/lan-kim-dac-tri-seo.jpg",
+                                isCompare: false,
+                                benefits: [
+                                    "Tạo vi tổn thương cơ học, kích hoạt cơ chế tự phục hồi tự nhiên của da",
+                                    "Tăng sinh collagen & elastin mạnh mẽ, tái tạo và làm săn chắc cấu trúc da",
+                                    "Cải thiện độ mịn màng, làm mờ thâm và se khít lỗ chân lông"
+                                ],
+                                indications: "Sẹo rỗ sau mụn, thâm sau mụn, lỗ chân lông to, da sần sùi, không đều màu",
+                                price: "2.000.000 VNĐ"
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            /* ==================== TAB 4: PHI KIM ==================== */
+            "phi-kim": {
+                id: "phi-kim",
+                tabName: "PHI KIM",
+                sections: [
+                    {
+                        sectionTitle: "",
+                        layout: "wide",
+                        items: [
+                            {
+                                id: "phi-kim-tai-tao-da",
+                                title: "PHI KIM TÁI TẠO DA",
+                                image: "images/services/phi-kim-tai-tao-da.jpg",
+                                isCompare: false,
+                                benefits: [
+                                    "Đầu kim di chuyển thẳng đứng tác động chính xác, hạn chế tối đa xâm lấn bề mặt",
+                                    "Kích thích tăng sinh collagen & elastin, tái tạo tế bào mới chuyên sâu",
+                                    "Tăng khả năng hấp thụ dưỡng chất, phục hồi nền da mịn màng và sáng khỏe"
+                                ],
+                                indications: "Sẹo rỗ sau mụn, lỗ chân lông to, thâm sau mụn, da sần sùi, không đều màu",
+                                price: "2.000.000 VNĐ"
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        /* ==========================================================================
+           RENDER ENGINE & TAB SWITCHING LOGIC
+           ========================================================================== */
+        function initSingleServices() {
+            const tabsContainer = document.getElementById("single-services-tabs");
+            const contentContainer = document.getElementById("single-services-content");
+
+            if (!tabsContainer || !contentContainer) return;
+
+            const tabKeys = Object.keys(singleServicesData);
+            let activeTabKey = "laser"; // Mặc định mở Tab LASER
+
+            const renderTabContent = (tabKey) => {
+                const currentData = singleServicesData[tabKey];
+                if (!currentData || !currentData.sections.length) return;
+
+                contentContainer.innerHTML = currentData.sections
+                    .map((section) => {
+                        const isWideLayout = section.layout === "wide";
+
+                        return `
+        <div class="single-services__section-group">
+          ${section.sectionTitle ? `<h3 class="single-services__category">${section.sectionTitle}</h3>` : ""}
+          
+          <div class="${isWideLayout ? "single-services__wide-wrapper" : "single-services__grid"}">
+            ${section.items
+                                .map(
+                                    (item) => `
+              <article class="single-services__card ${isWideLayout ? "single-services__card--horizontal" : ""}">
+                <div class="single-services__card-media">
+                  <img src="${item.image}" alt="${item.title}" class="single-services__card-img" loading="lazy">
+                  ${item.isCompare
+                                            ? `
+                    <span class="single-services__badge single-services__badge--before">Before</span>
+                    <span class="single-services__badge single-services__badge--after">After</span>
+                  `
+                                            : ""
+                                        }
+                </div>
+                
+                <div class="single-services__card-body">
+                  <h4 class="single-services__card-title">${item.title}</h4>
+                  
+                  <div class="single-services__section-title">TÁC DỤNG</div>
+                  <ul class="single-services__benefits">
+                    ${item.benefits.map((b) => `<li class="single-services__benefit-item">${b}</li>`).join("")}
+                  </ul>
+                  
+                  <div class="single-services__section-title">CHỈ ĐỊNH</div>
+                  <p class="single-services__indications">${item.indications}</p>
+                  
+                  <div class="single-services__card-footer">
+                    <span class="single-services__price">Giá: ${item.price}</span>
+                    <button class="single-services__cart-btn" type="button" aria-label="Thêm ${item.title} vào giỏ hàng">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            `
+                                )
+                                .join("")}
+          </div>
+        </div>
+      `;
+                    })
+                    .join("");
+            };
+
+            // Render Danh Sách Nút Tabs
+            tabsContainer.innerHTML = tabKeys
+                .map(
+                    (key) => `
+      <button 
+        type="button" 
+        class="single-services__tab-btn ${key === activeTabKey ? "single-services__tab-btn--active" : ""}" 
+        data-tab="${key}"
+        role="tab"
+        aria-selected="${key === activeTabKey}"
+      >
+        ${singleServicesData[key].tabName}
+      </button>
+    `
+                )
+                .join("");
+
+            // Bắt Sự Kiện Chuyển Tab
+            tabsContainer.querySelectorAll(".single-services__tab-btn").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const selected = btn.getAttribute("data-tab");
+                    if (selected === activeTabKey) return;
+
+                    activeTabKey = selected;
+                    tabsContainer.querySelectorAll(".single-services__tab-btn").forEach((b) => {
+                        const isActive = b.getAttribute("data-tab") === activeTabKey;
+                        b.classList.toggle("single-services__tab-btn--active", isActive);
+                        b.setAttribute("aria-selected", String(isActive));
+                    });
+
+                    renderTabContent(activeTabKey);
+                });
+            });
+
+            // Khởi chạy render lần đầu
+            renderTabContent(activeTabKey);
+        }
+    </script>
+</body>
+
+</html>
