@@ -135,9 +135,167 @@
 
   &__menu-item {
     display: inline-flex;
+    position: relative;
 
     @media (max-width: 991.98px) {
       width: 100%;
+    }
+  }
+
+  /* ==========================================================
+     SUBMENU "ĐIỀU TRỊ" (2 CỘT: BUỔI LẺ & LIỆU TRÌNH)
+     ========================================================== */
+  &__menu-item--has-submenu {
+    @media (max-width: 991.98px) {
+      flex-wrap: wrap;
+
+      > .header__menu-link {
+        width: auto;
+        flex: 1;
+      }
+    }
+
+    @media (min-width: 992px) {
+      > .header__menu-link::after {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        margin-left: 6px;
+        margin-bottom: 2px;
+        border-right: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+        transform: rotate(45deg);
+        transition: transform 0.25s ease;
+      }
+
+      &:hover,
+      &:focus-within {
+        > .header__menu-link::after {
+          transform: rotate(-135deg);
+        }
+      }
+    }
+  }
+
+  &__submenu {
+    display: none;
+
+    @media (min-width: 992px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      min-width: 480px;
+      padding: 1.25rem;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      box-shadow: var(--color-shadow-soft);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1003;
+      transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+
+      .header__menu-item:hover > &,
+      .header__menu-item:focus-within > & {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      position: static;
+      width: 100%;
+      min-width: 0;
+      padding: 0.25rem 0 0.5rem 1rem;
+      margin-left: 0.5rem;
+      border-left: 2px solid rgba(58, 184, 184, 0.25);
+
+      &--open {
+        display: block;
+      }
+    }
+  }
+
+  /* Biến thể submenu đơn cột (vd: Thẩm Mỹ -> CFU ÈLIFE / COMBO) */
+  &__submenu--single {
+    @media (min-width: 992px) {
+      grid-template-columns: 1fr;
+      gap: 0;
+      min-width: 240px;
+    }
+  }
+
+  &__submenu-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__submenu-title {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.4rem 0 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  &__submenu-link {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 0.4rem 0;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  &__submenu-toggle {
+    display: none;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    @media (max-width: 991.98px) {
+      display: inline-flex;
+    }
+
+    &::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid var(--color-text);
+      border-bottom: 2px solid var(--color-text);
+      transform: rotate(45deg);
+      transition: transform 0.25s ease;
+    }
+
+    &--active {
+      &::before {
+        transform: rotate(-135deg);
+      }
     }
   }
 
@@ -218,12 +376,9 @@
     color: var(--color-text);
     cursor: pointer;
     text-decoration: none;
-    transition:
-      color 0.25s ease,
-      transform 0.25s ease;
+    transition: transform 0.25s ease;
 
     &:hover {
-      color: var(--color-primary);
       transform: translateY(-1px);
     }
   }
@@ -233,7 +388,7 @@
 
     @media (max-width: 575.98px) {
       width: 20px;
-      height: 20px;
+      height: auto;
     }
   }
 

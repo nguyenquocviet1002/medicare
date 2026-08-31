@@ -1,0 +1,194 @@
+.footer {
+  position: relative;
+  width: 100%;
+  background-color: #f4f4f4; // Nền xám nhạt làm nổi bật nội dung chân trang
+  padding: 4.5rem 0 3.5rem 0;
+  border-top: 1px solid rgba(58, 184, 184, 0.15);
+
+  @media (max-width: 991.98px) {
+    padding: 3rem 0 2.5rem 0;
+  }
+
+  /* ==========================================================
+     BỐ CỤC GRID 5 CỘT
+     ========================================================== */
+  &__grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+    align-items: flex-start;
+
+    /* Tablet (768px - 991px): 3 Cột */
+    @media (max-width: 991.98px) {
+      grid-template-columns: 1.5fr repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    /* Mobile (< 768px): 2 Cột */
+    @media (max-width: 767.98px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem 1.5rem;
+    }
+
+    /* Small Mobile (< 576px): 1 Cột */
+    @media (max-width: 575.98px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  /* ==========================================================
+     CỘT THƯƠNG HIỆU & THÔNG TIN LIÊN HỆ
+     ========================================================== */
+  &__brand {
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 767.98px) {
+      grid-column: 1 / -1; // Chiếm trọn chiều ngang trên Mobile
+    }
+  }
+
+  &__logo {
+    display: inline-flex;
+    margin-bottom: 1.5rem;
+    text-decoration: none;
+
+    &-img {
+      display: block;
+      height: auto;
+      width: 100%;
+      max-height: 120px;
+      object-fit: contain;
+    }
+  }
+
+  /* Danh sách liên hệ */
+  &__contacts {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  &__contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  &__contact-text {
+    color: var(--color-text);
+  }
+
+  &__contact-link {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.25s ease;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  /* Mạng xã hội */
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  &__social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: var(--color-white);
+    text-decoration: none;
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    &--facebook {
+      background-color: #1877f2;
+    }
+
+    &--youtube {
+      background-color: #ff0000;
+    }
+
+    &--messenger {
+      background: linear-gradient(135deg, #00b2fe 0%, #006aff 100%);
+    }
+
+    &--tiktok {
+      background-color: #000000;
+    }
+  }
+
+  /* ==========================================================
+     CÁC CỘT ĐIỀU HƯỚNG LIÊN KẾT (NAV COLUMNS)
+     ========================================================== */
+  &__col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+  }
+
+  &__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+  }
+
+  &__nav-item {
+    display: flex;
+  }
+
+  &__nav-link {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-text);
+    text-decoration: none;
+    transition:
+      color 0.25s ease,
+      transform 0.25s ease;
+
+    &:hover {
+      color: var(--color-primary);
+      transform: translateX(3px);
+    }
+  }
+}

@@ -199,7 +199,8 @@
             if (!tabsContainer || !contentContainer) return;
 
             const tabKeys = Object.keys(packageServicesData);
-            let activeTabKey = "dieu-tri-mun"; // Mặc định mở Tab Điều Trị Mụn
+            const hashTab = window.location.hash.slice(1);
+            let activeTabKey = packageServicesData[hashTab] ? hashTab : "dieu-tri-mun"; // Mặc định mở Tab Điều Trị Mụn
 
             const renderContent = (tabKey) => {
                 const currentData = packageServicesData[tabKey];
@@ -313,6 +314,11 @@
 
             // Render Lần Đầu
             renderContent(activeTabKey);
+
+            // Nếu người dùng vào bằng hash của một tab, cuộn tới vùng danh sách dịch vụ
+            if (hashTab && packageServicesData[hashTab]) {
+                document.getElementById("package-services").scrollIntoView({ behavior: "smooth", block: "start" });
+            }
         }
 
         document.addEventListener("DOMContentLoaded", () => {

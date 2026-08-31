@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/sass/style.min.css?v=2">
+    <link rel="stylesheet" href="sass/style.min.css?v=2">
+</head>
+
+<body>
+    <section class="cart-page" id="cart-page" aria-label="Giỏ hàng dịch vụ">
+        <div class="container">
+
+            <!-- Tiêu Đề Section -->
+            <div class="cart-page__header">
+                <h2 class="cart-page__title">GIỎ HÀNG CỦA BẠN</h2>
+            </div>
+
+            <!-- Khung Danh Sách Đơn Hàng & Tổng Tiền -->
+            <div class="cart-page__wrapper">
+
+                <!-- Danh sách tên dịch vụ & giá (Render động qua JS) -->
+                <div class="cart-page__list" id="cart-items-list"></div>
+
+                <!-- Khối Hiển Thị Tổng Tiền -->
+                <div class="cart-page__summary">
+                    <span class="cart-page__total-label">Tổng tiền thanh toán:</span>
+                    <span class="cart-page__total-price" id="cart-total-price">0 VNĐ</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        /* ==========================================================================
+   MODULE: GIỎ HÀNG (HIỂN THỊ DANH SÁCH & TỔNG TIỀN TỰ ĐỘNG)
+   ========================================================================== */
+
+        // 1. Danh sách nhiều ví dụ dịch vụ / sản phẩm mẫu trong giỏ hàng
+        let cartItems = [
+            {
+                id: 1,
+                name: "LASER CO2 FRACTIONAL",
+                price: 2000000
+            },
+            {
+                id: 2,
+                name: "COMBO TÁI SINH DA CHUYÊN SÂU",
+                price: 35000000
+            },
+            {
+                id: 3,
+                name: "CFU ÈLIFE MÁ/CỔ",
+                price: 8000000
+            },
+            {
+                id: 4,
+                name: "MESO DERMICA ACNEZONE",
+                price: 3000000
+            },
+            {
+                id: 5,
+                name: "PEEL TRỊ SẸO",
+                price: 1500000
+            },
+            {
+                id: 6,
+                name: "TIÊM BAP PROFHILO CĂNG BÓNG",
+                price: 12000000
+            },
+            {
+                id: 7,
+                name: "BOTOX ALLERGAN XÓA NHĂN",
+                price: 15000000
+            }
+        ];
+
+        // 2. Hàm format định dạng tiền tệ VNĐ
+        const formatCurrency = (amount) => {
+            return new Intl.NumberFormat("vi-VN").format(amount) + " VNĐ";
+        };
+
+        // 3. Hàm Render Giỏ Hàng
+        function initCartPage() {
+            const listContainer = document.getElementById("cart-items-list");
+            const totalPriceElement = document.getElementById("cart-total-price");
+
+            if (!listContainer || !totalPriceElement) return;
+
+            const updateCartView = () => {
+                // Nếu giỏ hàng rỗng
+                if (cartItems.length === 0) {
+                    listContainer.innerHTML = `<div class="cart-page__empty">Giỏ hàng của bạn đang trống.</div>`;
+                    totalPriceElement.textContent = "0 VNĐ";
+                    return;
+                }
+
+                // Render từng dòng tên dịch vụ và giá
+                listContainer.innerHTML = cartItems
+                    .map(
+                        (item) => `
+        <div class="cart-page__item" data-id="${item.id}">
+          <div class="cart-page__item-info">
+            <button class="cart-page__item-remove" type="button" aria-label="Xóa ${item.name}" onclick="removeCartItem(${item.id})">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            <span class="cart-page__item-name">${item.name}</span>
+          </div>
+          <span class="cart-page__item-price">${formatCurrency(item.price)}</span>
+        </div>
+      `
+                    )
+                    .join("");
+
+                // Tự động tính tổng tiền toàn bộ các mục
+                const totalAmount = cartItems.reduce((sum, item) => sum + item.price, 0);
+                totalPriceElement.textContent = formatCurrency(totalAmount);
+            };
+
+            updateCartView();
+        }
+
+        // 4. Hàm xóa dịch vụ khỏi giỏ hàng
+        window.removeCartItem = function (id) {
+            cartItems = cartItems.filter((item) => item.id !== id);
+            initCartPage();
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initCartPage();
+        });
+    </script>
+</body>
+
+</html>

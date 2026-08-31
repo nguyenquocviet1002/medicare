@@ -30,14 +30,61 @@
                         <li class="header__menu-item">
                             <a href="#" class="header__menu-link header__menu-link--active">Trang Chủ</a>
                         </li>
-                        <li class="header__menu-item">
+                        <li class="header__menu-item header__menu-item--has-submenu">
                             <a href="#" class="header__menu-link">Điều Trị</a>
+
+                            <!-- Nút xổ submenu trên Mobile -->
+                            <button class="header__submenu-toggle" type="button" aria-expanded="false"
+                                aria-label="Mở/đóng menu con Điều Trị"></button>
+
+                            <!-- Submenu 2 Cột: Buổi Lẻ & Liệu Trình -->
+                            <div class="header__submenu">
+                                <div class="header__submenu-col">
+                                    <a href="../dich-vu-buoi-le/index.html" class="header__submenu-title">Buổi Lẻ</a>
+                                    <a href="../dich-vu-buoi-le/index.html#laser" class="header__submenu-link">LASER</a>
+                                    <a href="../dich-vu-buoi-le/index.html#peel" class="header__submenu-link">PEEL</a>
+                                    <a href="../dich-vu-buoi-le/index.html#lan-kim" class="header__submenu-link">LĂN KIM</a>
+                                    <a href="../dich-vu-buoi-le/index.html#phi-kim" class="header__submenu-link">PHI KIM</a>
+                                </div>
+                                <div class="header__submenu-col">
+                                    <a href="../dich-vu-lieu-trinh/index.html" class="header__submenu-title">Liệu Trình</a>
+                                    <a href="../dich-vu-lieu-trinh/index.html#dieu-tri-mun" class="header__submenu-link">ĐIỀU TRỊ MỤN</a>
+                                    <a href="../dich-vu-lieu-trinh/index.html#dieu-tri-seo" class="header__submenu-link">ĐIỀU TRỊ SẸO</a>
+                                    <a href="../dich-vu-lieu-trinh/index.html#lieu-trinh-body" class="header__submenu-link">LIỆU TRÌNH BODY</a>
+                                </div>
+                            </div>
                         </li>
-                        <li class="header__menu-item">
+                        <li class="header__menu-item header__menu-item--has-submenu">
                             <a href="#" class="header__menu-link">Thẩm Mỹ</a>
+
+                            <!-- Nút xổ submenu trên Mobile -->
+                            <button class="header__submenu-toggle" type="button" aria-expanded="false"
+                                aria-label="Mở/đóng menu con Thẩm Mỹ"></button>
+
+                            <!-- Submenu: CFU ÈLIFE & Combo -->
+                            <div class="header__submenu header__submenu--single">
+                                <div class="header__submenu-col">
+                                    <a href="../cfu-eliffe/index.html" class="header__submenu-link">CFU ÈLIFE</a>
+                                    <a href="../combo/index.html" class="header__submenu-link">COMBO</a>
+                                </div>
+                            </div>
                         </li>
-                        <li class="header__menu-item">
+                        <li class="header__menu-item header__menu-item--has-submenu">
                             <a href="#" class="header__menu-link">Sản Phẩm</a>
+
+                            <!-- Nút xổ submenu trên Mobile -->
+                            <button class="header__submenu-toggle" type="button" aria-expanded="false"
+                                aria-label="Mở/đóng menu con Sản Phẩm"></button>
+
+                            <!-- Submenu: Các Tab trong Trang Sản Phẩm -->
+                            <div class="header__submenu header__submenu--single">
+                                <div class="header__submenu-col">
+                                    <a href="../san-pham/index.html#meso" class="header__submenu-link">MESO</a>
+                                    <a href="../san-pham/index.html#bap" class="header__submenu-link">BAP</a>
+                                    <a href="../san-pham/index.html#filler" class="header__submenu-link">FILLER</a>
+                                    <a href="../san-pham/index.html#botox" class="header__submenu-link">BOTOX</a>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </nav>
@@ -46,13 +93,7 @@
                 <div class="header__actions">
                     <!-- Nút Giỏ Hàng -->
                     <a href="#cart" class="header__action-btn header__action-btn--cart" aria-label="Xem giỏ hàng">
-                        <svg class="header__cart-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <path d="M16 10a4 4 0 0 1-8 0"></path>
-                        </svg>
+                        <img src="images/icon-cart.svg" class="header__cart-icon" alt="" width="22" height="26">
                         <span class="header__cart-badge" aria-hidden="true">1</span>
                     </a>
 

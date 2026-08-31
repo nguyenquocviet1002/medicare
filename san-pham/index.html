@@ -13,6 +13,661 @@
     <section class="banner">
         <img src="images/banner.jpg" alt="">
     </section>
+
+    <section class="tabbed-slider" id="injectable-services" aria-label="Dịch Vụ Tiêm Thẩm Mỹ">
+        <div class="container">
+
+            <!-- 1. Thanh Tabs -->
+            <div class="tabbed-slider__tabs-wrapper">
+                <div class="tabbed-slider__tabs" id="tabbed-slider-tabs" role="tablist"></div>
+            </div>
+
+            <!-- 2. Khung render động toàn bộ các Sub-categories & Sliders -->
+            <div id="tabbed-slider-content"></div>
+
+        </div>
+    </section>
+
+    <script>
+        /* ==========================================================================
+   TOÀN BỘ DATA OBJECT TRANG TABBED SLIDER (CHUẨN XÁC 100%)
+   ========================================================================== */
+        const tabbedSliderData = {
+            /* ==========================================================================
+               1. TAB MESO (7 PHÂN NHÓM CHUYÊN SÂU)
+               ========================================================================== */
+            meso: {
+                id: "meso",
+                tabName: "MESO",
+                sections: [
+                    {
+                        sectionTitle: "MESO MỤN",
+                        items: [
+                            {
+                                id: "meso-inno-akn",
+                                title: "MESO INNOAESTHETICS AKN-ID",
+                                image: "images/services/meso-inno-akn.jpg",
+                                benefits: [
+                                    "Kiểm soát tiết bã nhờn, kháng viêm, gom cồi mụn và ngăn ngừa bít tắc nang lông."
+                                ],
+                                indications: "Mụn viêm, mụn ẩn, da nhiều dầu",
+                                price: "3.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-dermica-acnezone",
+                                title: "MESO DERMICA ACNEZONE",
+                                image: "images/services/meso-dermica-acnezone.jpg",
+                                benefits: [
+                                    "Ức chế vi khuẩn gây mụn, làm dịu nhanh các nốt mụn sưng đỏ và giảm kích ứng."
+                                ],
+                                indications: "Da dầu mụn, mụn sưng đỏ, viêm tái phát",
+                                price: "3.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-inno-redness",
+                                title: "MESO INNOAESTHETICS REDNESS-ID",
+                                image: "images/services/meso-inno-redness.jpg",
+                                benefits: [
+                                    "Giảm đỏ mao mạch, làm dịu tình trạng ban đỏ viêm và củng cố thành mạch máu."
+                                ],
+                                indications: "Da đỏ sau mụn, hồng ban sau viêm, da giãn mao mạch nhẹ.",
+                                price: "3.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-fetoscell-mun",
+                                title: "MESO FETOSCELL",
+                                image: "images/services/meso-fetoscell-acne.jpg",
+                                benefits: [
+                                    "Kháng viêm mạnh mẽ, tái tạo tế bào và phục hồi nhanh làn da đang chịu tổn thương do mụn."
+                                ],
+                                indications: "Da mụn viêm nặng, tổn thương sâu sau mụn.",
+                                price: "5.000.000 VNĐ"
+                            }
+                        ]
+                    },
+                    {
+                        sectionTitle: "MESO SẸO",
+                        items: [
+                            {
+                                id: "meso-rejuran-s",
+                                title: "MESO REJURAN S",
+                                image: "images/services/meso-rejuran-s.jpg",
+                                benefits: [
+                                    "Polynucleotide (PN) độ đậm đặc cao giúp kích thích tăng sinh mô hạt, làm đầy đáy sẹo rỗ và tái tạo cấu trúc da."
+                                ],
+                                indications: "Sẹo rỗ đáy vuông, sẹo lõm sau mụn, bề mặt da lồi lõm.",
+                                price: "7.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-linerase",
+                                title: "MESO LINERASE",
+                                image: "images/services/meso-linerase.jpg",
+                                benefits: [
+                                    "Bổ sung Collagen Type I tinh khiết tái cấu trúc nền da, tăng độ đàn hồi và lấp đầy các vùng khuyết lõm xơ cứng."
+                                ],
+                                indications: "Sẹo rỗ lâu năm, sẹo xơ cứng, teo mô dưới da.",
+                                price: "15.000.000 VNĐ/LỌ"
+                            }
+                        ]
+                    },
+                    {
+                        sectionTitle: "MESO SẮC TỐ",
+                        items: [
+                            {
+                                id: "meso-fragmyx-oxyx",
+                                title: "MESO XCELENS FRAGMYX OXYX",
+                                image: "images/services/meso-fragmyx-oxyx.jpg",
+                                benefits: [
+                                    "Cung cấp hoạt chất chống oxy hóa mạnh, trung hòa gốc tự do và làm sáng nền da xỉn màu."
+                                ],
+                                indications: "Da sạm xỉn, không đều màu, thiếu sức sống.",
+                                price: "3.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-tranacix",
+                                title: "MESO TRANACIX",
+                                image: "images/services/meso-tranacix.jpg",
+                                benefits: [
+                                    "Ức chế tổng hợp melanin từ gốc, hỗ trợ mờ nám mảng, tàn nhang và giảm tăng sắc tố."
+                                ],
+                                indications: "Nám mảng, thâm sau viêm (PIH), tàn nhang.",
+                                price: "3.000.000 VNĐ/LỌ"
+                            },
+                            {
+                                id: "meso-fetoscell-white",
+                                title: "MESO FETOSCELL WHITE",
+                                image: "images/services/meso-fetoscell-white.jpg",
+                                benefits: [
+                                    "Đào thải sắc tố thâm sạm, dưỡng trắng chuyên sâu và nâng tông da sáng khỏe."
+                                ],
+                                indications: "Da ngăm đen, đốm nâu, da không đều màu.",
+                                price: "5.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-exocode-radiance",
+                                title: "MESO EXOCODE RADIANCE – R",
+                                image: "images/services/meso-exocode-radiance.jpg",
+                                benefits: [
+                                    "Phức hợp Exosome thế hệ mới giúp ức chế enzyme tyrosinase, tái tạo tế bào sáng mịn và căng bóng."
+                                ],
+                                indications: "Tăng sắc tố khó điều trị, da xỉn màu lão hóa.",
+                                price: "5.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-nucleoskin-topic-pigment",
+                                title: "MESO NUCLEOSKIN TOPIC",
+                                image: "images/services/meso-nucleoskin-topic.jpg",
+                                benefits: [
+                                    "Liệu pháp cao cấp phục hồi sắc tố đa tầng, tái sinh cấu trúc da trắng sáng và làm mờ thâm nám tầng sâu."
+                                ],
+                                indications: "Nám sâu, nám chân đinh kết hợp da lão hóa mỏng yếu.",
+                                price: "18.000.000 VNĐ/LỌ"
+                            }
+                        ]
+                    },
+                    {
+                        sectionTitle: "MESO PHỤC HỒI",
+                        items: [
+                            {
+                                id: "meso-vitamin-complex",
+                                title: "MESO INNOAESTHETICS VITAMIN COMPLEX",
+                                image: "images/services/meso-vitamin-complex.jpg",
+                                benefits: [
+                                    "Cung cấp tổ hợp vitamin & khoáng chất thiết yếu, tăng cường đề kháng tự nhiên cho da."
+                                ],
+                                indications: "Da mệt mỏi, thiếu dưỡng chất, da xỉn màu do stress.",
+                                price: "3.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-fetoscell-recovery",
+                                title: "MESO FETOSCELL",
+                                image: "images/services/meso-fetoscell-recovery.jpg",
+                                benefits: [
+                                    "Kích hoạt tái sinh biểu bì, làm lành vi tổn thương và củng cố hàng rào bảo vệ da."
+                                ],
+                                indications: "Da nhạy cảm, da tổn thương sau laser/peel hoặc sau mụn.",
+                                price: "5.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-dna-infini",
+                                title: "MESO DNA INFINI",
+                                image: "images/services/meso-dna-infini.jpg",
+                                benefits: [
+                                    "Chiết xuất DNA tinh khiết giúp sửa chữa tế bào tổn thương, tăng sinh collagen và phục hồi nền da yếu."
+                                ],
+                                indications: "Da mỏng đỏ, giãn mao mạch, da tổn thương do kem trộn/corticoid.",
+                                price: "5.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-rejuran-healer",
+                                title: "MESO REJURAN HEALER",
+                                image: "images/services/meso-rejuran-healer.jpg",
+                                benefits: [
+                                    "Chiết xuất Polynucleotide (PN) từ DNA cá hồi giúp tái sinh toàn diện tầng trung bì, dày khỏe cấu trúc da."
+                                ],
+                                indications: "Da lão hóa, da mỏng yếu nhạy cảm, da mất đàn hồi.",
+                                price: "7.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-exosome",
+                                title: "MESO EXOSOME",
+                                image: "images/services/meso-exosome.jpg",
+                                benefits: [
+                                    "Hạt vi tế bào tinh khiết truyền tín hiệu tái sinh da vượt bậc, phục hồi cấp độ tế bào và tăng miễn dịch da."
+                                ],
+                                indications: "Nền da suy kiệt, mỏng yếu nặng, da lão hóa chùng nhão.",
+                                price: "8.000.000 VNĐ"
+                            }
+                        ]
+                    },
+                    {
+                        sectionTitle: "MESO CẤP ẨM, CĂNG BÓNG",
+                        items: [
+                            {
+                                id: "meso-teoxane-redensity-1",
+                                title: "MESO TEOXANE TEOSYAL PURESENSE REDENSITY 1",
+                                image: "images/services/meso-teoxane-redensity.jpg",
+                                benefits: [
+                                    "Cung cấp tổ hợp độc quyền kết hợp Hyaluronic Acid tự do và phức hợp tái cấu trúc da (axit amin, khoáng chất), tạo hiệu ứng phản chiếu ánh sáng rạng rỡ."
+                                ],
+                                indications: "Da lão hóa, chảy xệ nhẹ, da xỉn màu mất độ bóng khỏe.",
+                                price: "15.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-fetoscell-hydrate",
+                                title: "MESO FETOSCELL",
+                                image: "images/services/meso-fetoscell-hydrate.jpg",
+                                benefits: [
+                                    "Cấp ẩm kết hợp tái tạo mô, giúp da ngậm nước lâu dài và căng bóng tự nhiên."
+                                ],
+                                indications: "Da xỉn màu, thiếu nước, bề mặt thô sần.",
+                                price: "5.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-genyal-genyalift",
+                                title: "MESO GENYAL GENYALIFT",
+                                image: "images/services/meso-genyalift.jpg",
+                                benefits: [
+                                    "Bổ sung Hyaluronic Acid nồng độ cao và Glycerol, ngậm nước sâu, mang lại bề mặt căng mọng."
+                                ],
+                                indications: "Da khô ráp, bong tróc, mất nước theo mùa.",
+                                price: "5.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-peptide-115",
+                                title: "MESO PEPTIDE 115",
+                                image: "images/services/meso-peptide-115.jpg",
+                                benefits: [
+                                    "Phức hợp chuỗi peptide chuyên sâu giúp trẻ hóa, tăng sinh sợi nâng đỡ và làm săn chắc da."
+                                ],
+                                indications: "Da chùng nhão nhẹ, xuất hiện nếp nhăn li ti.",
+                                price: "5.000.000 VNĐ"
+                            }
+                        ]
+                    },
+                    {
+                        sectionTitle: "MESO MẮT",
+                        items: [
+                            {
+                                id: "meso-rejuran-i",
+                                title: "MESO REJURAN I",
+                                image: "images/services/meso-rejuran-i.jpg",
+                                benefits: [
+                                    "Tinh chất PN lỏng chuyên biệt cho vùng mắt mỏng manh, làm dày thành mạch, giảm nếp nhăn li ti và quầng thâm."
+                                ],
+                                indications: "Vùng da mắt mỏng yếu, thâm quầng, có rãnh nhăn tĩnh nhẹ.",
+                                price: "5.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-nucleoskin-topic-eye",
+                                title: "MESO NUCLEOSKIN TOPIC",
+                                image: "images/services/meso-nucleoskin-eye.jpg",
+                                benefits: [
+                                    "Trẻ hóa mô mắt tầng sâu, phục hồi độ ẩm và làm sáng đều màu vùng da quanh mắt."
+                                ],
+                                indications: "Mắt có quầng thâm, bọng mắt nhẹ, khô nhăn quanh mắt.",
+                                price: "7.000.000 VNĐ"
+                            }
+                        ]
+                    },
+                    {
+                        sectionTitle: "MESO TÓC",
+                        items: [
+                            {
+                                id: "meso-anteage-hair",
+                                title: "MESO ANTEAGE MDX HAIR EXOSOME SOLUTION",
+                                image: "images/services/meso-anteage-hair.jpg",
+                                benefits: [
+                                    "Công nghệ Exosome chuyên biệt tái sinh nang tóc teo biến, kích hoạt nang tóc ngủ đông phát triển mạnh mẽ."
+                                ],
+                                indications: "Hói đầu, rụng tóc lâu năm, nang tóc suy kiệt.",
+                                price: "10.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-inno-hair",
+                                title: "MESO INNO HAIR",
+                                image: "images/services/meso-inno-hair.jpg",
+                                benefits: [
+                                    "Bổ sung dưỡng chất kéo dài chu kỳ sống của sợi tóc, kích thích mọc tóc con và làm dày mật độ tóc."
+                                ],
+                                indications: "Rụng tóc nội tiết, tóc thưa thớt, chân tóc yếu.",
+                                price: "5.000.000 VNĐ"
+                            },
+                            {
+                                id: "meso-dermica-hairzon",
+                                title: "MESO DERMICA HAIRZON",
+                                image: "images/services/meso-dermica-hairzon.jpg",
+                                benefits: [
+                                    "Kích thích lưu thông máu chân tóc, nuôi dưỡng nang tóc và ngăn ngừa rụng tóc sớm."
+                                ],
+                                indications: "Rụng tóc theo mùa, tóc yếu dễ gãy rụng.",
+                                price: "3.000.000 VNĐ"
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            /* ==========================================================================
+               2. TAB BAP (4 DỊCH VỤ TRẺ HÓA ĐIỂM)
+               ========================================================================== */
+            bap: {
+                id: "bap",
+                tabName: "BAP",
+                sections: [
+                    {
+                        sectionTitle: "KỸ THUẬT TIÊM BAP TRẺ HÓA",
+                        items: [
+                            {
+                                id: "bap-b32",
+                                title: "B32",
+                                image: "images/services/bap-b32.jpg",
+                                benefits: [
+                                    "Cung cấp phức hợp HA sinh học hỗ trợ tái tạo mô liên kết, cải thiện kết cấu da mịn màng và tăng độ đàn hồi."
+                                ],
+                                indications: "Da thiếu sức sống, kém săn chắc, bề mặt thô sần.",
+                                price: "7.000.000 VNĐ"
+                            },
+                            {
+                                id: "bap-ejal40",
+                                title: "EJAL 40",
+                                image: "images/services/bap-ejal40.jpg",
+                                benefits: [
+                                    "Hyaluronic Acid phân tử tối ưu giúp kích hoạt nguyên bào sợi, phục hồi hàng rào bảo vệ và tái tạo độ căng mọng cho bề mặt da."
+                                ],
+                                indications: "Da khô ráp, mất độ bóng mượt, lão hóa sớm.",
+                                price: "6.000.000 VNĐ"
+                            },
+                            {
+                                id: "bap-karisma",
+                                title: "KARISMA",
+                                image: "images/services/bap-karisma.jpg",
+                                benefits: [
+                                    "Chứa Collagen tái tổ hợp chuỗi polypeptide và HA, kích thích tăng sinh collagen tự thân, phục hồi độ săn chắc và làm mờ nếp nhăn."
+                                ],
+                                indications: "Da chùng nhão, nếp nhăn li ti, thiếu hụt cấu trúc mô nâng đỡ.",
+                                price: "8.000.000 VNĐ"
+                            },
+                            {
+                                id: "bap-profhilo",
+                                title: "PROFHILO",
+                                image: "images/services/bap-profhilo.jpg",
+                                benefits: [
+                                    "100% Hyaluronic Acid tinh khiết nồng độ cao tác động đa tầng, tái cấu trúc mô mỡ dưới da, cấp ẩm sâu và nâng cơ chảy xệ."
+                                ],
+                                indications: "Da lão hóa, chảy xệ nhẹ, mất nước và kém đàn hồi.",
+                                price: "12.000.000 VNĐ"
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            /* ==========================================================================
+               3. TAB FILLER (4 DỊCH VỤ TẠO HÌNH)
+               ========================================================================== */
+            filler: {
+                id: "filler",
+                tabName: "FILLER",
+                sections: [
+                    {
+                        sectionTitle: "FILLER TẠO HÌNH CHUẨN Y KHOA",
+                        items: [
+                            {
+                                id: "filler-han",
+                                title: "FILLER HÀN",
+                                image: "images/services/filler-han.jpg",
+                                benefits: [
+                                    "Làm đầy nhanh các vùng khuyết lõm và tạo form dáng thanh tú."
+                                ],
+                                indications: "Tạo hình cằm V-line, môi căng mọng, rãnh cười nông.",
+                                price: "4.000.000 VNĐ/CC"
+                            },
+                            {
+                                id: "filler-restylane",
+                                title: "RESTYLANE (CHÂU ÂU)",
+                                image: "images/services/filler-restylane.jpg",
+                                benefits: [
+                                    "Công nghệ liên kết chéo NASHA/OBT chuẩn FDA, định hình sắc nét, giữ form chuẩn xác và chống tràn hiệu quả."
+                                ],
+                                indications: "Tạo hình sống mũi, cằm, rãnh lệ, làm đầy rãnh mũi má sâu.",
+                                price: "12.000.000 VNĐ/CC"
+                            },
+                            {
+                                id: "filler-teoxane",
+                                title: "FILLER TEOXANE (CHÂU ÂU)",
+                                image: "images/services/filler-teoxane.jpg",
+                                benefits: [
+                                    "Dòng filler động học thích ứng theo mọi biểu cảm cử động cơ mặt, không vón cục, tạo cảm giác hoàn toàn tự nhiên."
+                                ],
+                                indications: "Rãnh cười, nếp nhăn động, môi, hốc mắt trũng.",
+                                price: "12.000.000 VNĐ/CC"
+                            },
+                            {
+                                id: "filler-infini",
+                                title: "INFINI (CHÂU ÂU)",
+                                image: "images/services/filler-infini.jpg",
+                                benefits: [
+                                    "Độ tương thích sinh học cao, định hình mềm mại tự nhiên và duy trì độ ẩm mịn cho mô cơ."
+                                ],
+                                indications: "Da khô ráp, mất độ bóng mượt, lão hóa sớm.",
+                                price: "8.000.000 VNĐ/CC"
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            /* ==========================================================================
+               4. TAB BOTOX (3 DỊCH VỤ XÓA NHĂN & THON GỌN)
+               ========================================================================== */
+            botox: {
+                id: "botox",
+                tabName: "BOTOX",
+                sections: [
+                    {
+                        sectionTitle: "BOTOX XÓA NHĂN & THON GỌN HÀM",
+                        items: [
+                            {
+                                id: "botox-allergan",
+                                title: "BOTOX ALLERGAN",
+                                image: "images/services/botox-allergan.jpg",
+                                benefits: [
+                                    "Thương hiệu Botox chuẩn Y khoa hàng đầu từ Mỹ, kiểm soát lan tỏa chuẩn xác, hiệu quả êm ái và kéo dài bền bỉ."
+                                ],
+                                indications: "Xóa nhăn vùng mặt chuyên sâu, thu gọn phì đại cơ cắn và hạ góc hàm.",
+                                price: "15.000.000 VNĐ"
+                            },
+                            {
+                                id: "botox-nabota",
+                                title: "BOTOX NABOTA",
+                                image: "images/services/botox-nabota.jpg",
+                                benefits: [
+                                    "Phong bế dẫn truyền thần kinh tạm thời, làm giãn cơ co rút giúp xóa mờ nếp nhăn biểu cảm và thu nhỏ khối cơ phì đại."
+                                ],
+                                indications: "Vết chân chim, nhăn trán, nhăn cau mày, cơ hàm bạnh, thon gọn bắp tay/bắp chân.",
+                                price: "3.000.000 VNĐ"
+                            },
+                            {
+                                id: "botox-xeomin",
+                                title: "BOTOX XEOMIN",
+                                image: "images/services/botox-xeomin.jpg",
+                                benefits: [
+                                    "Dòng Botox tinh khiết không chứa protein phức hợp, hạn chế nguy cơ kháng thuốc/lờn thuốc sau nhiều lần tiêm."
+                                ],
+                                indications: "Tiêm xóa nhăn định kỳ, thu gọn góc hàm cho khách hàng có cơ địa dễ kháng botox.",
+                                price: "15.000.000 VNĐ"
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        /* ==========================================================================
+           ENGINE RENDER TABS & ĐIỀU KHIỂN TỪNG SLIDER RIÊNG BIỆT
+           ========================================================================== */
+        function initTabbedSlider() {
+            const tabsContainer = document.getElementById("tabbed-slider-tabs");
+            const contentContainer = document.getElementById("tabbed-slider-content");
+
+            if (!tabsContainer || !contentContainer) return;
+
+            const tabKeys = Object.keys(tabbedSliderData);
+            const hashTab = window.location.hash.slice(1);
+            let activeTabKey = tabbedSliderData[hashTab] ? hashTab : "meso"; // Mặc định mở Tab MESO
+
+            // Khởi tạo hoạt động cho các Slider trong Section
+            const setupCarousels = () => {
+                const wrappers = contentContainer.querySelectorAll(".tabbed-slider__carousel-wrapper");
+
+                wrappers.forEach((wrapper) => {
+                    const track = wrapper.querySelector(".tabbed-slider__track");
+                    const prevBtn = wrapper.querySelector(".tabbed-slider__nav-btn--prev");
+                    const nextBtn = wrapper.querySelector(".tabbed-slider__nav-btn--next");
+                    const slides = Array.from(track.querySelectorAll(".tabbed-slider__slide"));
+
+                    if (!track || !slides.length) return;
+
+                    let currentIndex = 0;
+                    let startX = 0;
+                    let isDragging = false;
+
+                    const updatePosition = (index) => {
+                        const visibleCards = window.innerWidth <= 575 ? 1 : window.innerWidth <= 991 ? 2 : 3;
+                        const maxIndex = Math.max(0, slides.length - visibleCards);
+                        currentIndex = Math.max(0, Math.min(index, maxIndex));
+
+                        const slideWidth = slides[0].offsetWidth;
+                        const gap = 24; // 1.5rem = 24px
+                        track.style.transform = `translateX(-${currentIndex * (slideWidth + gap)}px)`;
+                    };
+
+                    nextBtn?.addEventListener("click", () => updatePosition(currentIndex + 1));
+                    prevBtn?.addEventListener("click", () => updatePosition(currentIndex - 1));
+
+                    window.addEventListener("resize", () => updatePosition(currentIndex));
+
+                    // Vuốt chạm cảm ứng
+                    track.addEventListener("touchstart", (e) => {
+                        startX = e.touches[0].clientX;
+                        isDragging = true;
+                    }, { passive: true });
+
+                    track.addEventListener("touchend", (e) => {
+                        if (!isDragging) return;
+                        const diff = startX - e.changedTouches[0].clientX;
+                        if (Math.abs(diff) > 40) {
+                            if (diff > 0) updatePosition(currentIndex + 1);
+                            else updatePosition(currentIndex - 1);
+                        }
+                        isDragging = false;
+                    });
+                });
+            };
+
+            // Render toàn bộ các Category và Slider của Tab được chọn
+            const renderTabContent = (tabKey) => {
+                const currentData = tabbedSliderData[tabKey];
+                if (!currentData || !currentData.sections.length) return;
+
+                contentContainer.innerHTML = currentData.sections
+                    .map(
+                        (section) => `
+        <div class="tabbed-slider__section-block">
+          <h3 class="tabbed-slider__category">${section.sectionTitle}</h3>
+          
+          <div class="tabbed-slider__carousel-wrapper">
+            <!-- Nút Prev -->
+            <button class="tabbed-slider__nav-btn tabbed-slider__nav-btn--prev" type="button" aria-label="Slide trước">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+            </button>
+
+            <!-- Khung Viewport -->
+            <div class="tabbed-slider__viewport">
+              <div class="tabbed-slider__track">
+                ${section.items
+                                .map(
+                                    (item) => `
+                  <div class="tabbed-slider__slide">
+                    <article class="tabbed-slider__card">
+                      <div class="tabbed-slider__card-media">
+                        <img src="${item.image}" alt="${item.title}" class="tabbed-slider__card-img" loading="lazy">
+                      </div>
+                      
+                      <div class="tabbed-slider__card-body">
+                        <h4 class="tabbed-slider__card-title">${item.title}</h4>
+                        
+                        <div class="tabbed-slider__section-title">TÁC DỤNG</div>
+                        <ul class="tabbed-slider__benefits">
+                          ${item.benefits.map((b) => `<li class="tabbed-slider__benefit-item">${b}</li>`).join("")}
+                        </ul>
+                        
+                        <div class="tabbed-slider__section-title">CHỈ ĐỊNH</div>
+                        <p class="tabbed-slider__indications">${item.indications}</p>
+                        
+                        <div class="tabbed-slider__card-footer">
+                          <span class="tabbed-slider__price">Giá: ${item.price}</span>
+                          <button class="tabbed-slider__cart-btn" type="button" aria-label="Thêm ${item.title} vào giỏ hàng">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                              <line x1="3" y1="6" x2="21" y2="6"></line>
+                              <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                `
+                                )
+                                .join("")}
+              </div>
+            </div>
+
+            <!-- Nút Next -->
+            <button class="tabbed-slider__nav-btn tabbed-slider__nav-btn--next" type="button" aria-label="Slide tiếp theo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      `
+                    )
+                    .join("");
+
+                setupCarousels();
+            };
+
+            // Render các nút Tabs
+            tabsContainer.innerHTML = tabKeys
+                .map(
+                    (key) => `
+      <button 
+        type="button" 
+        class="tabbed-slider__tab-btn ${key === activeTabKey ? "tabbed-slider__tab-btn--active" : ""}" 
+        data-tab="${key}"
+        role="tab"
+        aria-selected="${key === activeTabKey}"
+      >
+        ${tabbedSliderData[key].tabName}
+      </button>
+    `
+                )
+                .join("");
+
+            // Bắt sự kiện chuyển Tab
+            tabsContainer.querySelectorAll(".tabbed-slider__tab-btn").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const selected = btn.getAttribute("data-tab");
+                    if (selected === activeTabKey) return;
+
+                    activeTabKey = selected;
+                    tabsContainer.querySelectorAll(".tabbed-slider__tab-btn").forEach((b) => {
+                        const isActive = b.getAttribute("data-tab") === activeTabKey;
+                        b.classList.toggle("tabbed-slider__tab-btn--active", isActive);
+                        b.setAttribute("aria-selected", String(isActive));
+                    });
+
+                    renderTabContent(activeTabKey);
+                });
+            });
+
+            renderTabContent(activeTabKey);
+
+            // Nếu người dùng vào bằng hash của một tab, cuộn tới vùng danh sách dịch vụ
+            if (hashTab && tabbedSliderData[hashTab]) {
+                document.getElementById("injectable-services").scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initTabbedSlider();
+        });
+    </script>
 </body>
 
 </html>

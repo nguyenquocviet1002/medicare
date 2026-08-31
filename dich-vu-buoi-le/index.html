@@ -373,7 +373,8 @@
             if (!tabsContainer || !contentContainer) return;
 
             const tabKeys = Object.keys(singleServicesData);
-            let activeTabKey = "laser"; // Mặc định mở Tab LASER
+            const hashTab = window.location.hash.slice(1);
+            let activeTabKey = singleServicesData[hashTab] ? hashTab : "laser"; // Mặc định mở Tab LASER
 
             const renderTabContent = (tabKey) => {
                 const currentData = singleServicesData[tabKey];
@@ -472,6 +473,11 @@
 
             // Khởi chạy render lần đầu
             renderTabContent(activeTabKey);
+
+            // Nếu người dùng vào bằng hash của một tab, cuộn tới vùng danh sách dịch vụ
+            if (hashTab && singleServicesData[hashTab]) {
+                document.getElementById("single-services").scrollIntoView({ behavior: "smooth", block: "start" });
+            }
         }
     </script>
 </body>
