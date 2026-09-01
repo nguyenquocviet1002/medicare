@@ -38,6 +38,7 @@
       display: block;
       height: auto;
       max-height: 48px;
+      width: auto;
       object-fit: contain;
 
       @media (max-width: 991.98px) {
@@ -149,14 +150,14 @@
     @media (max-width: 991.98px) {
       flex-wrap: wrap;
 
-      > .header__menu-link {
+      >.header__menu-link {
         width: auto;
         flex: 1;
       }
     }
 
     @media (min-width: 992px) {
-      > .header__menu-link::after {
+      >.header__menu-link::after {
         content: "";
         display: inline-block;
         width: 6px;
@@ -171,7 +172,7 @@
 
       &:hover,
       &:focus-within {
-        > .header__menu-link::after {
+        >.header__menu-link::after {
           transform: rotate(-135deg);
         }
       }
@@ -202,8 +203,8 @@
         visibility 0.25s ease,
         transform 0.25s ease;
 
-      .header__menu-item:hover > &,
-      .header__menu-item:focus-within > & {
+      .header__menu-item:hover>&,
+      .header__menu-item:focus-within>& {
         opacity: 1;
         visibility: visible;
         transform: translateX(-50%) translateY(0);
