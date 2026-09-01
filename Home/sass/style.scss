@@ -522,7 +522,11 @@
 .why-choose {
   position: relative;
   width: 100%;
-  background-color: var(--color-bg-primary); // Nền màu xanh ngọc #3ab8b8
+  background-color: var(--color-bg-primary); // Màu nền dự phòng (xanh ngọc #3ab8b8)
+  background-image: url("../images/why-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 4.5rem 0 0 0;
   overflow: hidden;
 
@@ -645,40 +649,6 @@
       text-align: left;
     }
   }
-
-  /* ==========================================================
-     CỘT PHẢI: HÌNH ẢNH ĐỘI NGŨ BÁC SĨ & VÒNG TRÒN NỀN
-     ========================================================== */
-  &__media {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    width: 100%;
-    height: 100%;
-
-    @media (max-width: 991.98px) {
-      max-width: 480px;
-      margin: 0 auto;
-    }
-  }
-
-  &__img {
-    position: relative;
-    z-index: 2;
-    display: block;
-    width: 200%;
-    object-fit: contain;
-    object-position: bottom center;
-
-    @media (max-width: 991.98px) {
-      max-height: 420px;
-    }
-
-    @media (max-width: 575.98px) {
-      max-height: 320px;
-    }
-  }
 }
 
 .services-slider {
@@ -766,7 +736,7 @@
       z-index: 2;
 
       .services-slider__card {
-        box-shadow: 0 10px 30px rgba(58, 184, 184, 0.15);
+        // box-shadow: 0 10px 30px rgba(58, 184, 184, 0.15);
       }
     }
   }
@@ -774,7 +744,6 @@
   &__card {
     display: flex;
     flex-direction: column;
-    background-color: var(--color-white);
     border-radius: 16px;
     overflow: hidden;
     height: 100%;
@@ -782,10 +751,9 @@
 
     &-media {
       width: 100%;
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
       aspect-ratio: 16 / 10;
-      background-color: var(--color-white);
     }
 
     &-img {
@@ -853,9 +821,10 @@
       transition: all 0.25s ease;
 
       &:hover {
-        background-color: rgba(58, 184, 184, 0.08);
-        border-color: var(--color-border-focus);
-        color: var(--color-border-focus);
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        color: var(--color-white);
+        box-shadow: 0 4px 12px rgba(58, 184, 184, 0.25);
         transform: translateY(-2px);
       }
     }
@@ -921,6 +890,11 @@
   &__wrapper {
     position: relative;
     width: 100%;
+  }
+
+  &__viewport {
+    position: relative;
+    width: 100%;
     overflow: hidden;
   }
 
@@ -984,13 +958,14 @@
 
   &__service-overlay {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(58, 184, 184, 0) 35%,
-      rgba(58, 184, 184, 0.7) 65%,
-      rgba(58, 184, 184, 0.95) 90%
-    );
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg,
+        rgba(58, 184, 184, 0) 35%,
+        rgba(58, 184, 184, 0.7) 65%,
+        rgba(58, 184, 184, 0.95) 90%);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -1066,11 +1041,32 @@
     }
   }
 
+  &__compare-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+  }
+
   &__compare-img {
+    position: absolute;
+    inset: 0;
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 1.2s ease-in-out,
+      visibility 1.2s ease-in-out;
+    z-index: 1;
+
+    &--active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 2;
+    }
   }
 
   /* ==========================================================
@@ -1101,11 +1097,11 @@
     }
 
     &--prev {
-      left: 0.25rem;
+      left: -20px;
     }
 
     &--next {
-      right: 0.25rem;
+      right: -20px;
     }
 
     @media (max-width: 575.98px) {
@@ -1145,9 +1141,7 @@
 .journey {
   position: relative;
   width: 100%;
-  background-color: var(
-    --color-bg-primary
-  ); // Nền xanh ngọc thương hiệu #3ab8b8
+  background-color: var(--color-bg-primary); // Nền xanh ngọc thương hiệu #3ab8b8
   padding: 4.5rem 0;
   overflow: hidden;
 

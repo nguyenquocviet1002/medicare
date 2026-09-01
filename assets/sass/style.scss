@@ -19,6 +19,11 @@ h4,
 h5,
 h6 {
   font-family: var(--font-sans);
+  margin: 0;
+}
+
+p {
+  margin: 0;
 }
 
 :root {
@@ -74,5 +79,81 @@ $container-max-widths: (
     @media (min-width: $min-width) {
       max-width: $max-width;
     }
+  }
+}
+
+/* ---------- Scroll Reveal (AOS-like) ---------- */
+[data-aos] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+  will-change: opacity, transform;
+
+  &.aos-animate {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- Giỏ hàng: Badge & Toast ---------- */
+.header__cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 999px;
+  display: none !important;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-danger);
+  color: var(--color-white);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+
+  &:not(:empty) {
+    display: inline-flex !important;
+  }
+}
+
+.cart-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 20px);
+  max-width: 90vw;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  box-shadow: var(--color-shadow-button);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  z-index: 2000;
+
+  &--visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  &--warning {
+    background: var(--color-danger);
   }
 }

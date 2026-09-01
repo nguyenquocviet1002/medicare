@@ -7,10 +7,111 @@
     <title>Document</title>
     <link rel="stylesheet" href="../assets/sass/style.min.css?v=2">
     <link rel="stylesheet" href="sass/style.min.css?v=2">
+    <link rel="stylesheet" href="../header/sass/style.min.css">
+    <link rel="stylesheet" href="../footer/sass/style.min.css">
 </head>
 
 <body>
-    <section class="banner">
+    <header class="header">
+        <div class="container">
+            <div class="header__wrapper">
+
+                <!-- 1. Logo Thương Hiệu -->
+                <a href="/" class="header__logo" aria-label="Medicare Clinic - Trang Chủ">
+                    <img src="../header/images/logo-medicare.svg" alt="Medicare Clinic" class="header__logo-img" width="160"
+                        height="48">
+                </a>
+
+                <!-- 2. Lớp phủ mờ (Backdrop) khi mở menu trên Mobile -->
+                <div class="header__backdrop" id="header-backdrop"></div>
+
+                <!-- 3. Navigation Menu -->
+                <nav class="header__nav" id="main-nav" aria-label="Menu điều hướng chính">
+                    <ul class="header__menu">
+                        <li class="header__menu-item">
+                            <a href="#" class="header__menu-link">Trang Chủ</a>
+                        </li>
+                        <li class="header__menu-item header__menu-item--has-submenu">
+                            <a href="#" class="header__menu-link">Điều Trị</a>
+
+                            <!-- Nút xổ submenu trên Mobile -->
+                            <button class="header__submenu-toggle" type="button" aria-expanded="false"
+                                aria-label="Mở/đóng menu con Điều Trị"></button>
+
+                            <!-- Submenu 2 Cột: Buổi Lẻ & Liệu Trình -->
+                            <div class="header__submenu">
+                                <div class="header__submenu-col">
+                                    <a href="../dich-vu-buoi-le/index.html" class="header__submenu-title">Buổi Lẻ</a>
+                                    <a href="../dich-vu-buoi-le/index.html#laser" class="header__submenu-link">LASER</a>
+                                    <a href="../dich-vu-buoi-le/index.html#peel" class="header__submenu-link">PEEL</a>
+                                    <a href="../dich-vu-buoi-le/index.html#lan-kim" class="header__submenu-link">LĂN KIM</a>
+                                    <a href="../dich-vu-buoi-le/index.html#phi-kim" class="header__submenu-link">PHI KIM</a>
+                                </div>
+                                <div class="header__submenu-col">
+                                    <a href="../dich-vu-lieu-trinh/index.html" class="header__submenu-title">Liệu Trình</a>
+                                    <a href="../dich-vu-lieu-trinh/index.html#dieu-tri-mun" class="header__submenu-link">ĐIỀU TRỊ MỤN</a>
+                                    <a href="../dich-vu-lieu-trinh/index.html#dieu-tri-seo" class="header__submenu-link">ĐIỀU TRỊ SẸO</a>
+                                    <a href="../dich-vu-lieu-trinh/index.html#lieu-trinh-body" class="header__submenu-link">LIỆU TRÌNH BODY</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="header__menu-item header__menu-item--has-submenu">
+                            <a href="#" class="header__menu-link">Thẩm Mỹ</a>
+
+                            <!-- Nút xổ submenu trên Mobile -->
+                            <button class="header__submenu-toggle" type="button" aria-expanded="false"
+                                aria-label="Mở/đóng menu con Thẩm Mỹ"></button>
+
+                            <!-- Submenu: CFU ÈLIFE & Combo -->
+                            <div class="header__submenu header__submenu--single">
+                                <div class="header__submenu-col">
+                                    <a href="../cfu-eliffe/index.html" class="header__submenu-link">CFU ÈLIFE</a>
+                                    <a href="../combo/index.html" class="header__submenu-link">COMBO</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="header__menu-item header__menu-item--has-submenu">
+                            <a href="#" class="header__menu-link header__menu-link--active">Sản Phẩm</a>
+
+                            <!-- Nút xổ submenu trên Mobile -->
+                            <button class="header__submenu-toggle" type="button" aria-expanded="false"
+                                aria-label="Mở/đóng menu con Sản Phẩm"></button>
+
+                            <!-- Submenu: Các Tab trong Trang Sản Phẩm -->
+                            <div class="header__submenu header__submenu--single">
+                                <div class="header__submenu-col">
+                                    <a href="../san-pham/index.html#meso" class="header__submenu-link">MESO</a>
+                                    <a href="../san-pham/index.html#bap" class="header__submenu-link">BAP</a>
+                                    <a href="../san-pham/index.html#filler" class="header__submenu-link">FILLER</a>
+                                    <a href="../san-pham/index.html#botox" class="header__submenu-link">BOTOX</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- 4. Hành động (Giỏ hàng & Nút mở menu mobile) -->
+                <div class="header__actions">
+                    <!-- Nút Giỏ Hàng -->
+                    <a href="../cart/index.html" class="header__action-btn header__action-btn--cart" aria-label="Xem giỏ hàng">
+                        <img src="../header/images/icon-cart.svg" class="header__cart-icon" alt="" width="22" height="26">
+                        <span class="header__cart-badge" aria-hidden="true"></span>
+                    </a>
+
+                    <!-- Nút Toggle Mobile Menu (Hamburger) -->
+                    <button class="header__toggle" id="menu-toggle" type="button" aria-label="Mở danh mục menu"
+                        aria-expanded="false" aria-controls="main-nav">
+                        <span class="header__toggle-bar"></span>
+                        <span class="header__toggle-bar"></span>
+                        <span class="header__toggle-bar"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <section class="banner" data-aos="fade-up">
         <img src="images/banner.jpg" alt="">
     </section>
 
@@ -46,7 +147,7 @@
                             {
                                 id: "meso-inno-akn",
                                 title: "MESO INNOAESTHETICS AKN-ID",
-                                image: "images/services/meso-inno-akn.jpg",
+                                image: "images/meso-inno-akn.jpg",
                                 benefits: [
                                     "Kiểm soát tiết bã nhờn, kháng viêm, gom cồi mụn và ngăn ngừa bít tắc nang lông."
                                 ],
@@ -56,7 +157,7 @@
                             {
                                 id: "meso-dermica-acnezone",
                                 title: "MESO DERMICA ACNEZONE",
-                                image: "images/services/meso-dermica-acnezone.jpg",
+                                image: "images/meso-dermica-acnezone.jpg",
                                 benefits: [
                                     "Ức chế vi khuẩn gây mụn, làm dịu nhanh các nốt mụn sưng đỏ và giảm kích ứng."
                                 ],
@@ -66,7 +167,7 @@
                             {
                                 id: "meso-inno-redness",
                                 title: "MESO INNOAESTHETICS REDNESS-ID",
-                                image: "images/services/meso-inno-redness.jpg",
+                                image: "images/meso-inno-redness.jpg",
                                 benefits: [
                                     "Giảm đỏ mao mạch, làm dịu tình trạng ban đỏ viêm và củng cố thành mạch máu."
                                 ],
@@ -76,7 +177,7 @@
                             {
                                 id: "meso-fetoscell-mun",
                                 title: "MESO FETOSCELL",
-                                image: "images/services/meso-fetoscell-acne.jpg",
+                                image: "images/meso-fetoscell-acne.jpg",
                                 benefits: [
                                     "Kháng viêm mạnh mẽ, tái tạo tế bào và phục hồi nhanh làn da đang chịu tổn thương do mụn."
                                 ],
@@ -91,7 +192,7 @@
                             {
                                 id: "meso-rejuran-s",
                                 title: "MESO REJURAN S",
-                                image: "images/services/meso-rejuran-s.jpg",
+                                image: "images/meso-rejuran-s.jpg",
                                 benefits: [
                                     "Polynucleotide (PN) độ đậm đặc cao giúp kích thích tăng sinh mô hạt, làm đầy đáy sẹo rỗ và tái tạo cấu trúc da."
                                 ],
@@ -101,7 +202,7 @@
                             {
                                 id: "meso-linerase",
                                 title: "MESO LINERASE",
-                                image: "images/services/meso-linerase.jpg",
+                                image: "images/meso-linerase.jpg",
                                 benefits: [
                                     "Bổ sung Collagen Type I tinh khiết tái cấu trúc nền da, tăng độ đàn hồi và lấp đầy các vùng khuyết lõm xơ cứng."
                                 ],
@@ -116,7 +217,7 @@
                             {
                                 id: "meso-fragmyx-oxyx",
                                 title: "MESO XCELENS FRAGMYX OXYX",
-                                image: "images/services/meso-fragmyx-oxyx.jpg",
+                                image: "images/meso-fragmyx-oxyx.jpg",
                                 benefits: [
                                     "Cung cấp hoạt chất chống oxy hóa mạnh, trung hòa gốc tự do và làm sáng nền da xỉn màu."
                                 ],
@@ -126,7 +227,7 @@
                             {
                                 id: "meso-tranacix",
                                 title: "MESO TRANACIX",
-                                image: "images/services/meso-tranacix.jpg",
+                                image: "images/meso-tranacix.jpg",
                                 benefits: [
                                     "Ức chế tổng hợp melanin từ gốc, hỗ trợ mờ nám mảng, tàn nhang và giảm tăng sắc tố."
                                 ],
@@ -136,7 +237,7 @@
                             {
                                 id: "meso-fetoscell-white",
                                 title: "MESO FETOSCELL WHITE",
-                                image: "images/services/meso-fetoscell-white.jpg",
+                                image: "images/meso-fetoscell-white.jpg",
                                 benefits: [
                                     "Đào thải sắc tố thâm sạm, dưỡng trắng chuyên sâu và nâng tông da sáng khỏe."
                                 ],
@@ -146,7 +247,7 @@
                             {
                                 id: "meso-exocode-radiance",
                                 title: "MESO EXOCODE RADIANCE – R",
-                                image: "images/services/meso-exocode-radiance.jpg",
+                                image: "images/meso-exocode-radiance.jpg",
                                 benefits: [
                                     "Phức hợp Exosome thế hệ mới giúp ức chế enzyme tyrosinase, tái tạo tế bào sáng mịn và căng bóng."
                                 ],
@@ -156,7 +257,7 @@
                             {
                                 id: "meso-nucleoskin-topic-pigment",
                                 title: "MESO NUCLEOSKIN TOPIC",
-                                image: "images/services/meso-nucleoskin-topic.jpg",
+                                image: "images/meso-nucleoskin-topic.jpg",
                                 benefits: [
                                     "Liệu pháp cao cấp phục hồi sắc tố đa tầng, tái sinh cấu trúc da trắng sáng và làm mờ thâm nám tầng sâu."
                                 ],
@@ -171,7 +272,7 @@
                             {
                                 id: "meso-vitamin-complex",
                                 title: "MESO INNOAESTHETICS VITAMIN COMPLEX",
-                                image: "images/services/meso-vitamin-complex.jpg",
+                                image: "images/meso-vitamin-complex.jpg",
                                 benefits: [
                                     "Cung cấp tổ hợp vitamin & khoáng chất thiết yếu, tăng cường đề kháng tự nhiên cho da."
                                 ],
@@ -181,7 +282,7 @@
                             {
                                 id: "meso-fetoscell-recovery",
                                 title: "MESO FETOSCELL",
-                                image: "images/services/meso-fetoscell-recovery.jpg",
+                                image: "images/meso-fetoscell-recovery.jpg",
                                 benefits: [
                                     "Kích hoạt tái sinh biểu bì, làm lành vi tổn thương và củng cố hàng rào bảo vệ da."
                                 ],
@@ -191,7 +292,7 @@
                             {
                                 id: "meso-dna-infini",
                                 title: "MESO DNA INFINI",
-                                image: "images/services/meso-dna-infini.jpg",
+                                image: "images/meso-dna-infini.jpg",
                                 benefits: [
                                     "Chiết xuất DNA tinh khiết giúp sửa chữa tế bào tổn thương, tăng sinh collagen và phục hồi nền da yếu."
                                 ],
@@ -201,7 +302,7 @@
                             {
                                 id: "meso-rejuran-healer",
                                 title: "MESO REJURAN HEALER",
-                                image: "images/services/meso-rejuran-healer.jpg",
+                                image: "images/meso-rejuran-healer.jpg",
                                 benefits: [
                                     "Chiết xuất Polynucleotide (PN) từ DNA cá hồi giúp tái sinh toàn diện tầng trung bì, dày khỏe cấu trúc da."
                                 ],
@@ -211,7 +312,7 @@
                             {
                                 id: "meso-exosome",
                                 title: "MESO EXOSOME",
-                                image: "images/services/meso-exosome.jpg",
+                                image: "images/meso-exosome.jpg",
                                 benefits: [
                                     "Hạt vi tế bào tinh khiết truyền tín hiệu tái sinh da vượt bậc, phục hồi cấp độ tế bào và tăng miễn dịch da."
                                 ],
@@ -226,7 +327,7 @@
                             {
                                 id: "meso-teoxane-redensity-1",
                                 title: "MESO TEOXANE TEOSYAL PURESENSE REDENSITY 1",
-                                image: "images/services/meso-teoxane-redensity.jpg",
+                                image: "images/meso-teoxane-redensity.jpg",
                                 benefits: [
                                     "Cung cấp tổ hợp độc quyền kết hợp Hyaluronic Acid tự do và phức hợp tái cấu trúc da (axit amin, khoáng chất), tạo hiệu ứng phản chiếu ánh sáng rạng rỡ."
                                 ],
@@ -236,7 +337,7 @@
                             {
                                 id: "meso-fetoscell-hydrate",
                                 title: "MESO FETOSCELL",
-                                image: "images/services/meso-fetoscell-hydrate.jpg",
+                                image: "images/meso-fetoscell-hydrate.jpg",
                                 benefits: [
                                     "Cấp ẩm kết hợp tái tạo mô, giúp da ngậm nước lâu dài và căng bóng tự nhiên."
                                 ],
@@ -246,7 +347,7 @@
                             {
                                 id: "meso-genyal-genyalift",
                                 title: "MESO GENYAL GENYALIFT",
-                                image: "images/services/meso-genyalift.jpg",
+                                image: "images/meso-genyalift.jpg",
                                 benefits: [
                                     "Bổ sung Hyaluronic Acid nồng độ cao và Glycerol, ngậm nước sâu, mang lại bề mặt căng mọng."
                                 ],
@@ -256,7 +357,7 @@
                             {
                                 id: "meso-peptide-115",
                                 title: "MESO PEPTIDE 115",
-                                image: "images/services/meso-peptide-115.jpg",
+                                image: "images/meso-peptide-115.jpg",
                                 benefits: [
                                     "Phức hợp chuỗi peptide chuyên sâu giúp trẻ hóa, tăng sinh sợi nâng đỡ và làm săn chắc da."
                                 ],
@@ -271,7 +372,7 @@
                             {
                                 id: "meso-rejuran-i",
                                 title: "MESO REJURAN I",
-                                image: "images/services/meso-rejuran-i.jpg",
+                                image: "images/meso-rejuran-i.jpg",
                                 benefits: [
                                     "Tinh chất PN lỏng chuyên biệt cho vùng mắt mỏng manh, làm dày thành mạch, giảm nếp nhăn li ti và quầng thâm."
                                 ],
@@ -281,7 +382,7 @@
                             {
                                 id: "meso-nucleoskin-topic-eye",
                                 title: "MESO NUCLEOSKIN TOPIC",
-                                image: "images/services/meso-nucleoskin-eye.jpg",
+                                image: "images/meso-nucleoskin-eye.jpg",
                                 benefits: [
                                     "Trẻ hóa mô mắt tầng sâu, phục hồi độ ẩm và làm sáng đều màu vùng da quanh mắt."
                                 ],
@@ -296,7 +397,7 @@
                             {
                                 id: "meso-anteage-hair",
                                 title: "MESO ANTEAGE MDX HAIR EXOSOME SOLUTION",
-                                image: "images/services/meso-anteage-hair.jpg",
+                                image: "images/meso-anteage-hair.jpg",
                                 benefits: [
                                     "Công nghệ Exosome chuyên biệt tái sinh nang tóc teo biến, kích hoạt nang tóc ngủ đông phát triển mạnh mẽ."
                                 ],
@@ -306,7 +407,7 @@
                             {
                                 id: "meso-inno-hair",
                                 title: "MESO INNO HAIR",
-                                image: "images/services/meso-inno-hair.jpg",
+                                image: "images/meso-inno-hair.jpg",
                                 benefits: [
                                     "Bổ sung dưỡng chất kéo dài chu kỳ sống của sợi tóc, kích thích mọc tóc con và làm dày mật độ tóc."
                                 ],
@@ -316,7 +417,7 @@
                             {
                                 id: "meso-dermica-hairzon",
                                 title: "MESO DERMICA HAIRZON",
-                                image: "images/services/meso-dermica-hairzon.jpg",
+                                image: "images/meso-dermica-hairzon.jpg",
                                 benefits: [
                                     "Kích thích lưu thông máu chân tóc, nuôi dưỡng nang tóc và ngăn ngừa rụng tóc sớm."
                                 ],
@@ -341,7 +442,7 @@
                             {
                                 id: "bap-b32",
                                 title: "B32",
-                                image: "images/services/bap-b32.jpg",
+                                image: "images/bap-b32.jpg",
                                 benefits: [
                                     "Cung cấp phức hợp HA sinh học hỗ trợ tái tạo mô liên kết, cải thiện kết cấu da mịn màng và tăng độ đàn hồi."
                                 ],
@@ -351,7 +452,7 @@
                             {
                                 id: "bap-ejal40",
                                 title: "EJAL 40",
-                                image: "images/services/bap-ejal40.jpg",
+                                image: "images/bap-ejal40.jpg",
                                 benefits: [
                                     "Hyaluronic Acid phân tử tối ưu giúp kích hoạt nguyên bào sợi, phục hồi hàng rào bảo vệ và tái tạo độ căng mọng cho bề mặt da."
                                 ],
@@ -361,7 +462,7 @@
                             {
                                 id: "bap-karisma",
                                 title: "KARISMA",
-                                image: "images/services/bap-karisma.jpg",
+                                image: "images/bap-karisma.jpg",
                                 benefits: [
                                     "Chứa Collagen tái tổ hợp chuỗi polypeptide và HA, kích thích tăng sinh collagen tự thân, phục hồi độ săn chắc và làm mờ nếp nhăn."
                                 ],
@@ -371,7 +472,7 @@
                             {
                                 id: "bap-profhilo",
                                 title: "PROFHILO",
-                                image: "images/services/bap-profhilo.jpg",
+                                image: "images/bap-profhilo.jpg",
                                 benefits: [
                                     "100% Hyaluronic Acid tinh khiết nồng độ cao tác động đa tầng, tái cấu trúc mô mỡ dưới da, cấp ẩm sâu và nâng cơ chảy xệ."
                                 ],
@@ -396,7 +497,7 @@
                             {
                                 id: "filler-han",
                                 title: "FILLER HÀN",
-                                image: "images/services/filler-han.jpg",
+                                image: "images/filler-han.jpg",
                                 benefits: [
                                     "Làm đầy nhanh các vùng khuyết lõm và tạo form dáng thanh tú."
                                 ],
@@ -406,7 +507,7 @@
                             {
                                 id: "filler-restylane",
                                 title: "RESTYLANE (CHÂU ÂU)",
-                                image: "images/services/filler-restylane.jpg",
+                                image: "images/filler-restylane.jpg",
                                 benefits: [
                                     "Công nghệ liên kết chéo NASHA/OBT chuẩn FDA, định hình sắc nét, giữ form chuẩn xác và chống tràn hiệu quả."
                                 ],
@@ -416,7 +517,7 @@
                             {
                                 id: "filler-teoxane",
                                 title: "FILLER TEOXANE (CHÂU ÂU)",
-                                image: "images/services/filler-teoxane.jpg",
+                                image: "images/filler-teoxane.jpg",
                                 benefits: [
                                     "Dòng filler động học thích ứng theo mọi biểu cảm cử động cơ mặt, không vón cục, tạo cảm giác hoàn toàn tự nhiên."
                                 ],
@@ -426,7 +527,7 @@
                             {
                                 id: "filler-infini",
                                 title: "INFINI (CHÂU ÂU)",
-                                image: "images/services/filler-infini.jpg",
+                                image: "images/filler-infini.jpg",
                                 benefits: [
                                     "Độ tương thích sinh học cao, định hình mềm mại tự nhiên và duy trì độ ẩm mịn cho mô cơ."
                                 ],
@@ -451,7 +552,7 @@
                             {
                                 id: "botox-allergan",
                                 title: "BOTOX ALLERGAN",
-                                image: "images/services/botox-allergan.jpg",
+                                image: "images/botox-allergan.jpg",
                                 benefits: [
                                     "Thương hiệu Botox chuẩn Y khoa hàng đầu từ Mỹ, kiểm soát lan tỏa chuẩn xác, hiệu quả êm ái và kéo dài bền bỉ."
                                 ],
@@ -461,7 +562,7 @@
                             {
                                 id: "botox-nabota",
                                 title: "BOTOX NABOTA",
-                                image: "images/services/botox-nabota.jpg",
+                                image: "images/botox-nabota.jpg",
                                 benefits: [
                                     "Phong bế dẫn truyền thần kinh tạm thời, làm giãn cơ co rút giúp xóa mờ nếp nhăn biểu cảm và thu nhỏ khối cơ phì đại."
                                 ],
@@ -471,7 +572,7 @@
                             {
                                 id: "botox-xeomin",
                                 title: "BOTOX XEOMIN",
-                                image: "images/services/botox-xeomin.jpg",
+                                image: "images/botox-xeomin.jpg",
                                 benefits: [
                                     "Dòng Botox tinh khiết không chứa protein phức hợp, hạn chế nguy cơ kháng thuốc/lờn thuốc sau nhiều lần tiêm."
                                 ],
@@ -514,7 +615,7 @@
                     let isDragging = false;
 
                     const updatePosition = (index) => {
-                        const visibleCards = window.innerWidth <= 575 ? 1 : window.innerWidth <= 991 ? 2 : 3;
+                        const visibleCards = window.innerWidth <= 575 ? 1 : 2;
                         const maxIndex = Math.max(0, slides.length - visibleCards);
                         currentIndex = Math.max(0, Math.min(index, maxIndex));
 
@@ -554,8 +655,8 @@
                 contentContainer.innerHTML = currentData.sections
                     .map(
                         (section) => `
-        <div class="tabbed-slider__section-block">
-          <h3 class="tabbed-slider__category">${section.sectionTitle}</h3>
+        <div class="tabbed-slider__section-block" data-aos="fade-up">
+          <h3 class="tabbed-slider__category" data-aos="fade-up">${section.sectionTitle}</h3>
           
           <div class="tabbed-slider__carousel-wrapper">
             <!-- Nút Prev -->
@@ -590,12 +691,8 @@
                         
                         <div class="tabbed-slider__card-footer">
                           <span class="tabbed-slider__price">Giá: ${item.price}</span>
-                          <button class="tabbed-slider__cart-btn" type="button" aria-label="Thêm ${item.title} vào giỏ hàng">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                              <line x1="3" y1="6" x2="21" y2="6"></line>
-                              <path d="M16 10a4 4 0 0 1-8 0"></path>
-                            </svg>
+                          <button class="tabbed-slider__cart-btn" type="button" aria-label="Thêm ${item.title} vào giỏ hàng" data-cart-id="${item.id}" data-cart-name="${item.title}" data-cart-price="${item.price}">
+                            <img src="images/cart-btn.svg" alt="Giỏ hàng" class="tabbed-slider__cart-icon">
                           </button>
                         </div>
                       </div>
@@ -653,10 +750,12 @@
                     });
 
                     renderTabContent(activeTabKey);
+                    if (window.scrollReveal) window.scrollReveal.refresh();
                 });
             });
 
             renderTabContent(activeTabKey);
+            if (window.scrollReveal) window.scrollReveal.refresh();
 
             // Nếu người dùng vào bằng hash của một tab, cuộn tới vùng danh sách dịch vụ
             if (hashTab && tabbedSliderData[hashTab]) {
@@ -668,6 +767,162 @@
             initTabbedSlider();
         });
     </script>
+    <script src="../assets/js/scroll-reveal.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script src="../header/js/script.js"></script>
+
+<footer class="footer" id="footer" aria-label="Chân trang Medicare Clinic">
+        <div class="container">
+            <div class="footer__grid">
+
+                <!-- ================= CỘT 1: THÔNG TIN THƯƠNG HIỆU & LIÊN HỆ ================= -->
+                <div class="footer__brand">
+                    <!-- Logo -->
+                    <a href="/" class="footer__logo" aria-label="Medicare Clinic - Trang Chủ">
+                        <img src="../footer/images/logo-medicare.svg" alt="Medicare Clinic" class="footer__logo-img" width="160"
+                            height="60">
+                    </a>
+
+                    <!-- Danh sách thông tin liên hệ -->
+                    <ul class="footer__contacts">
+                        <li class="footer__contact-item">
+                            <span class="footer__contact-icon" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </span>
+                            <span class="footer__contact-text">Thời gian làm việc: 8.00 AM - 18.00 PM</span>
+                        </li>
+
+                        <li class="footer__contact-item">
+                            <span class="footer__contact-icon" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </span>
+                            <span class="footer__contact-text">Số 10 ngõ 4 Pháo Đài Láng, Láng Thượng, Đống Đa, Hà
+                                Nội</span>
+                        </li>
+
+                        <li class="footer__contact-item">
+                            <span class="footer__contact-icon" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </span>
+                            <a href="mailto:medicareclinics.hn@gmail.com"
+                                class="footer__contact-link">medicareclinics.hn@gmail.com</a>
+                        </li>
+
+                        <li class="footer__contact-item">
+                            <span class="footer__contact-icon" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                            </span>
+                            <a href="tel:0778486888" class="footer__contact-link">077 8486 888</a>
+                        </li>
+                    </ul>
+
+                    <!-- Mạng xã hội -->
+                    <div class="footer__socials">
+                        <!-- Facebook -->
+                        <a href="#" class="footer__social-btn footer__social-btn--facebook" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="#" class="footer__social-btn footer__social-btn--youtube" aria-label="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                        <!-- Messenger -->
+                        <a href="#" class="footer__social-btn footer__social-btn--messenger" aria-label="Messenger">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.09.302 2.247.464 3.443.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26 6.559-6.963 3.13 3.259 5.889-3.259-6.56 6.963z" />
+                            </svg>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="#" class="footer__social-btn footer__social-btn--tiktok" aria-label="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ================= CỘT 2: TRANG CHỦ ================= -->
+                <div class="footer__col">
+                    <h4 class="footer__title">Trang chủ</h4>
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item"><a href="#buoi-le" class="footer__nav-link">Buổi Lẻ</a></li>
+                        <li class="footer__nav-item"><a href="#peel" class="footer__nav-link">Peel</a></li>
+                        <li class="footer__nav-item"><a href="#laser" class="footer__nav-link">Laser</a></li>
+                        <li class="footer__nav-item"><a href="#lan-kim" class="footer__nav-link">Lăn Kim</a></li>
+                        <li class="footer__nav-item"><a href="#phi-kim" class="footer__nav-link">Phi Kim</a></li>
+                    </ul>
+                </div>
+
+                <!-- ================= CỘT 3: ĐIỀU TRỊ ================= -->
+                <div class="footer__col">
+                    <h4 class="footer__title">Điều trị</h4>
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item"><a href="#lieu-trinh" class="footer__nav-link">Liệu Trình</a></li>
+                        <li class="footer__nav-item"><a href="#dieu-tri-seo" class="footer__nav-link">Điều Trị Sẹo</a>
+                        </li>
+                        <li class="footer__nav-item"><a href="#dieu-tri-mun" class="footer__nav-link">Điều Trị Mụn</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- ================= CỘT 4: THẨM MỸ ================= -->
+                <div class="footer__col">
+                    <h4 class="footer__title">Thẩm Mỹ</h4>
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item"><a href="#cfu" class="footer__nav-link">CPU</a></li>
+                        <li class="footer__nav-item"><a href="#combo" class="footer__nav-link">Combo</a></li>
+                    </ul>
+                </div>
+
+                <!-- ================= CỘT 5: SẢN PHẨM ================= -->
+                <div class="footer__col">
+                    <h4 class="footer__title">Sản Phẩm</h4>
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item"><a href="#bap" class="footer__nav-link">Bap</a></li>
+                        <li class="footer__nav-item"><a href="#meso-product" class="footer__nav-link">Meso</a></li>
+                        <li class="footer__nav-item"><a href="#filler" class="footer__nav-link">Filler</a></li>
+                        <li class="footer__nav-item"><a href="#botox" class="footer__nav-link">Botox</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/sass/style.min.css?v=2">
+    <link rel="stylesheet" href="Home/sass/style.min.css?v=2">
+    <link rel="stylesheet" href="header/sass/style.min.css">
+    <link rel="stylesheet" href="footer/sass/style.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__wrapper">
+
+                <!-- 1. Logo Thương Hiệu -->
+                <a href="/" class="header__logo" aria-label="Medicare Clinic - Trang Chủ">
+                    <img src="header/images/logo-medicare.svg" alt="Medicare Clinic" class="header__logo-img" width="160"
+                        height="48">
+                </a>
+
+                <!-- 2. Lớp phủ mờ (Backdrop) khi mở menu trên Mobile -->
+                <div class="header__backdrop" id="header-backdrop"></div>
+
+                <!-- 3. Navigation Menu -->
+                <nav class="header__nav" id="main-nav" aria-label="Menu điều hướng chính">
+                    <ul class="header__menu">
+                        <li class="header__menu-item">
+                            <a href="#" class="header__menu-link header__menu-link--active">Trang Chủ</a>
+                        </li>
+                        <li class="header__menu-item header__menu-item--has-submenu">
+                            <a href="#" class="header__menu-link">Điều Trị</a>
+
+                            <!-- Nút xổ submenu trên Mobile -->
+                            <button class="header__submenu-toggle" type="button" aria-expanded="false"
+                                aria-label="Mở/đóng menu con Điều Trị"></button>
+
+                            <!-- Submenu 2 Cột: Buổi Lẻ & Liệu Trình -->
+                            <div class="header__submenu">
+                                <div class="header__submenu-col">
+                                    <a href="dich-vu-buoi-le/index.html" class="header__submenu-title">Buổi Lẻ</a>
+                                    <a href="dich-vu-buoi-le/index.html#laser" class="header__submenu-link">LASER</a>
+                                    <a href="dich-vu-buoi-le/index.html#peel" class="header__submenu-link">PEEL</a>
+                                    <a href="dich-vu-buoi-le/index.html#lan-kim" class="header__submenu-link">LĂN KIM</a>
+                                    <a href="dich-vu-buoi-le/index.html#phi-kim" class="header__submenu-link">PHI KIM</a>
+                                </div>
+                                <div class="header__submenu-col">
+                                    <a href="dich-vu-lieu-trinh/index.html" class="header__submenu-title">Liệu Trình</a>
+                                    <a href="dich-vu-lieu-trinh/index.html#dieu-tri-mun" class="header__submenu-link">ĐIỀU TRỊ MỤN</a>
+                                    <a href="dich-vu-lieu-trinh/index.html#dieu-tri-seo" class="header__submenu-link">ĐIỀU TRỊ SẸO</a>
+                                    <a href="dich-vu-lieu-trinh/index.html#lieu-trinh-body" class="header__submenu-link">LIỆU TRÌNH BODY</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="header__menu-item header__menu-item--has-submenu">
+                            <a href="#" class="header__menu-link">Thẩm Mỹ</a>
+
+                            <!-- Nút xổ submenu trên Mobile -->
+                            <button class="header__submenu-toggle" type="button" aria-expanded="false"
+                                aria-label="Mở/đóng menu con Thẩm Mỹ"></button>
+
+                            <!-- Submenu: CFU ÈLIFE & Combo -->
+                            <div class="header__submenu header__submenu--single">
+                                <div class="header__submenu-col">
+                                    <a href="cfu-eliffe/index.html" class="header__submenu-link">CFU ÈLIFE</a>
+                                    <a href="combo/index.html" class="header__submenu-link">COMBO</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="header__menu-item header__menu-item--has-submenu">
+                            <a href="#" class="header__menu-link">Sản Phẩm</a>
+
+                            <!-- Nút xổ submenu trên Mobile -->
+                            <button class="header__submenu-toggle" type="button" aria-expanded="false"
+                                aria-label="Mở/đóng menu con Sản Phẩm"></button>
+
+                            <!-- Submenu: Các Tab trong Trang Sản Phẩm -->
+                            <div class="header__submenu header__submenu--single">
+                                <div class="header__submenu-col">
+                                    <a href="san-pham/index.html#meso" class="header__submenu-link">MESO</a>
+                                    <a href="san-pham/index.html#bap" class="header__submenu-link">BAP</a>
+                                    <a href="san-pham/index.html#filler" class="header__submenu-link">FILLER</a>
+                                    <a href="san-pham/index.html#botox" class="header__submenu-link">BOTOX</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- 4. Hành động (Giỏ hàng & Nút mở menu mobile) -->
+                <div class="header__actions">
+                    <!-- Nút Giỏ Hàng -->
+                    <a href="cart/index.html" class="header__action-btn header__action-btn--cart" aria-label="Xem giỏ hàng">
+                        <img src="header/images/icon-cart.svg" class="header__cart-icon" alt="" width="22" height="26">
+                        <span class="header__cart-badge" aria-hidden="true"></span>
+                    </a>
+
+                    <!-- Nút Toggle Mobile Menu (Hamburger) -->
+                    <button class="header__toggle" id="menu-toggle" type="button" aria-label="Mở danh mục menu"
+                        aria-expanded="false" aria-controls="main-nav">
+                        <span class="header__toggle-bar"></span>
+                        <span class="header__toggle-bar"></span>
+                        <span class="header__toggle-bar"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-slider" aria-label="Khuyến mãi & Dịch vụ nổi bật">
+        <div class="hero-slider__wrapper">
+
+            <!-- Nút điều hướng Trước (Prev) -->
+            <button class="hero-slider__nav-btn hero-slider__nav-btn--prev" type="button" aria-label="Slide trước">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+            </button>
+
+            <!-- Danh sách Slides -->
+            <div class="hero-slider__track">
+
+                <!-- ================= SLIDE 1 (Active): Text Trái - Ảnh Phải ================= -->
+                <article class="hero-slider__slide" data-index="0">
+                    <div class="hero-slider__media-bg">
+                        <img src="Home/images/treatment-bg-1.jpg" alt="Liệu trình trị sẹo" class="hero-slider__bg-img"
+                            loading="lazy">
+                    </div>
+                    <div class="container">
+                        <div class="hero-slider__grid">
+
+                            <!-- Nội dung Slide 1 -->
+                            <div class="hero-slider__content">
+                                <h1 class="hero-slider__title">
+                                    CẢI THIỆN SẸO RỖ<br>
+                                    TÁI CẤU TRÚC LÀN DA
+                                </h1>
+
+                                <ul class="hero-slider__features">
+                                    <li class="hero-slider__feature-item">
+                                        <span class="hero-slider__feature-bullet"></span>
+                                        <span class="hero-slider__feature-text">Phác đồ 5in1 cá nhân hóa theo từng loại
+                                            sẹo</span>
+                                    </li>
+                                    <li class="hero-slider__feature-item">
+                                        <span class="hero-slider__feature-bullet"></span>
+                                        <span class="hero-slider__feature-text">Kết hợp công nghệ laser & kích thích
+                                            collagen</span>
+                                    </li>
+                                    <li class="hero-slider__feature-item">
+                                        <span class="hero-slider__feature-bullet"></span>
+                                        <span class="hero-slider__feature-text">Cải thiện bề mặt da mịn màng</span>
+                                    </li>
+                                </ul>
+
+                                <div class="hero-slider__actions">
+                                    <a href="#tu-van" class="hero-slider__btn hero-slider__btn--outline">Đăng Ký Tư
+                                        Vấn</a>
+                                    <a href="#chi-tiet" class="hero-slider__btn hero-slider__btn--solid">Tìm hiểu
+                                        thêm</a>
+                                </div>
+                            </div>
+
+                            <!-- Hình ảnh Slide 1 -->
+                            <div class="hero-slider__media">
+                                <div class="hero-slider__media-device">
+                                    <img src="Home/images/discovery-pico-machine.png" alt="Máy Discovery Pico Laser"
+                                        class="hero-slider__device-img" width="520" height="600">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ================= SLIDE 2: Ảnh Trái - Text Phải (--reverse) ================= -->
+                <article class="hero-slider__slide" data-index="1">
+                    <div class="hero-slider__media-bg">
+                        <img src="Home/images/treatment-bg-2.jpg" alt="Liệu trình nâng cơ trẻ hóa"
+                            class="hero-slider__bg-img" loading="lazy">
+                    </div>
+                    <div class="container">
+                        <div class="hero-slider__grid hero-slider__grid--reverse">
+
+                            <!-- Hình ảnh Slide 2 (Nằm bên trái) -->
+                            <div class="hero-slider__media">
+                                <div class="hero-slider__media-device">
+                                    <img src="Home/images/hifu-liftera-machine.png" alt="Máy Nâng cơ Trẻ hóa đa tầng"
+                                        class="hero-slider__device-img" width="520" height="600">
+                                </div>
+                            </div>
+
+                            <!-- Nội dung Slide 2 (Nằm bên phải) -->
+                            <div class="hero-slider__content">
+                                <h2 class="hero-slider__title">
+                                    NÂNG CƠ ĐA TẦNG<br>
+                                    TRẺ HÓA TOÀN DIỆN
+                                </h2>
+
+                                <ul class="hero-slider__features">
+                                    <li class="hero-slider__feature-item">
+                                        <span class="hero-slider__feature-bullet"></span>
+                                        <span class="hero-slider__feature-text">Tác động sâu nhiều lớp da, cải thiện độ
+                                            chảy xệ</span>
+                                    </li>
+                                    <li class="hero-slider__feature-item">
+                                        <span class="hero-slider__feature-bullet"></span>
+                                        <span class="hero-slider__feature-text">Kích thích tăng sinh collagen & elastin
+                                            tự nhiên</span>
+                                    </li>
+                                    <li class="hero-slider__feature-item">
+                                        <span class="hero-slider__feature-bullet"></span>
+                                        <span class="hero-slider__feature-text">Giúp da săn chắc, mịn màng & trẻ
+                                            trung</span>
+                                    </li>
+                                </ul>
+
+                                <div class="hero-slider__actions">
+                                    <a href="#tu-van" class="hero-slider__btn hero-slider__btn--outline">Đăng Ký Tư
+                                        Vấn</a>
+                                    <a href="#chi-tiet" class="hero-slider__btn hero-slider__btn--solid">Tìm hiểu
+                                        thêm</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Dấu chấm phân trang nằm trong vùng container -->
+            <div class="container">
+                <div class="hero-slider__pagination">
+                    <button class="hero-slider__dot hero-slider__dot--active" type="button"
+                        aria-label="Đi đến slide 1"></button>
+                    <button class="hero-slider__dot" type="button" aria-label="Đi đến slide 2"></button>
+                </div>
+            </div>
+
+            <!-- Nút điều hướng Tiếp (Next) -->
+            <button class="hero-slider__nav-btn hero-slider__nav-btn--next" type="button" aria-label="Slide tiếp theo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </button>
+
+        </div>
+    </section>
+
+    <section class="about" aria-label="Giới thiệu về Medicare Clinic">
+        <div class="container">
+
+            <!-- Phần 1: Khối Giới Thiệu (2 Cột: Hình Ảnh & Nội Dung) -->
+            <div class="about__grid" data-aos="fade-up">
+
+                <!-- Cột Trái: Hình Ảnh Khám & Soi Da -->
+                <div class="about__media">
+                    <img src="Home/images/about-doctor-consulting.jpg"
+                        alt="Bác sĩ Medicare Clinic soi da và tư vấn phác đồ cho khách hàng" class="about__img"
+                        loading="lazy" width="600" height="420">
+                </div>
+
+                <!-- Cột Phải: Nội Dung Giới Thiệu -->
+                <div class="about__content">
+                    <h2 class="about__title" data-aos="fade-up">MEDiCARE CLINIC</h2>
+
+                    <div class="about__description">
+                        <p class="about__desc">
+                            Chúng tôi hiểu rằng mỗi làn da đều có một câu chuyện riêng và xứng đáng được chăm sóc bằng
+                            sự thấu hiểu sâu sắc nhất. Không chỉ đơn thuần là một phòng khám da liễu, MEDiCARE là không
+                            gian nơi công nghệ y khoa hiện đại hòa quyện cùng tâm huyết của đội ngũ chuyên gia.
+                        </p>
+                        <p class="about__desc">
+                            Chúng tôi không chỉ điều trị các vấn đề về da, mà còn cùng bạn khai phá phiên bản tự tin
+                            nhất của chính mình. Với triết lý làm đẹp bền vững, MEDiCARE cam kết đồng hành cùng bạn từ
+                            bước thăm khám đầu tiên cho đến khi sở hữu diện mạo rạng rỡ, giúp bạn yêu thêm vẻ đẹp tự
+                            nhiên của mình mỗi ngày.
+                        </p>
+                    </div>
+
+                    <!-- Nhóm Nút Hành Động -->
+                    <div class="about__actions">
+                        <a href="#tu-van" class="about__btn about__btn--outline">Đăng Ký Tư Vấn</a>
+                        <a href="#gioi-thieu" class="about__btn about__btn--outline">Tìm hiểu thêm</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Phần 2: Banner Khối Số Liệu Thống Kê (Stats Banner) -->
+            <div class="about__stats" data-aos="fade-up">
+
+                <div class="about__stat-item">
+                    <span class="about__stat-number">90+</span>
+                    <span class="about__stat-label">Đối Tác Đồng Hành</span>
+                </div>
+
+                <div class="about__stat-item">
+                    <span class="about__stat-number">5.000+</span>
+                    <span class="about__stat-label">Khách Hàng Tin Tưởng</span>
+                </div>
+
+                <div class="about__stat-item">
+                    <span class="about__stat-number">98%</span>
+                    <span class="about__stat-label">Ca Điều Trị Thành Công</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="why-choose" aria-label="Lý do nên chọn Medicare Clinic">
+        <div class="container">
+            <div class="why-choose__wrapper">
+
+                <!-- ================= CỘT TRÁI: TIÊU ĐỀ & 4 CARD TÍNH NĂNG ================= -->
+                <div class="why-choose__content">
+                    <h2 class="why-choose__title" data-aos="fade-up">
+                        Lý Do Nên Chọn<br>
+                        Medicare Clinic ?
+                    </h2>
+
+                    <div class="why-choose__cards">
+
+                        <!-- Card 1: Chuyên gia tư vấn -->
+                        <article class="why-choose__card" data-aos="fade-up">
+                            <div class="why-choose__card-icon" aria-hidden="true">
+                                <img src="Home/images/why-icon1.png" alt="" width="42" height="42" class="why-choose__card-icon-img">
+                            </div>
+                            <h3 class="why-choose__card-title">Tư Vấn Trực Tiếp Từ Chuyên Gia</h3>
+                            <p class="why-choose__card-desc">
+                                Thăm khám trực tiếp cùng đội ngũ bác sĩ chuyên khoa giàu kinh nghiệm. Chẩn đoán chính
+                                xác tình trạng mụn, nám, viêm da và lập phác đồ cá nhân hóa.
+                            </p>
+                        </article>
+
+                        <!-- Card 2: Công nghệ cao -->
+                        <article class="why-choose__card" data-aos="fade-up">
+                            <div class="why-choose__card-icon" aria-hidden="true">
+                                <img src="Home/images/why-icon2.png" alt="" width="42" height="42" class="why-choose__card-icon-img">
+                            </div>
+                            <h3 class="why-choose__card-title">Trị Liệu Bằng Công Nghệ Cao</h3>
+                            <p class="why-choose__card-desc">
+                                Sở hữu dàn công nghệ hiện đại bậc nhất, giải quyết triệt để các vấn đề về da. Quy trình
+                                điều trị được kiểm soát nghiêm ngặt, chuẩn y khoa.
+                            </p>
+                        </article>
+
+                        <!-- Card 3: Hỗ trợ 24/7 -->
+                        <article class="why-choose__card" data-aos="fade-up">
+                            <div class="why-choose__card-icon" aria-hidden="true">
+                                <img src="Home/images/why-icon3.png" alt="" width="42" height="42" class="why-choose__card-icon-img">
+                            </div>
+                            <h3 class="why-choose__card-title">Đồng Hành & Hỗ Trợ Khách Hàng 24/7</h3>
+                            <p class="why-choose__card-desc">
+                                Đội ngũ bác sĩ, chuyên viên luôn sẵn sàng giải đáp thắc mắc & hướng dẫn quy trình chăm
+                                sóc da tại nhà, giúp duy trì kết quả điều trị bền vững.
+                            </p>
+                        </article>
+
+                        <!-- Card 4: Phục vụ tận tâm -->
+                        <article class="why-choose__card" data-aos="fade-up">
+                            <div class="why-choose__card-icon" aria-hidden="true">
+                                <img src="Home/images/why-icon4.png" alt="" width="42" height="42" class="why-choose__card-icon-img">
+                            </div>
+                            <h3 class="why-choose__card-title">Phục Vụ Tận Tâm Chuyên Nghiệp</h3>
+                            <p class="why-choose__card-desc">
+                                Trải nghiệm quy trình chăm sóc chuẩn y khoa với thái độ tận tâm, chu đáo. Mang lại sự
+                                hài lòng tối đa thông qua không gian hiện đại và dịch vụ đẳng cấp.
+                            </p>
+                        </article>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="services-slider" aria-label="Dịch Vụ Nổi Bật Tại Medicare Clinic">
+        <!-- Tiêu Đề Section -->
+        <div class="services-slider__header">
+            <h2 class="services-slider__title" data-aos="fade-up">Dịch Vụ Nổi Bật Tại Medicare Clinic</h2>
+        </div>
+
+        <!-- Khung Chứa Slider (Viewport) -->
+        <div class="services-slider__viewport">
+            <div class="services-slider__track" id="services-track">
+
+                <!-- Slide 1 -->
+                <article class="services-slider__slide">
+                    <div class="services-slider__card">
+                        <div class="services-slider__card-media">
+                            <img src="Home/images/service-laser-fractional.jpg" alt="Laser Fractional CO2"
+                                class="services-slider__card-img" loading="lazy">
+                        </div>
+                        <div class="services-slider__card-body">
+                            <h3 class="services-slider__card-title">LASER FRACTIONAL</h3>
+                            <p class="services-slider__card-desc">
+                                Cải thiện sẹo rỗ sâu, tái tạo bề mặt da sần, kết cấu da săn chắc, giảm nếp nhăn và
+                                tăng độ đàn hồi cho da.
+                            </p>
+                            <div class="services-slider__card-price">Giá: 2.500.000 VNĐ</div>
+                            <a href="#dich-vu" class="services-slider__card-btn">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Slide 2 -->
+                <article class="services-slider__slide">
+                    <div class="services-slider__card">
+                        <div class="services-slider__card-media">
+                            <img src="Home/images/service-peel.jpg" alt="Peel Trị Mụn" class="services-slider__card-img"
+                                loading="lazy">
+                        </div>
+                        <div class="services-slider__card-body">
+                            <h3 class="services-slider__card-title">PEEL TRỊ MỤN</h3>
+                            <p class="services-slider__card-desc">
+                                Peel Trị Mụn Giúp Loại Bỏ Lớp Tế Bào Sừng Và Bã Nhờn Tích Tụ Trên Bề Mặt Da, Từ Đó
+                                Làm Sạch Lỗ Chân Lông Và Giảm Tình Trạng Bít Tắc Nguyên Nhân Chính Gây Mụn...
+                            </p>
+                            <div class="services-slider__card-price">Giá: 1.500.000 VNĐ</div>
+                            <a href="#dich-vu" class="services-slider__card-btn">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Slide 3 (Active / Phóng to ở giữa) -->
+                <article class="services-slider__slide services-slider__slide--active">
+                    <div class="services-slider__card">
+                        <div class="services-slider__card-media">
+                            <img src="Home/images/service-cfu.jpg" alt="CFU ÈLIFE Nâng Cơ" class="services-slider__card-img"
+                                loading="lazy">
+                        </div>
+                        <div class="services-slider__card-body">
+                            <h3 class="services-slider__card-title">CFU ÈLIFE</h3>
+                            <p class="services-slider__card-desc">
+                                CFU Èlife Là Công Nghệ Nâng Cơ Sử Dụng Sóng Siêu Âm Hội Tụ Chính Xác, Tác Động Sâu
+                                Vào Các Tầng Cấu Trúc Của Da, Giúp Kích Thích Tăng Sinh Collagen Và Cải Thiện Độ Săn
+                                Chắc...
+                            </p>
+                            <div class="services-slider__card-price">Giá: 5.000.000 - 30.000.000 VNĐ</div>
+                            <a href="#dich-vu" class="services-slider__card-btn">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Slide 4 -->
+                <article class="services-slider__slide">
+                    <div class="services-slider__card">
+                        <div class="services-slider__card-media">
+                            <img src="Home/images/service-meso-acnezone.jpg" alt="Meso Acnezone"
+                                class="services-slider__card-img" loading="lazy">
+                        </div>
+                        <div class="services-slider__card-body">
+                            <h3 class="services-slider__card-title">MESO ACNEZONE</h3>
+                            <p class="services-slider__card-desc">
+                                Meso Acnezone Giúp Giảm Viêm, Kháng Khuẩn Và Kiểm Soát Bã Nhờn, Hỗ Trợ Gom Nhân Mụn
+                                Và Hạn Chế Hình Thành Mụn Mới; Đồng Thời Giúp Làm Dịu Da Và Giảm Nguy Cơ Thâm Sau
+                                Mụn...
+                            </p>
+                            <div class="services-slider__card-price">Giá: 3.000.000 VNĐ</div>
+                            <a href="#dich-vu" class="services-slider__card-btn">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Slide 5 -->
+                <article class="services-slider__slide">
+                    <div class="services-slider__card">
+                        <div class="services-slider__card-media">
+                            <img src="Home/images/service-meso-rejuran.jpg" alt="Meso Rejuran Healer"
+                                class="services-slider__card-img" loading="lazy">
+                        </div>
+                        <div class="services-slider__card-body">
+                            <h3 class="services-slider__card-title">MESO REJURAN</h3>
+                            <p class="services-slider__card-desc">
+                                Rejuran Healer Giúp Phục Hồi Da Nhờ Hoạt Chất PN Tinh Khiết, Kích Thích Sản Sinh
+                                Collagen Và Elastin, Nhờ Đó Da Tăng Độ Đàn Hồi, Thu Nhỏ Lỗ Chân Lông...
+                            </p>
+                            <div class="services-slider__card-price">Giá: 7.000.000 VNĐ</div>
+                            <a href="#dich-vu" class="services-slider__card-btn">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+        <!-- Dấu Chấm Phân Trang (Dots) -->
+        <div class="services-slider__pagination" id="services-pagination"></div>
+    </section>
+
+    <section class="results-slider" aria-label="Hình Ảnh Khách Hàng Điều Trị">
+        <div class="container">
+
+            <!-- Tiêu Đề Section -->
+            <div class="results-slider__header">
+                <h2 class="results-slider__title" data-aos="fade-up">Hình Ảnh Khách Hàng Điều Trị</h2>
+            </div>
+
+            <!-- Khung Chứa Slider (Viewport & Track) -->
+            <div class="results-slider__wrapper">
+
+                <!-- Nút Prev -->
+                <button class="results-slider__nav-btn results-slider__nav-btn--prev" type="button"
+                    aria-label="Slide trước">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                <!-- Track Trượt Ngang -->
+                <div class="results-slider__viewport">
+                <div class="results-slider__track">
+
+                    <!-- ================= SLIDE 1: ĐIỀU TRỊ SẸO ================= -->
+                    <article class="results-slider__slide results-slider__slide--active">
+                        <div class="results-slider__grid">
+
+                            <!-- Cột Trái: Card Dịch Vụ -->
+                            <div class="results-slider__service-card">
+                                <img src="Home/images/results-scar-service.jpg" alt="Quy trình điều trị sẹo"
+                                    class="results-slider__service-img" loading="lazy">
+                                <div class="results-slider__service-overlay">
+                                    <h3 class="results-slider__service-title">Điều Trị Sẹo</h3>
+                                    <div class="results-slider__service-actions">
+                                        <a href="#tu-van" class="results-slider__service-btn">Đăng Kí Tư Vấn</a>
+                                        <a href="#chi-tiet" class="results-slider__service-btn">Tìm hiểu thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cột Phải: 1 Ảnh Gộp So Sánh + 2 Badge Trước & Sau -->
+                            <div class="results-slider__compare-card">
+                                <div class="results-slider__compare-track">
+                                    <img src="Home/images/results-scar-compare.jpg" alt="So sánh trước và sau điều trị sẹo"
+                                        class="results-slider__compare-img results-slider__compare-img--active" loading="lazy">
+                                    <img src="Home/images/results-scar-compare1.jpg" alt="So sánh trước và sau điều trị sẹo"
+                                        class="results-slider__compare-img" loading="lazy">
+                                    <img src="Home/images/results-scar-compare2.jpg" alt="So sánh trước và sau điều trị sẹo"
+                                        class="results-slider__compare-img" loading="lazy">
+                                </div>
+                            </div>
+
+                        </div>
+                    </article>
+
+                    <!-- ================= SLIDE 2: ĐIỀU TRỊ MỤN ================= -->
+                    <article class="results-slider__slide">
+                        <div class="results-slider__grid">
+
+                            <div class="results-slider__service-card">
+                                <img src="Home/images/results-acne-service.jpg" alt="Quy trình điều trị mụn"
+                                    class="results-slider__service-img" loading="lazy">
+                                <div class="results-slider__service-overlay">
+                                    <h3 class="results-slider__service-title">Điều Trị Mụn</h3>
+                                    <div class="results-slider__service-actions">
+                                        <a href="#tu-van" class="results-slider__service-btn">Đăng Kí Tư Vấn</a>
+                                        <a href="#chi-tiet" class="results-slider__service-btn">Tìm hiểu thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="results-slider__compare-card">
+                                <div class="results-slider__compare-track">
+                                    <img src="Home/images/results-acne-compare.jpg" alt="So sánh trước và sau điều trị mụn"
+                                        class="results-slider__compare-img results-slider__compare-img--active" loading="lazy">
+                                    <img src="Home/images/results-acne-compare1.jpg" alt="So sánh trước và sau điều trị mụn"
+                                        class="results-slider__compare-img" loading="lazy">
+                                    <img src="Home/images/results-acne-compare2.jpg" alt="So sánh trước và sau điều trị mụn"
+                                        class="results-slider__compare-img" loading="lazy">
+                                </div>
+                            </div>
+
+                        </div>
+                    </article>
+
+                    <!-- ================= SLIDE 3: LIỆU TRÌNH CFU ================= -->
+                    <article class="results-slider__slide">
+                        <div class="results-slider__grid">
+
+                            <div class="results-slider__service-card">
+                                <img src="Home/images/results-cfu-service.jpg" alt="Quy trình nâng cơ CFU"
+                                    class="results-slider__service-img" loading="lazy">
+                                <div class="results-slider__service-overlay">
+                                    <h3 class="results-slider__service-title">Liệu Trình CFU</h3>
+                                    <div class="results-slider__service-actions">
+                                        <a href="#tu-van" class="results-slider__service-btn">Đăng Kí Tư Vấn</a>
+                                        <a href="#chi-tiet" class="results-slider__service-btn">Tìm hiểu thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="results-slider__compare-card">
+                                <div class="results-slider__compare-track">
+                                <img src="Home/images/results-cfu-compare.jpg" alt="So sánh trước và sau nâng cơ CFU"
+                                    class="results-slider__compare-img results-slider__compare-img--active" loading="lazy">
+                                <img src="Home/images/results-cfu-compare1.jpg" alt="So sánh trước và sau nâng cơ CFU"
+                                    class="results-slider__compare-img" loading="lazy">
+                                <img src="Home/images/results-cfu-compare2.jpg" alt="So sánh trước và sau nâng cơ CFU"
+                                    class="results-slider__compare-img" loading="lazy">
+                            </div>
+                            </div>
+
+                        </div>
+                    </article>
+
+                    <!-- ================= SLIDE 4: MESO ================= -->
+                    <article class="results-slider__slide">
+                        <div class="results-slider__grid">
+
+                            <div class="results-slider__service-card">
+                                <img src="Home/images/results-meso-service.jpg" alt="Quy trình cấy Meso"
+                                    class="results-slider__service-img" loading="lazy">
+                                <div class="results-slider__service-overlay">
+                                    <h3 class="results-slider__service-title">Meso</h3>
+                                    <div class="results-slider__service-actions">
+                                        <a href="#tu-van" class="results-slider__service-btn">Đăng Kí Tư Vấn</a>
+                                        <a href="#chi-tiet" class="results-slider__service-btn">Tìm hiểu thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="results-slider__compare-card">
+                                <div class="results-slider__compare-track">
+                                    <img src="Home/images/results-meso-compare.jpg" alt="So sánh trước và sau cấy Meso"
+                                        class="results-slider__compare-img results-slider__compare-img--active" loading="lazy">
+                                    <img src="Home/images/results-meso-compare1.jpg" alt="So sánh trước và sau cấy Meso"
+                                        class="results-slider__compare-img" loading="lazy">
+                                    <img src="Home/images/results-meso-compare2.jpg" alt="So sánh trước và sau cấy Meso"
+                                        class="results-slider__compare-img" loading="lazy">
+                                </div>
+                            </div>
+
+                        </div>
+                    </article>
+
+                </div>
+                </div>
+
+                <!-- Nút Next -->
+                <button class="results-slider__nav-btn results-slider__nav-btn--next" type="button"
+                    aria-label="Slide tiếp theo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </button>
+
+                <!-- Pagination Dots -->
+                <div class="results-slider__pagination">
+                    <button class="results-slider__dot results-slider__dot--active" type="button"
+                        aria-label="Slide 1"></button>
+                    <button class="results-slider__dot" type="button" aria-label="Slide 2"></button>
+                    <button class="results-slider__dot" type="button" aria-label="Slide 3"></button>
+                    <button class="results-slider__dot" type="button" aria-label="Slide 4"></button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="journey" aria-label="Hành Trình Lấy Lại Làn Da">
+        <div class="container">
+
+            <!-- Tiêu Đề Section -->
+            <div class="journey__header">
+                <h2 class="journey__title" data-aos="fade-up">Hành Trình Lấy Lại Làn Da</h2>
+            </div>
+
+        </div>
+
+        <!-- Khung Gallery Trượt Ngang (Full Viewport) -->
+        <div class="journey__viewport">
+            <div class="journey__track" id="journey-track">
+
+                <!-- Item 1 -->
+                <article class="journey__card">
+                    <img src="Home/images/journey-story-1.jpg" alt="Hành trình điều trị laser của khách hàng"
+                        class="journey__card-img" loading="lazy">
+                    <div class="journey__card-play" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                </article>
+
+                <!-- Item 2 -->
+                <article class="journey__card">
+                    <img src="Home/images/journey-story-2.jpg" alt="Quá trình chăm sóc và phục hồi da"
+                        class="journey__card-img" loading="lazy">
+                    <div class="journey__card-play" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                </article>
+
+                <!-- Item 3 -->
+                <article class="journey__card">
+                    <img src="Home/images/journey-story-3.jpg" alt="Tình trạng da mặt cải thiện rõ rệt"
+                        class="journey__card-img" loading="lazy">
+                    <div class="journey__card-play" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                </article>
+
+                <!-- Item 4 -->
+                <article class="journey__card">
+                    <img src="Home/images/journey-story-4.jpg" alt="Review trải nghiệm Laser Discovery Pico"
+                        class="journey__card-img" loading="lazy">
+                    <div class="journey__card-play" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                </article>
+
+                <!-- Item 5 -->
+                <article class="journey__card">
+                    <img src="Home/images/journey-story-5.jpg" alt="Cảm nhận sau khi bắn laser trị thâm nám"
+                        class="journey__card-img" loading="lazy">
+                    <div class="journey__card-play" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                </article>
+
+                <!-- Item 6 -->
+                <article class="journey__card">
+                    <img src="Home/images/journey-story-6.jpg" alt="Làn da căng mịn không tì vết" class="journey__card-img"
+                        loading="lazy">
+                    <div class="journey__card-play" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                </article>
+                <!-- Item 7 -->
+                <article class="journey__card">
+                    <img src="Home/images/journey-story-7.jpg" alt="Làn da căng mịn không tì vết" class="journey__card-img"
+                        loading="lazy">
+                    <div class="journey__card-play" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                </article>
+                <!-- Item 8 -->
+                <article class="journey__card">
+                    <img src="Home/images/journey-story-8.jpg" alt="Làn da căng mịn không tì vết" class="journey__card-img"
+                        loading="lazy">
+                    <div class="journey__card-play" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            initHeroSlider();
+            initAboutCounters();
+            initServicesSlider();
+            initResultsSlider();
+            initCompareSliders();
+            initJourneyGallery();
+        });
+
+        function initHeroSlider() {
+            const slides = document.querySelectorAll(".hero-slider__slide");
+            const dots = document.querySelectorAll(".hero-slider__dot");
+            const track = document.querySelector(".hero-slider__track");
+            const prevBtn = document.querySelector(".hero-slider__nav-btn--prev");
+            const nextBtn = document.querySelector(".hero-slider__nav-btn--next");
+
+            if (!slides.length) return;
+
+            let currentSlide = 0;
+            let autoSlideTimer = null;
+
+            const showSlide = (index) => {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle("hero-slider__slide--active", i === index);
+                });
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle("hero-slider__dot--active", i === index);
+                });
+                track.style.transform = `translateX(-${index * 100}%)`;
+                currentSlide = index;
+            };
+
+            const nextSlide = () => {
+                const nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            };
+
+            const prevSlide = () => {
+                const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(prevIndex);
+            };
+
+            const startAutoSlide = () => {
+                autoSlideTimer = setInterval(nextSlide, 5000);
+            };
+
+            const resetAutoSlide = () => {
+                clearInterval(autoSlideTimer);
+                startAutoSlide();
+            };
+
+            // Lắng nghe sự kiện Click
+            nextBtn?.addEventListener("click", () => {
+                nextSlide();
+                resetAutoSlide();
+            });
+
+            prevBtn?.addEventListener("click", () => {
+                prevSlide();
+                resetAutoSlide();
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener("click", () => {
+                    showSlide(index);
+                    resetAutoSlide();
+                });
+            });
+
+            // Bắt đầu chạy tự động
+            startAutoSlide();
+        }
+
+        function initAboutCounters() {
+            const statsEl = document.querySelector(".about__stats");
+            const numbers = document.querySelectorAll(".about__stat-number");
+
+            if (!statsEl || !numbers.length) return;
+
+            // Định dạng số theo chuẩn Việt Nam: dấu chấm phân cách hàng nghìn
+            const formatNumber = (value) => value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+            const parseTarget = (el) => {
+                const match = el.textContent.trim().match(/^([\d.,]+)(.*)$/);
+                if (!match) return null;
+                const target = parseInt(match[1].replace(/[.,]/g, ""), 10);
+                return { target, suffix: match[2] };
+            };
+
+            const animate = () => {
+                const duration = 1500;
+                const startTime = performance.now();
+
+                const data = Array.from(numbers).map((el) => ({ el, ...parseTarget(el) })).filter((d) => d.target != null);
+
+                const tick = (now) => {
+                    const progress = Math.min((now - startTime) / duration, 1);
+                    // Ease-out cubic
+                    const eased = 1 - Math.pow(1 - progress, 3);
+
+                    data.forEach(({ el, target, suffix }) => {
+                        el.textContent = formatNumber(Math.round(target * eased)) + suffix;
+                    });
+
+                    if (progress < 1) requestAnimationFrame(tick);
+                };
+
+                requestAnimationFrame(tick);
+            };
+
+            // Người dùng cài đặt giảm chuyển động -> hiển thị thẳng giá trị cuối cùng
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                numbers.forEach((el) => {
+                    const { target, suffix } = parseTarget(el) || {};
+                    if (target != null) el.textContent = formatNumber(target) + suffix;
+                });
+                return;
+            }
+
+            // Chạy 1 lần duy nhất khi banner thống kê vào màn hình
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    animate();
+                    observer.disconnect();
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(statsEl);
+        }
+
+        /* ==========================================================================
+           3. MODULE: SERVICES SLIDER (CENTER-MODE & SWIPE - LOOP VÔ HẠN)
+           ========================================================================== */
+        function initServicesSlider() {
+            const viewport = document.querySelector(".services-slider__viewport");
+            const track = document.getElementById("services-track");
+            const pagination = document.getElementById("services-pagination");
+
+            if (!viewport || !track) return;
+
+            const realSlides = Array.from(track.querySelectorAll(".services-slider__slide"));
+            const count = realSlides.length;
+            if (!count) return;
+
+            // ---------------------------------------------------------------
+            // 1) Nhân bản slide để loop vô hạn (clone trước & sau track)
+            // ---------------------------------------------------------------
+            const fragBefore = document.createDocumentFragment();
+            const fragAfter = document.createDocumentFragment();
+
+            realSlides.forEach((slide) => {
+                const c1 = slide.cloneNode(true);
+                const c2 = slide.cloneNode(true);
+                [c1, c2].forEach((clone) => {
+                    clone.classList.remove("services-slider__slide--active");
+                    clone.setAttribute("aria-hidden", "true");
+                });
+                fragBefore.appendChild(c1);
+                fragAfter.appendChild(c2);
+            });
+
+            track.prepend(fragBefore);
+            track.append(fragAfter);
+
+            const allSlides = Array.from(track.children);
+            // Chỉ mục hợp nhất: [clone 0..N-1] [thật N..2N-1] [clone 2N..3N-1]
+            const getRealIndex = (combined) => combined % count;
+
+            // Bắt đầu ở slide thật giữa danh sách (giữ vị trí CFU ban đầu)
+            let currentIndex = count + 2;
+            let isDragging = false;
+            let startX = 0;
+            let autoSlideTimer = null;
+
+            // Tự động tạo dots nếu có container phân trang (theo slide thật)
+            let dots = [];
+            if (pagination) {
+                pagination.innerHTML = "";
+                for (let i = 0; i < count; i++) {
+                    const dot = document.createElement("button");
+                    dot.className = "services-slider__dot";
+                    dot.setAttribute("type", "button");
+                    dot.setAttribute("aria-label", `Chuyển tới slide ${i + 1}`);
+                    dot.addEventListener("click", () => {
+                        updateSlider(count + i);
+                        resetAutoSlide();
+                    });
+                    pagination.appendChild(dot);
+                }
+                dots = Array.from(pagination.querySelectorAll(".services-slider__dot"));
+            }
+
+            const setActive = () => {
+                const real = getRealIndex(currentIndex);
+                allSlides.forEach((slide, i) => {
+                    const isReal = i >= count && i < 2 * count;
+                    slide.classList.toggle(
+                        "services-slider__slide--active",
+                        isReal && i - count === real
+                    );
+                });
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle("services-slider__dot--active", i === real);
+                });
+            };
+
+            // Tính toán tâm để căn giữa slide đang active
+            const updateSlider = (index, animate = true) => {
+                currentIndex = Math.max(count - 1, Math.min(index, 2 * count));
+                setActive();
+
+                const targetSlide = allSlides[currentIndex];
+                const viewportWidth = viewport.offsetWidth;
+                const slideOffset = targetSlide.offsetLeft;
+                const slideWidth = targetSlide.offsetWidth;
+
+                const currentTranslate = -(slideOffset - (viewportWidth / 2 - slideWidth / 2));
+
+                if (!animate) {
+                    track.style.transition = "none";
+                    track.style.transform = `translateX(${currentTranslate}px)`;
+                    void track.offsetWidth; // ép reflow để áp dụng ngay lập tức
+                    track.style.transition = "";
+                } else {
+                    track.style.transform = `translateX(${currentTranslate}px)`;
+                }
+            };
+
+            // Snap vô hình khi đi qua biên để quay vòng mượt mà
+            const snapWrap = () => {
+                if (currentIndex >= 2 * count) {
+                    updateSlider(currentIndex - count, false);
+                } else if (currentIndex < count) {
+                    updateSlider(currentIndex + count, false);
+                }
+            };
+
+            track.addEventListener("transitionend", (e) => {
+                if (e.target !== track) return; // chỉ xử lý transition của track
+                if (e.propertyName !== "transform") return;
+                snapWrap();
+            });
+
+            // Tự động trượt slide sau mỗi 5 giây
+            const startAutoSlide = () => {
+                clearInterval(autoSlideTimer);
+                autoSlideTimer = setInterval(() => {
+                    updateSlider(currentIndex + 1);
+                }, 5000);
+            };
+
+            // Làm mới bộ đếm khi người dùng tương tác
+            const resetAutoSlide = () => startAutoSlide();
+
+            // Căn chỉnh ban đầu & khi thay đổi kích thước màn hình
+            setTimeout(() => updateSlider(currentIndex, false), 60);
+            window.addEventListener("resize", () => updateSlider(currentIndex, false));
+
+            // Click trực tiếp vào thẻ bất kỳ để đưa thẻ đó về trung tâm
+            allSlides.forEach((slide, i) => {
+                slide.addEventListener("click", () => {
+                    const real = getRealIndex(i);
+                    if (real !== getRealIndex(currentIndex)) {
+                        updateSlider(count + real);
+                    }
+                    resetAutoSlide();
+                });
+            });
+
+            // Hỗ trợ vuốt chạm (Touch Swipe) - lặp vô hạn qua biên
+            track.addEventListener("touchstart", (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            }, { passive: true });
+
+            track.addEventListener("touchend", (e) => {
+                if (!isDragging) return;
+                const endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > 40) {
+                    if (diff > 0) {
+                        updateSlider(currentIndex + 1);
+                    } else if (diff < 0) {
+                        updateSlider(currentIndex - 1);
+                    }
+                    resetAutoSlide();
+                }
+                isDragging = false;
+            });
+
+            // Bắt đầu chạy tự động
+            startAutoSlide();
+        }
+
+        /* ==========================================================================
+   4. MODULE: RESULTS SLIDER (TRƯỢT MƯỢT MÀ 4 SLIDES TRANSLATEX)
+   ========================================================================== */
+        function initResultsSlider() {
+            const track = document.querySelector(".results-slider__track");
+            const slides = document.querySelectorAll(".results-slider__slide");
+            const dots = document.querySelectorAll(".results-slider__dot");
+            const prevBtn = document.querySelector(".results-slider__nav-btn--prev");
+            const nextBtn = document.querySelector(".results-slider__nav-btn--next");
+
+            if (!track || !slides.length) return;
+
+            let currentSlide = 0;
+            let startX = 0;
+            let isDragging = false;
+
+            const updateSlide = (index) => {
+                currentSlide = (index + slides.length) % slides.length;
+                // Dịch chuyển track 100% mỗi slide
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle("results-slider__dot--active", i === currentSlide);
+                });
+            };
+
+            nextBtn?.addEventListener("click", () => updateSlide(currentSlide + 1));
+            prevBtn?.addEventListener("click", () => updateSlide(currentSlide - 1));
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener("click", () => updateSlide(index));
+            });
+
+            // Hỗ trợ vuốt chạm cảm ứng cho Slider kết quả
+            track.addEventListener("touchstart", (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            }, { passive: true });
+
+            track.addEventListener("touchend", (e) => {
+                if (!isDragging) return;
+                const endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > 40) {
+                    if (diff > 0) updateSlide(currentSlide + 1);
+                    else updateSlide(currentSlide - 1);
+                }
+                isDragging = false;
+            });
+        }
+
+        /* ==========================================================================
+           5. MODULE: SKIN JOURNEY GALLERY (KÉO CHUỘT / VUỐT CẢM ỨNG MƯỢT MÀ)
+           ========================================================================== */
+        function initJourneyGallery() {
+            const slider = document.querySelector(".journey__viewport");
+            if (!slider) return;
+
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener("mousedown", (e) => {
+                isDown = true;
+                slider.style.cursor = "grabbing";
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+
+            slider.addEventListener("mouseleave", () => {
+                isDown = false;
+                slider.style.cursor = "grab";
+            });
+
+            slider.addEventListener("mouseup", () => {
+                isDown = false;
+                slider.style.cursor = "grab";
+            });
+
+            slider.addEventListener("mousemove", (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 1.8; // Tốc độ trượt theo chuyển động chuột
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        function initCompareSliders() {
+            const tracks = document.querySelectorAll(".results-slider__compare-track");
+            tracks.forEach((track) => {
+                const imgs = track.querySelectorAll(".results-slider__compare-img");
+                if (imgs.length < 2) return;
+                let index = 0;
+                setInterval(() => {
+                    imgs[index].classList.remove("results-slider__compare-img--active");
+                    index = (index + 1) % imgs.length;
+                    imgs[index].classList.add("results-slider__compare-img--active");
+                }, 2000);
+            });
+        }
+    </script>
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="header/js/script.js"></script>
+
+    <footer class="footer" id="footer" aria-label="Chân trang Medicare Clinic">
+        <div class="container">
+            <div class="footer__grid">
+
+                <!-- ================= CỘT 1: THÔNG TIN THƯƠNG HIỆU & LIÊN HỆ ================= -->
+                <div class="footer__brand">
+                    <!-- Logo -->
+                    <a href="/" class="footer__logo" aria-label="Medicare Clinic - Trang Chủ">
+                        <img src="footer/images/logo-medicare.svg" alt="Medicare Clinic" class="footer__logo-img" width="160"
+                            height="60">
+                    </a>
+
+                    <!-- Danh sách thông tin liên hệ -->
+                    <ul class="footer__contacts">
+                        <li class="footer__contact-item">
+                            <span class="footer__contact-icon" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </span>
+                            <span class="footer__contact-text">Thời gian làm việc: 8.00 AM - 18.00 PM</span>
+                        </li>
+
+                        <li class="footer__contact-item">
+                            <span class="footer__contact-icon" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </span>
+                            <span class="footer__contact-text">Số 10 ngõ 4 Pháo Đài Láng, Láng Thượng, Đống Đa, Hà
+                                Nội</span>
+                        </li>
+
+                        <li class="footer__contact-item">
+                            <span class="footer__contact-icon" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </span>
+                            <a href="mailto:medicareclinics.hn@gmail.com"
+                                class="footer__contact-link">medicareclinics.hn@gmail.com</a>
+                        </li>
+
+                        <li class="footer__contact-item">
+                            <span class="footer__contact-icon" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                            </span>
+                            <a href="tel:0778486888" class="footer__contact-link">077 8486 888</a>
+                        </li>
+                    </ul>
+
+                    <!-- Mạng xã hội -->
+                    <div class="footer__socials">
+                        <!-- Facebook -->
+                        <a href="#" class="footer__social-btn footer__social-btn--facebook" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="#" class="footer__social-btn footer__social-btn--youtube" aria-label="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                        <!-- Messenger -->
+                        <a href="#" class="footer__social-btn footer__social-btn--messenger" aria-label="Messenger">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.09.302 2.247.464 3.443.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26 6.559-6.963 3.13 3.259 5.889-3.259-6.56 6.963z" />
+                            </svg>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="#" class="footer__social-btn footer__social-btn--tiktok" aria-label="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ================= CỘT 2: TRANG CHỦ ================= -->
+                <div class="footer__col">
+                    <h4 class="footer__title">Trang chủ</h4>
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item"><a href="#buoi-le" class="footer__nav-link">Buổi Lẻ</a></li>
+                        <li class="footer__nav-item"><a href="#peel" class="footer__nav-link">Peel</a></li>
+                        <li class="footer__nav-item"><a href="#laser" class="footer__nav-link">Laser</a></li>
+                        <li class="footer__nav-item"><a href="#lan-kim" class="footer__nav-link">Lăn Kim</a></li>
+                        <li class="footer__nav-item"><a href="#phi-kim" class="footer__nav-link">Phi Kim</a></li>
+                    </ul>
+                </div>
+
+                <!-- ================= CỘT 3: ĐIỀU TRỊ ================= -->
+                <div class="footer__col">
+                    <h4 class="footer__title">Điều trị</h4>
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item"><a href="#lieu-trinh" class="footer__nav-link">Liệu Trình</a></li>
+                        <li class="footer__nav-item"><a href="#dieu-tri-seo" class="footer__nav-link">Điều Trị Sẹo</a>
+                        </li>
+                        <li class="footer__nav-item"><a href="#dieu-tri-mun" class="footer__nav-link">Điều Trị Mụn</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- ================= CỘT 4: THẨM MỸ ================= -->
+                <div class="footer__col">
+                    <h4 class="footer__title">Thẩm Mỹ</h4>
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item"><a href="#cfu" class="footer__nav-link">CPU</a></li>
+                        <li class="footer__nav-item"><a href="#combo" class="footer__nav-link">Combo</a></li>
+                    </ul>
+                </div>
+
+                <!-- ================= CỘT 5: SẢN PHẨM ================= -->
+                <div class="footer__col">
+                    <h4 class="footer__title">Sản Phẩm</h4>
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item"><a href="#bap" class="footer__nav-link">Bap</a></li>
+                        <li class="footer__nav-item"><a href="#meso-product" class="footer__nav-link">Meso</a></li>
+                        <li class="footer__nav-item"><a href="#filler" class="footer__nav-link">Filler</a></li>
+                        <li class="footer__nav-item"><a href="#botox" class="footer__nav-link">Botox</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
