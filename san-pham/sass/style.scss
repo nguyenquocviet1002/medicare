@@ -114,27 +114,30 @@
   &__viewport {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     padding: 0.5rem 0 1rem 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &__track {
     display: flex;
     gap: 1.5rem;
-    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
-    will-change: transform;
-    touch-action: pan-y;
-    cursor: grab;
-
-    &:active {
-      cursor: grabbing;
-    }
+    width: max-content;
   }
 
   /* Slide Items */
   &__slide {
     flex: 0 0 calc((100% - 1.5rem) / 2);
     max-width: calc((100% - 1.5rem) / 2);
+    scroll-snap-align: start;
     user-select: none;
 
     @media (max-width: 575.98px) {

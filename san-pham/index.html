@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/sass/style.min.css?v=3">
-    <link rel="stylesheet" href="sass/style.min.css?v=3">
-    <link rel="stylesheet" href="../header/sass/style.min.css?v=3">
-    <link rel="stylesheet" href="../footer/sass/style.min.css?v=3">
+    <link rel="stylesheet" href="../assets/sass/style.min.css?v=4">
+    <link rel="stylesheet" href="sass/style.min.css?v=4">
+    <link rel="stylesheet" href="../header/sass/style.min.css?v=4">
+    <link rel="stylesheet" href="../footer/sass/style.min.css?v=4">
 </head>
 
 <body>
@@ -604,86 +604,30 @@
                 const wrappers = contentContainer.querySelectorAll(".tabbed-slider__carousel-wrapper");
 
                 wrappers.forEach((wrapper) => {
+                    const viewport = wrapper.querySelector(".tabbed-slider__viewport");
                     const track = wrapper.querySelector(".tabbed-slider__track");
                     const prevBtn = wrapper.querySelector(".tabbed-slider__nav-btn--prev");
                     const nextBtn = wrapper.querySelector(".tabbed-slider__nav-btn--next");
+                    if (!viewport || !track) return;
                     const slides = Array.from(track.querySelectorAll(".tabbed-slider__slide"));
-
-if (!track || !slides.length) return;
-
-                    let currentIndex = 0;
-                    let startX = 0;
-                    let startY = 0;
-                    let axisLock = null;
-                    let isDragging = false;
-
-                    const getVisibleCards = () => (window.innerWidth <= 575 ? 1 : 2);
+                    if (!slides.length) return;
 
                     const syncControls = () => {
-                        const fits = slides.length <= getVisibleCards();
+                        const fits = viewport.scrollWidth <= viewport.clientWidth + 1;
                         wrapper.classList.toggle("tabbed-slider__carousel-wrapper--full", fits);
                     };
 
-                    const updatePosition = (index) => {
-                        const visibleCards = getVisibleCards();
-                        const maxIndex = Math.max(0, slides.length - visibleCards);
-                        currentIndex = Math.max(0, Math.min(index, maxIndex));
-
-                        const slideWidth = slides[0].offsetWidth;
-                        const gap = 24; // 1.5rem = 24px
-                        track.style.transform = `translateX(-${currentIndex * (slideWidth + gap)}px)`;
+                    const step = (dir) => {
+                        const stepX = slides[0].offsetWidth + 24; // 1.5rem = 24px gap
+                        viewport.scrollBy({ left: dir * stepX, behavior: "smooth" });
                     };
 
-                    nextBtn?.addEventListener("click", () => updatePosition(currentIndex + 1));
-                    prevBtn?.addEventListener("click", () => updatePosition(currentIndex - 1));
+                    nextBtn?.addEventListener("click", () => step(1));
+                    prevBtn?.addEventListener("click", () => step(-1));
 
-                    window.addEventListener("resize", () => {
-                        updatePosition(currentIndex);
-                        syncControls();
-                    });
+                    window.addEventListener("resize", () => syncControls());
 
                     syncControls();
-
-                    // Vuốt chạm cảm ứng
-                    track.addEventListener("touchstart", (e) => {
-                        startX = e.touches[0].clientX;
-                        startY = e.touches[0].clientY;
-                        axisLock = null;
-                        isDragging = true;
-                    }, { passive: true });
-
-                    track.addEventListener("touchmove", (e) => {
-                        if (!isDragging) return;
-                        const dx = e.touches[0].clientX - startX;
-                        const dy = e.touches[0].clientY - startY;
-                        if (!axisLock) {
-                            if (Math.abs(dx) > 10 || Math.abs(dy) > 10) {
-                                axisLock = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
-                            } else {
-                                return;
-                            }
-                        }
-                        if (axisLock === "x") {
-                            e.preventDefault();
-                        }
-                    }, { passive: false });
-
-                    track.addEventListener("touchend", (e) => {
-                        if (!isDragging) return;
-                        isDragging = false;
-                        if (axisLock !== "x") return;
-                        const diff = startX - e.changedTouches[0].clientX;
-                        if (Math.abs(diff) > 40) {
-                            if (diff > 0) updatePosition(currentIndex + 1);
-                            else updatePosition(currentIndex - 1);
-                            e.preventDefault();
-                        }
-                    });
-
-                    track.addEventListener("touchcancel", () => {
-                        isDragging = false;
-                        axisLock = null;
-                    });
                 });
             };
 
