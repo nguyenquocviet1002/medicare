@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/sass/style.min.css?v=2">
-    <link rel="stylesheet" href="Home/sass/style.min.css?v=2">
-    <link rel="stylesheet" href="header/sass/style.min.css">
-    <link rel="stylesheet" href="footer/sass/style.min.css">
+    <link rel="stylesheet" href="assets/sass/style.min.css?v=3">
+    <link rel="stylesheet" href="Home/sass/style.min.css?v=3">
+    <link rel="stylesheet" href="header/sass/style.min.css?v=3">
+    <link rel="stylesheet" href="footer/sass/style.min.css?v=3">
 </head>
 
 <body>
@@ -28,11 +28,11 @@
                 <!-- 3. Navigation Menu -->
                 <nav class="header__nav" id="main-nav" aria-label="Menu điều hướng chính">
                     <ul class="header__menu">
-                        <li class="header__menu-item">
+                        <li class="header__menu-item header__menu-item--active">
                             <a href="/medicare/" class="header__menu-link header__menu-link--active">Trang Chủ</a>
                         </li>
                         <li class="header__menu-item header__menu-item--has-submenu">
-                            <a href="#" class="header__menu-link">Điều Trị</a>
+                            <a href="dich-vu-buoi-le/index.html#laser" class="header__menu-link">Điều Trị</a>
 
                             <!-- Nút xổ submenu trên Mobile -->
                             <button class="header__submenu-toggle" type="button" aria-expanded="false"
@@ -46,6 +46,7 @@
                                     <a href="dich-vu-buoi-le/index.html#peel" class="header__submenu-link">PEEL</a>
                                     <a href="dich-vu-buoi-le/index.html#lan-kim" class="header__submenu-link">LĂN KIM</a>
                                     <a href="dich-vu-buoi-le/index.html#phi-kim" class="header__submenu-link">PHI KIM</a>
+                                    <a href="dich-vu-buoi-le/index.html#tach-day" class="header__submenu-link">TÁCH ĐÁY</a>
                                 </div>
                                 <div class="header__submenu-col">
                                     <a href="dich-vu-lieu-trinh/index.html" class="header__submenu-title">Liệu Trình</a>
@@ -56,7 +57,7 @@
                             </div>
                         </li>
                         <li class="header__menu-item header__menu-item--has-submenu">
-                            <a href="#" class="header__menu-link">Thẩm Mỹ</a>
+                            <a href="cfu-eliffe/index.html" class="header__menu-link">Thẩm Mỹ</a>
 
                             <!-- Nút xổ submenu trên Mobile -->
                             <button class="header__submenu-toggle" type="button" aria-expanded="false"
@@ -71,7 +72,7 @@
                             </div>
                         </li>
                         <li class="header__menu-item header__menu-item--has-submenu">
-                            <a href="#" class="header__menu-link">Sản Phẩm</a>
+                            <a href="san-pham/index.html#meso" class="header__menu-link">Sản Phẩm</a>
 
                             <!-- Nút xổ submenu trên Mobile -->
                             <button class="header__submenu-toggle" type="button" aria-expanded="false"
@@ -408,7 +409,7 @@
                                 Cải thiện sẹo rỗ sâu, tái tạo bề mặt da sần, kết cấu da săn chắc, giảm nếp nhăn và
                                 tăng độ đàn hồi cho da.
                             </p>
-                            <div class="services-slider__card-price">Giá: 2.500.000 VNĐ</div>
+                            <div class="services-slider__card-price">Giá: 3.000.000 VNĐ</div>
                             <a href="#dich-vu" class="services-slider__card-btn">Tìm hiểu thêm</a>
                         </div>
                     </div>
@@ -853,6 +854,37 @@
                 });
             });
 
+            // Hỗ trợ vuốt chạm cảm ứng cho Hero Slider
+            let startX = 0;
+            let isDragging = false;
+
+            if (track) {
+                track.addEventListener("touchstart", (e) => {
+                    startX = e.touches[0].clientX;
+                    isDragging = true;
+                }, { passive: true });
+
+                track.addEventListener("touchmove", (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                }, { passive: false });
+
+                track.addEventListener("touchend", (e) => {
+                    if (!isDragging) return;
+                    const diff = startX - e.changedTouches[0].clientX;
+                    if (Math.abs(diff) > 40) {
+                        if (diff > 0) {
+                            nextSlide();
+                        } else {
+                            prevSlide();
+                        }
+                        resetAutoSlide();
+                        e.preventDefault();
+                    }
+                    isDragging = false;
+                });
+            }
+
             // Bắt đầu chạy tự động
             startAutoSlide();
         }
@@ -958,6 +990,7 @@
             let isDragging = false;
             let startX = 0;
             let autoSlideTimer = null;
+            let swiped = false;
 
             // Tự động tạo dots nếu có container phân trang (theo slide thật)
             let dots = [];
@@ -1046,6 +1079,10 @@
             // Click trực tiếp vào thẻ bất kỳ để đưa thẻ đó về trung tâm
             allSlides.forEach((slide, i) => {
                 slide.addEventListener("click", () => {
+                    if (swiped) {
+                        swiped = false;
+                        return;
+                    }
                     const real = getRealIndex(i);
                     if (real !== getRealIndex(currentIndex)) {
                         updateSlider(count + real);
@@ -1058,7 +1095,13 @@
             track.addEventListener("touchstart", (e) => {
                 startX = e.touches[0].clientX;
                 isDragging = true;
+                swiped = false;
             }, { passive: true });
+
+            track.addEventListener("touchmove", (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+            }, { passive: false });
 
             track.addEventListener("touchend", (e) => {
                 if (!isDragging) return;
@@ -1072,6 +1115,8 @@
                         updateSlider(currentIndex - 1);
                     }
                     resetAutoSlide();
+                    swiped = true;
+                    e.preventDefault();
                 }
                 isDragging = false;
             });
@@ -1119,6 +1164,11 @@
                 isDragging = true;
             }, { passive: true });
 
+            track.addEventListener("touchmove", (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+            }, { passive: false });
+
             track.addEventListener("touchend", (e) => {
                 if (!isDragging) return;
                 const endX = e.changedTouches[0].clientX;
@@ -1127,6 +1177,7 @@
                 if (Math.abs(diff) > 40) {
                     if (diff > 0) updateSlide(currentSlide + 1);
                     else updateSlide(currentSlide - 1);
+                    e.preventDefault();
                 }
                 isDragging = false;
             });
@@ -1166,6 +1217,25 @@
                 const x = e.pageX - slider.offsetLeft;
                 const walk = (x - startX) * 1.8; // Tốc độ trượt theo chuyển động chuột
                 slider.scrollLeft = scrollLeft - walk;
+            });
+
+            // Hỗ trợ vuốt chạm cảm ứng cho Gallery
+            slider.addEventListener("touchstart", (e) => {
+                isDown = true;
+                startX = e.touches[0].clientX;
+                scrollLeft = slider.scrollLeft;
+            }, { passive: true });
+
+            slider.addEventListener("touchmove", (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.touches[0].clientX - slider.offsetLeft;
+                const walk = (x - startX) * 1.8; // Tốc độ trượt theo chuyển động ngón tay
+                slider.scrollLeft = scrollLeft - walk;
+            }, { passive: false });
+
+            slider.addEventListener("touchend", () => {
+                isDown = false;
             });
         }
 
@@ -1210,7 +1280,7 @@
                                     <polyline points="12 6 12 12 16 14"></polyline>
                                 </svg>
                             </span>
-                            <span class="footer__contact-text">Thời gian làm việc: 8.00 AM - 18.00 PM</span>
+                            <span class="footer__contact-text">Thời gian làm việc: 8:30 - 18:00</span>
                         </li>
 
                         <li class="footer__contact-item">
@@ -1222,7 +1292,7 @@
                                     <circle cx="12" cy="10" r="3"></circle>
                                 </svg>
                             </span>
-                            <span class="footer__contact-text">Số 10 ngõ 4 Pháo Đài Láng, Láng Thượng, Đống Đa, Hà
+                            <span class="footer__contact-text">Số 10 ngõ 14 Pháo Đài Láng, Láng, Hà
                                 Nội</span>
                         </li>
 
@@ -1301,6 +1371,7 @@
                         <li class="footer__nav-item"><a href="#laser" class="footer__nav-link">Laser</a></li>
                         <li class="footer__nav-item"><a href="#lan-kim" class="footer__nav-link">Lăn Kim</a></li>
                         <li class="footer__nav-item"><a href="#phi-kim" class="footer__nav-link">Phi Kim</a></li>
+                        <li class="footer__nav-item"><a href="#tach-day" class="footer__nav-link">Tách Đáy</a></li>
                     </ul>
                 </div>
 
@@ -1320,7 +1391,7 @@
                 <div class="footer__col">
                     <h4 class="footer__title">Thẩm Mỹ</h4>
                     <ul class="footer__nav-list">
-                        <li class="footer__nav-item"><a href="#cfu" class="footer__nav-link">CPU</a></li>
+                        <li class="footer__nav-item"><a href="#cfu" class="footer__nav-link">CFU</a></li>
                         <li class="footer__nav-item"><a href="#combo" class="footer__nav-link">Combo</a></li>
                     </ul>
                 </div>

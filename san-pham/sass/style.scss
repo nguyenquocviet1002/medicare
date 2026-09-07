@@ -102,6 +102,13 @@
   &__carousel-wrapper {
     position: relative;
     width: 100%;
+
+    /* Khi danh sách sản phẩm vừa đủ (không cần scroll): ẩn nút điều hướng */
+    &--full {
+      .tabbed-slider__nav-btn {
+        display: none;
+      }
+    }
   }
 
   &__viewport {
@@ -116,6 +123,7 @@
     gap: 1.5rem;
     transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
+    touch-action: pan-y;
     cursor: grab;
 
     &:active {

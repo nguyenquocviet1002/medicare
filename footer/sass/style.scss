@@ -15,25 +15,25 @@
   &__grid {
     display: grid;
     grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
     align-items: flex-start;
 
     /* Tablet (768px - 991px): 3 Cột */
     @media (max-width: 991.98px) {
       grid-template-columns: 1.5fr repeat(2, 1fr);
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     /* Mobile (< 768px): 2 Cột */
     @media (max-width: 767.98px) {
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem 1.5rem;
+      gap: 1.5rem 1rem;
     }
 
-    /* Small Mobile (< 576px): 1 Cột */
+    /* Small Mobile (< 576px): 2 Cột Nav + Social cuối */
     @media (max-width: 575.98px) {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem 1rem;
     }
   }
 
@@ -53,6 +53,11 @@
     display: inline-flex;
     margin-bottom: 1.5rem;
     text-decoration: none;
+
+    /* Small Mobile (< 576px): bỏ margin, grid gap đã lo khoảng cách */
+    @media (max-width: 575.98px) {
+      margin-bottom: 0;
+    }
 
     &-img {
       display: block;
@@ -153,6 +158,12 @@
   &__col {
     display: flex;
     flex-direction: column;
+    margin-top: 6rem; // Đẩy khối cột xuống bắt đầu ngang giữa logo
+
+    /* Tablet & Mobile (< 992px) */
+    @media (max-width: 991.98px) {
+      margin-top: 0; // Reset trên Tablet/Mobile, grid gap đã lo khoảng cách
+    }
   }
 
   &__title {
@@ -189,6 +200,92 @@
     &:hover {
       color: var(--color-primary);
       transform: translateX(3px);
+    }
+  }
+
+  /* ==========================================================
+     RESPONSIVE: TÁCH SOCIAL RA KHỎI KHỐI BRAND
+     ========================================================== */
+
+  /* Tablet & Mobile (< 992px): socials xuống hàng cuối cùng */
+  @media (max-width: 991.98px) {
+    .footer__brand {
+      display: contents; // 3 con (logo/contacts/socials) trở thành grid item
+
+      > :nth-child(1) {
+        grid-column: 1;
+        grid-row: 1; // Logo → cột trái
+      }
+
+      > :nth-child(2) {
+        grid-column: 1;
+        grid-row: 2; // Contacts → cột trái
+      }
+
+      > :nth-child(3) {
+        grid-column: 1 / -1;
+        grid-row: 3; // Socials → full width, hàng cuối
+      }
+    }
+
+    .footer__col:nth-of-type(2) {
+      grid-column: 2;
+      grid-row: 1; // Trang chủ
+    }
+
+    .footer__col:nth-of-type(3) {
+      grid-column: 3;
+      grid-row: 1; // Điều trị
+    }
+
+    .footer__col:nth-of-type(4) {
+      grid-column: 2;
+      grid-row: 2; // Thẩm Mỹ
+    }
+
+    .footer__col:nth-of-type(5) {
+      grid-column: 3;
+      grid-row: 2; // Sản Phẩm
+    }
+  }
+
+  /* Small Mobile (< 576px): nav xếp 2 cột, socials cuối cùng */
+  @media (max-width: 575.98px) {
+    .footer__brand {
+      > :nth-child(1) {
+        grid-column: 1 / -1;
+        grid-row: 1; // Logo → full width
+      }
+
+      > :nth-child(2) {
+        grid-column: 1 / -1;
+        grid-row: 2; // Contacts → full width
+      }
+
+      > :nth-child(3) {
+        grid-column: 1 / -1;
+        grid-row: 5; // Socials → full width, hàng cuối
+      }
+    }
+
+    .footer__col:nth-of-type(2) {
+      grid-column: 1;
+      grid-row: 3; // Trang chủ
+    }
+
+    .footer__col:nth-of-type(3) {
+      grid-column: 2;
+      grid-row: 3; // Điều trị
+    }
+
+    .footer__col:nth-of-type(4) {
+      grid-column: 1;
+      grid-row: 4; // Thẩm Mỹ
+    }
+
+    .footer__col:nth-of-type(5) {
+      grid-column: 2;
+      grid-row: 4; // Sản Phẩm
     }
   }
 }
