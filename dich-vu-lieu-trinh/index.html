@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/sass/style.min.css?v=3">
-    <link rel="stylesheet" href="sass/style.min.css?v=3">
-    <link rel="stylesheet" href="../header/sass/style.min.css?v=3">
-    <link rel="stylesheet" href="../footer/sass/style.min.css?v=3">
+    <link rel="stylesheet" href="../assets/sass/style.min.css?v=4">
+    <link rel="stylesheet" href="sass/style.min.css?v=4">
+    <link rel="stylesheet" href="../header/sass/style.min.css?v=4">
+    <link rel="stylesheet" href="../footer/sass/style.min.css?v=4">
 </head>
 
 <body>
@@ -315,7 +315,7 @@
           
           <!-- Cột Trái: Ảnh Before & After -->
           <div class="package-services__media">
-            <div class="package-services__media-item">
+            <div class="package-services__media-item package-services__media-item--active">
               <img src="${item.beforeImg}" alt="Tình trạng trước điều trị" class="package-services__media-img" loading="lazy">
             </div>
             <div class="package-services__media-item">
@@ -350,17 +350,6 @@
                                 .join("")}
             </div>
 
-            <!-- Tác dụng -->
-            <ul class="package-services__benefits">
-              ${item.benefits
-                                .map(
-                                    (benefit) => `
-                <li class="package-services__benefit-item">${benefit}</li>
-              `
-                                )
-                                .join("")}
-            </ul>
-
             <!-- Footer: Giá & Icon Giỏ Hàng -->
             <div class="package-services__footer">
               <span class="package-services__price">Giá: ${item.price}</span>
@@ -394,6 +383,34 @@
                 )
                 .join("");
 
+// Slider ảnh Before/After: crossfade mỗi 4 giây chuyển ảnh một lần
+            let mediaFadeTimer = null;
+
+            const initMediaFade = () => {
+                if (mediaFadeTimer || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+                const tick = () => {
+                    document.querySelectorAll(".package-services__media").forEach((media) => {
+                        const items = media.querySelectorAll(".package-services__media-item");
+                        if (items.length < 2) return;
+                        const current = media.querySelector(".package-services__media-item--active");
+                        const idx = current ? Array.from(items).indexOf(current) : 0;
+                        items.forEach((it, i) => it.classList.toggle("package-services__media-item--active", i === (idx + 1) % items.length));
+                    });
+                };
+
+                mediaFadeTimer = setInterval(tick, 4000);
+            };
+
+            document.addEventListener("visibilitychange", () => {
+                if (document.hidden && mediaFadeTimer) {
+                    clearInterval(mediaFadeTimer);
+                    mediaFadeTimer = null;
+                } else if (!document.hidden && !mediaFadeTimer && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                    initMediaFade();
+                }
+            });
+
 // Kích hoạt Tab: cập nhật nút + render nội dung
             const activateTab = (key) => {
                 activeTabKey = key;
@@ -403,6 +420,7 @@
                     b.setAttribute("aria-selected", String(isActive));
                 });
                 renderContent(activeTabKey);
+                initMediaFade();
                 if (window.scrollReveal) window.scrollReveal.refresh();
             };
 
@@ -417,6 +435,7 @@
 
             // Render Lần Đầu
             renderContent(activeTabKey);
+            initMediaFade();
             if (window.scrollReveal) window.scrollReveal.refresh();
 
             // Nếu người dùng vào bằng hash của một tab, cuộn tới vùng danh sách dịch vụ

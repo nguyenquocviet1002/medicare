@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/sass/style.min.css?v=5">
-    <link rel="stylesheet" href="sass/style.min.css?v=5">
-    <link rel="stylesheet" href="../header/sass/style.min.css?v=5">
-    <link rel="stylesheet" href="../footer/sass/style.min.css?v=5">
+    <link rel="stylesheet" href="../assets/sass/style.min.css?v=9">
+    <link rel="stylesheet" href="sass/style.min.css?v=9">
+    <link rel="stylesheet" href="../header/sass/style.min.css?v=9">
+    <link rel="stylesheet" href="../footer/sass/style.min.css?v=9">
 </head>
 
 <body>
@@ -612,22 +612,54 @@
                     const slides = Array.from(track.querySelectorAll(".tabbed-slider__slide"));
                     if (!slides.length) return;
 
+                    let currentIndex = 0;
+
+                    const isMobile = () => window.matchMedia("(max-width: 575.98px)").matches;
+
                     const syncControls = () => {
-                        const fits = viewport.scrollWidth <= viewport.clientWidth + 1;
+                        const fits = isMobile()
+                            ? viewport.scrollWidth <= viewport.clientWidth + 1
+                            : slides.length <= 2;
                         wrapper.classList.toggle("tabbed-slider__carousel-wrapper--full", fits);
                     };
 
-                    const step = (dir) => {
+                    const stepMobile = (dir) => {
                         const stepX = slides[0].offsetWidth + 24; // 1.5rem = 24px gap
                         viewport.scrollBy({ left: dir * stepX, behavior: "smooth" });
                     };
 
-                    nextBtn?.addEventListener("click", () => step(1));
-                    prevBtn?.addEventListener("click", () => step(-1));
+                    const updatePosition = (index) => {
+                        const maxIndex = Math.max(0, slides.length - 2);
+                        currentIndex = Math.max(0, Math.min(index, maxIndex));
 
-                    window.addEventListener("resize", () => syncControls());
+                        const slideWidth = slides[0].offsetWidth;
+                        const gap = 24; // 1.5rem = 24px
+                        track.style.transform = `translateX(-${currentIndex * (slideWidth + gap)}px)`;
+                    };
 
-                    syncControls();
+                    const applyMode = () => {
+                        if (isMobile()) {
+                            track.style.transform = "";
+                            viewport.scrollLeft = 0;
+                        } else {
+                            viewport.scrollLeft = 0;
+                            updatePosition(currentIndex);
+                        }
+                        syncControls();
+                    };
+
+                    nextBtn?.addEventListener("click", () => {
+                        if (isMobile()) stepMobile(1);
+                        else updatePosition(currentIndex + 1);
+                    });
+                    prevBtn?.addEventListener("click", () => {
+                        if (isMobile()) stepMobile(-1);
+                        else updatePosition(currentIndex - 1);
+                    });
+
+                    window.addEventListener("resize", applyMode);
+
+                    applyMode();
                 });
             };
 

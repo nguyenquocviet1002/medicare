@@ -114,35 +114,45 @@
   &__viewport {
     position: relative;
     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    overflow: hidden;
     padding: 0.5rem 0 1rem 0;
 
-    &::-webkit-scrollbar {
-      display: none;
+    @media (max-width: 575.98px) {
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 
   &__track {
     display: flex;
     gap: 1.5rem;
-    width: max-content;
+    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+
+    @media (max-width: 575.98px) {
+      // width: max-content;
+      transition: none;
+    }
   }
 
   /* Slide Items */
   &__slide {
     flex: 0 0 calc((100% - 1.5rem) / 2);
     max-width: calc((100% - 1.5rem) / 2);
-    scroll-snap-align: start;
     user-select: none;
 
     @media (max-width: 575.98px) {
-      flex: 0 0 85%;
-      max-width: 85%;
+      flex: 0 0 100%;
+      max-width: 100%;
+      scroll-snap-align: start;
     }
   }
 
@@ -174,10 +184,10 @@
 
   &__card-media {
     width: 100%;
+    height: auto;
+    margin: 0 auto 1.25rem auto;
     border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 16 / 10;
-    margin-bottom: 1.25rem;
     background-color: var(--color-white);
   }
 
