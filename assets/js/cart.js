@@ -36,7 +36,7 @@
   }
 
   function parsePrice(value) {
-    var str = String(value || "").replace(/[^\d]/g, "");
+    var str = String(value || "").split("-")[0].replace(/[^\d]/g, "");
     var num = parseInt(str, 10);
     return isNaN(num) ? 0 : num;
   }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,6 @@
     <link rel="stylesheet" href="../header/sass/style.min.css?v=3">
     <link rel="stylesheet" href="../footer/sass/style.min.css?v=3">
 </head>
-
 <body>
     <header class="header">
         <div class="container">
@@ -86,15 +84,15 @@
                                     <a href="../san-pham/index.html#meso" class="header__submenu-link">MESO</a>
                                     <a href="../san-pham/index.html#bap" class="header__submenu-link">BAP</a>
                                     <a href="../san-pham/index.html#filler" class="header__submenu-link">FILLER</a>
-<a href="../san-pham/index.html#botox" class="header__submenu-link">BOTOX</a>
-                                    </div>
+                                    <a href="../san-pham/index.html#botox" class="header__submenu-link">BOTOX</a>
                                 </div>
-                            </li>
-                            <li class="header__menu-item">
-                                <a href="../case-thuc-te/index.html" class="header__menu-link">Case Thực Tế</a>
-                            </li>
-                        </ul>
-                    </nav>
+                            </div>
+                        </li>
+                        <li class="header__menu-item header__menu-item--active">
+                            <a href="index.html" class="header__menu-link header__menu-link--active">Case Thực Tế</a>
+                        </li>
+                    </ul>
+                </nav>
 
                 <!-- 4. Hành động (Giỏ hàng & Nút mở menu mobile) -->
                 <div class="header__actions">
@@ -117,93 +115,373 @@
         </div>
     </header>
 
-    <section class="cart-page" id="cart-page" aria-label="Giỏ hàng dịch vụ">
-        <div class="container">
-
-            <!-- Tiêu Đề Section -->
-            <div class="cart-page__header">
-                <h2 class="cart-page__title">GIỎ HÀNG CỦA BẠN</h2>
-            </div>
-
-            <!-- Khung Danh Sách Đơn Hàng & Tổng Tiền -->
-            <div class="cart-page__wrapper">
-
-                <!-- Danh sách tên dịch vụ & giá (Render động qua JS) -->
-                <div class="cart-page__list" id="cart-items-list"></div>
-
-                <!-- Khối Hiển Thị Tổng Tiền -->
-                <div class="cart-page__summary">
-                    <span class="cart-page__total-label">Tổng tiền thanh toán:</span>
-                    <span class="cart-page__total-price" id="cart-total-price">0 VNĐ</span>
-                </div>
-
-            </div>
-
-        </div>
+    <section class="banner" data-aos="fade-up">
+        <img src="images/banner.jpg" alt="">
     </section>
 
-    <script>
-        /* ==========================================================================
-   MODULE: GIỎ HÀNG (HIỂN THỊ DANH SÁCH & TỔNG TIỀN TỰ ĐỘNG)
-   ========================================================================== */
+    <section class="clinical-cases" id="clinical-cases" aria-label="Case Lâm Sàng Thực Tế">
+  <div class="container">
+    
+    <!-- Tiêu Đề Section -->
+    <h2 class="clinical-cases__title">CASE LÂM SÀNG THỰC TẾ</h2>
 
-        // 1. Hàm Render Giỏ Hàng (đọc từ localStorage qua module Cart)
-        function initCartPage() {
-            const listContainer = document.getElementById("cart-items-list");
-            const totalPriceElement = document.getElementById("cart-total-price");
+    <!-- Thanh Điều Hướng Tabs (Pill Bar) -->
+    <div class="clinical-cases__tabs-wrapper">
+      <div class="clinical-cases__tabs" id="clinical-cases-tabs" role="tablist"></div>
+    </div>
 
-            if (!listContainer || !totalPriceElement) return;
+    <!-- Khung Render Danh Sách Các Case (Render Động Qua JS) -->
+    <div class="clinical-cases__list" id="clinical-cases-list"></div>
 
-            const cartItems = window.Cart ? window.Cart.getAll() : [];
+  </div>
+</section>
 
-            const updateCartView = () => {
-                // Nếu giỏ hàng rỗng
-                if (cartItems.length === 0) {
-                    listContainer.innerHTML = `<div class="cart-page__empty">Giỏ hàng của bạn đang trống.</div>`;
-                    totalPriceElement.textContent = "0 VNĐ";
-                    return;
-                }
-
-                // Render từng dòng tên dịch vụ và giá
-                listContainer.innerHTML = cartItems
-                    .map(
-                        (item) => `
-        <div class="cart-page__item" data-id="${item.id}">
-          <div class="cart-page__item-info">
-            <button class="cart-page__item-remove" type="button" aria-label="Xóa ${item.name}" onclick="removeCartItem('${item.id}')">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-            <span class="cart-page__item-name">${item.name}</span>
-          </div>
-          <span class="cart-page__item-price">${window.Cart ? window.Cart.formatCurrency(item.price) : item.price}</span>
-        </div>
-      `
-                    )
-                    .join("");
-
-                // Tự động tính tổng tiền toàn bộ các mục
-                const totalAmount = cartItems.reduce((sum, item) => sum + item.price, 0);
-                totalPriceElement.textContent = window.Cart ? window.Cart.formatCurrency(totalAmount) : totalAmount;
-            };
-
-            updateCartView();
-        }
-
-        // 2. Hàm xóa dịch vụ khỏi giỏ hàng
-        window.removeCartItem = function (id) {
-            if (window.Cart) window.Cart.remove(id);
-            initCartPage();
-        };
-
-        document.addEventListener("DOMContentLoaded", () => {
-            initCartPage();
-        });
-    </script>
+ <script src="../assets/js/scroll-reveal.js"></script>
     <script src="../assets/js/cart.js"></script>
     <script src="../header/js/script.js"></script>
+    
+    <script>
+        /* ==========================================================================
+   MODULE: CASE LÂM SÀNG THỰC TẾ (EXPANDABLE JOURNEY SESSIONS)
+   ========================================================================== */
+
+const clinicalCasesData = {
+  /* --- TAB 1: ĐIỀU TRỊ MỤN --- */
+ "dieu-tri-mun": {
+    id: "dieu-tri-mun",
+    tabName: "ĐIỀU TRỊ MỤN",
+    items: [
+        /* --- CASE 1: LIỆU TRÌNH MỤN CƠ BẢN --- */
+        {
+            id: "case-mun-co-ban",
+            cardTitle: "CASE KHÁCH HÀNG ĐIỀU TRỊ MỤN",
+            image: "images/mun-co-ban-compare.jpg",
+            treatmentName: "LIỆU TRÌNH MỤN CƠ BẢN",
+            sessions: "6 buổi",
+            duration: "3 tháng",
+            journey: [
+                { session: "Buổi 1", image: "images/mun-cb-buoi-1.jpg" },
+                { session: "Buổi 2", image: "images/mun-cb-buoi-2.jpg" },
+                { session: "Buổi 4", image: "images/mun-cb-buoi-4.jpg" },
+                { session: "Buổi 6", image: "images/mun-cb-buoi-6a.jpg" },
+                { session: "Buổi 6", image: "images/mun-cb-buoi-6b.jpg" }
+            ]
+        },
+
+        /* --- CASE 2: LIỆU TRÌNH MỤN CHUYÊN SÂU --- */
+        {
+            id: "case-mun-chuyen-sau",
+            cardTitle: "CASE KHÁCH HÀNG ĐIỀU TRỊ MỤN",
+            image: "images/mun-chuyen-sau-compare.jpg",
+            treatmentName: "LIỆU TRÌNH MỤN CHUYÊN SÂU",
+            sessions: "8 buổi",
+            duration: "4 tháng",
+            journey: [
+                { session: "Buổi 1", image: "images/mun-cs-buoi-1.jpg" },
+                { session: "Buổi 2", image: "images/mun-cs-buoi-2.jpg" },
+                { session: "Buổi 4", image: "images/mun-cs-buoi-4.jpg" },
+                { session: "Buổi 6", image: "images/mun-cs-buoi-6.jpg" },
+                { session: "Buổi 8", image: "images/mun-cs-buoi-8.jpg" }
+            ]
+        }
+    ]
+},
+
+  /* --- TAB 2: ĐIỀU TRỊ SẸO --- */
+  "dieu-tri-seo": {
+    id: "dieu-tri-seo",
+    tabName: "ĐIỀU TRỊ SẸO",
+    items: [
+        /* --- CASE 1: LIỆU TRÌNH SẸO CƠ BẢN --- */
+        {
+            id: "case-seo-co-ban",
+            cardTitle: "CASE KHÁCH HÀNG ĐIỀU TRỊ SẸO",
+            image: "images/seo-co-ban-compare.jpg",
+            treatmentName: "LIỆU TRÌNH SẸO CƠ BẢN",
+            sessions: "6 buổi",
+            duration: "4 tháng",
+            journey: [
+                { session: "Buổi 1", image: "images/seo-cb-buoi-1.jpg" },
+                { session: "Buổi 3", image: "images/seo-cb-buoi-3.jpg" },
+                { session: "Buổi 5", image: "images/seo-cb-buoi-5.jpg" },
+                { session: "Buổi 6", image: "images/seo-cb-buoi-6.jpg" }
+            ]
+        },
+
+        /* --- CASE 2: LIỆU TRÌNH SẸO CHUYÊN SÂU --- */
+        {
+            id: "case-seo-chuyen-sau",
+            cardTitle: "CASE KHÁCH HÀNG ĐIỀU TRỊ SẸO",
+            image: "images/seo-chuyen-sau-compare.jpg",
+            treatmentName: "LIỆU TRÌNH SẸO CHUYÊN SÂU",
+            sessions: "11 buổi",
+            duration: "6 tháng",
+            journey: [
+                { session: "Buổi 1", image: "images/seo-cs-buoi-1.jpg" },
+                { session: "Buổi 3", image: "images/seo-cs-buoi-3.jpg" },
+                { session: "Buổi 6", image: "images/seo-cs-buoi-6.jpg" },
+                { session: "Buổi 8", image: "images/seo-cs-buoi-8.jpg" },
+                { session: "Buổi 11", image: "images/seo-cs-buoi-11.jpg" }
+            ]
+        },
+
+        /* --- CASE 3: LIỆU TRÌNH SẸO ĐA TẦNG --- */
+        {
+            id: "case-seo-da-tang",
+            cardTitle: "CASE KHÁCH HÀNG ĐIỀU TRỊ SẸO",
+            image: "images/seo-da-tang-compare.jpg",
+            treatmentName: "LIỆU TRÌNH SẸO ĐA TẦNG",
+            sessions: "15 buổi",
+            duration: "10 tháng",
+            journey: [
+                { session: "Buổi 1", image: "images/seo-dt-buoi-1.jpg" },
+                { session: "Buổi 2", image: "images/seo-dt-buoi-2.jpg" },
+                { session: "Buổi 4", image: "images/seo-dt-buoi-4.jpg" },
+                { session: "Buổi 6", image: "images/seo-dt-buoi-6a.jpg" },
+                { session: "Buổi 6", image: "images/seo-dt-buoi-6b.jpg" }
+            ]
+        }
+    ]
+},
+
+  /* --- TAB 3: CFU ÈLIFE --- */
+  "cfu-elife": {
+    id: "cfu-elife",
+    tabName: "CFU ÈLIFE",
+    items: [
+        {
+            id: "case-cfu-fullface",
+            cardTitle: "CASE LÂM SÀNG CFU FULLFACE",
+            image: "images/cfu-fullface-compare.jpg",
+            treatmentName: "",
+            sessions: "",
+            duration: "",
+            journey: []
+        },
+        {
+            id: "case-cfu-fullface-vung-co",
+            cardTitle: "CASE LÂM SÀNG CFU FULLFACE + VÙNG CỔ",
+            image: "images/cfu-fullface-co-compare.jpg",
+            treatmentName: "",
+            sessions: "",
+            duration: "",
+            journey: []
+        },
+        {
+            id: "case-cfu-thon-gon-bap-tay",
+            cardTitle: "CASE LÂM SÀNG CFU THON GỌN BẮP TAY",
+            image: "images/cfu-bap-tay-compare.jpg",
+            treatmentName: "",
+            sessions: "",
+            duration: "",
+            journey: []
+        }
+    ]
+},
+
+  /* --- TAB 4: ĐIỀU TRỊ NÁM --- */
+  "dieu-tri-nam": {
+    id: "dieu-tri-nam",
+    tabName: "ĐIỀU TRỊ NÁM",
+    items: [
+        {
+            id: "case-nam-the-vip-2",
+            cardTitle: "CASE KHÁCH HÀNG ĐIỀU TRỊ NÁM",
+            image: "images/nam-vip2-compare.jpg",
+            treatmentName: "THẺ LIỆU TRÌNH VIP 2",
+            sessions: "8 buổi",
+            duration: "6 tháng",
+            journey: [
+                { session: "Buổi 1", image: "images/nam-vip2-buoi-1.jpg" },
+                { session: "Buổi 3", image: "images/nam-vip2-buoi-3.jpg" },
+                { session: "Buổi 5", image: "images/nam-vip2-buoi-5.jpg" },
+                { session: "Buổi 8", image: "images/nam-vip2-buoi-8.jpg" }
+            ]
+        }
+    ]
+}
+};
+
+
+
+// Hàm Render & Xử Lý Toggle Mở Rộng
+/* ==========================================================================
+   HÀM KÉO THẢ CHUỘT (DRAG-TO-SCROLL) CHO THANH HÀNH TRÌNH TỪNG BUỔI
+   ========================================================================== */
+function initJourneyDragScroll() {
+  const tracks = document.querySelectorAll(".clinical-cases__journey-track");
+
+  tracks.forEach((track) => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    track.addEventListener("mousedown", (e) => {
+      isDown = true;
+      track.classList.add("is-dragging");
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+
+    track.addEventListener("mouseleave", () => {
+      isDown = false;
+      track.classList.remove("is-dragging");
+    });
+
+    track.addEventListener("mouseup", () => {
+      isDown = false;
+      track.classList.remove("is-dragging");
+    });
+
+    track.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault(); // Ngăn chọn chữ / kéo trang mặc định
+      const x = e.pageX - track.offsetLeft;
+      const walk = (x - startX) * 1.8; // Hệ số tốc độ trượt (1.8x)
+      track.scrollLeft = scrollLeft - walk;
+    });
+  });
+}
+
+/* ==========================================================================
+   TÍCH HỢP VÀO HÀM RENDER CHÍNH CỦA CLINICAL CASES
+   ========================================================================== */
+function initClinicalCases() {
+  const tabsContainer = document.getElementById("clinical-cases-tabs");
+  const listContainer = document.getElementById("clinical-cases-list");
+
+  if (!tabsContainer || !listContainer) return;
+
+  const tabKeys = Object.keys(clinicalCasesData);
+  let activeTabKey = "dieu-tri-mun";
+
+  const renderContent = (tabKey) => {
+    const currentData = clinicalCasesData[tabKey];
+    if (!currentData || !currentData.items.length) {
+      listContainer.innerHTML = `<p style="text-align:center; padding: 2rem; color: #888;">Đang cập nhật case lâm sàng...</p>`;
+      return;
+    }
+
+    listContainer.innerHTML = currentData.items
+  .map(
+    (item) => `
+    <article class="clinical-cases__card" id="case-card-${item.id}">
+      <h3 class="clinical-cases__card-title">${item.cardTitle}</h3>
+
+      <div class="clinical-cases__media">
+        <img src="${item.image}" alt="${item.cardTitle}" class="clinical-cases__media-img" loading="lazy">
+      </div>
+
+      ${
+        item.treatmentName
+          ? `
+        <div class="clinical-cases__info">
+          <h4 class="clinical-cases__treatment-name">${item.treatmentName}</h4>
+          <div class="clinical-cases__meta-item">Số buổi: <span>${item.sessions}</span></div>
+          <div class="clinical-cases__meta-item">Thời gian điều trị: <span>${item.duration}</span></div>
+        </div>
+      `
+          : ""
+      }
+
+      ${
+        item.journey && item.journey.length
+          ? `
+        <div class="clinical-cases__footer">
+          <button class="clinical-cases__toggle-btn" type="button" aria-expanded="false" onclick="toggleCaseJourney('${item.id}')">
+            <span class="clinical-cases__toggle-text">Xem hành trình</span>
+            <span class="clinical-cases__toggle-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        <div class="clinical-cases__journey-drawer">
+          <div class="clinical-cases__journey-inner">
+            <div class="clinical-cases__journey-track">
+              ${item.journey
+                .map(
+                  (step) => `
+                <div class="clinical-cases__journey-item">
+                  <div class="clinical-cases__journey-media">
+                    <img src="${step.image}" alt="${step.session}" class="clinical-cases__journey-img" loading="lazy">
+                  </div>
+                  <span class="clinical-cases__journey-badge">${step.session}</span>
+                </div>
+              `
+                )
+                .join("")}
+            </div>
+          </div>
+        </div>
+      `
+          : ""
+      }
+    </article>
+  `
+  )
+  .join("");
+
+    // Kích hoạt tính năng kéo chuột cho các track vừa render
+    initJourneyDragScroll();
+  };
+
+  // Render Danh Sách Nút Tabs
+  tabsContainer.innerHTML = tabKeys
+    .map(
+      (key) => `
+      <button 
+        type="button" 
+        class="clinical-cases__tab-btn ${key === activeTabKey ? "clinical-cases__tab-btn--active" : ""}" 
+        data-tab="${key}"
+        role="tab"
+        aria-selected="${key === activeTabKey}"
+      >
+        ${clinicalCasesData[key].tabName}
+      </button>
+    `
+    )
+    .join("");
+
+  // Bắt Sự Kiện Chuyển Tab
+  tabsContainer.querySelectorAll(".clinical-cases__tab-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const selected = btn.getAttribute("data-tab");
+      if (selected === activeTabKey) return;
+
+      activeTabKey = selected;
+      tabsContainer.querySelectorAll(".clinical-cases__tab-btn").forEach((b) => {
+        const isActive = b.getAttribute("data-tab") === activeTabKey;
+        b.classList.toggle("clinical-cases__tab-btn--active", isActive);
+        b.setAttribute("aria-selected", String(isActive));
+      });
+
+      renderContent(activeTabKey);
+    });
+  });
+
+  renderContent(activeTabKey);
+}
+
+// Toggle Mở Rộng
+window.toggleCaseJourney = function (caseId) {
+  const card = document.getElementById(`case-card-${caseId}`);
+  if (!card) return;
+
+  const isExpanded = card.classList.toggle("clinical-cases__card--expanded");
+  const toggleBtn = card.querySelector(".clinical-cases__toggle-btn");
+  if (toggleBtn) {
+    toggleBtn.setAttribute("aria-expanded", String(isExpanded));
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  initClinicalCases();
+});
+    </script>
 
 <footer class="footer" id="footer" aria-label="Chân trang Medicare Clinic">
         <div class="container">
@@ -359,5 +637,4 @@
         </div>
     </footer>
 </body>
-
 </html>

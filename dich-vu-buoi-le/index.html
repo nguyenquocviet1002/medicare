@@ -44,6 +44,7 @@
                                     <a href="../dich-vu-buoi-le/index.html" class="header__submenu-title">Buổi Lẻ</a>
                                     <a href="../dich-vu-buoi-le/index.html#laser" class="header__submenu-link">LASER</a>
                                     <a href="../dich-vu-buoi-le/index.html#peel" class="header__submenu-link">PEEL</a>
+                                    <a href="../dich-vu-buoi-le/index.html#meso" class="header__submenu-link">MESO</a>
                                     <a href="../dich-vu-buoi-le/index.html#lan-kim" class="header__submenu-link">LĂN KIM</a>
                                     <a href="../dich-vu-buoi-le/index.html#phi-kim" class="header__submenu-link">PHI KIM</a>
                                     <a href="../dich-vu-buoi-le/index.html#tach-day" class="header__submenu-link">TÁCH ĐÁY</a>
@@ -53,6 +54,7 @@
                                     <a href="../dich-vu-lieu-trinh/index.html#dieu-tri-mun" class="header__submenu-link">ĐIỀU TRỊ MỤN</a>
                                     <a href="../dich-vu-lieu-trinh/index.html#dieu-tri-seo" class="header__submenu-link">ĐIỀU TRỊ SẸO</a>
                                     <a href="../dich-vu-lieu-trinh/index.html#lieu-trinh-body" class="header__submenu-link">LIỆU TRÌNH BODY</a>
+                                    <a href="../dich-vu-lieu-trinh/index.html#the-lieu-trinh" class="header__submenu-link">THẺ LIỆU TRÌNH</a>
                                 </div>
                             </div>
                         </li>
@@ -84,12 +86,15 @@
                                     <a href="../san-pham/index.html#meso" class="header__submenu-link">MESO</a>
                                     <a href="../san-pham/index.html#bap" class="header__submenu-link">BAP</a>
                                     <a href="../san-pham/index.html#filler" class="header__submenu-link">FILLER</a>
-                                    <a href="../san-pham/index.html#botox" class="header__submenu-link">BOTOX</a>
+<a href="../san-pham/index.html#botox" class="header__submenu-link">BOTOX</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
+                            </li>
+                            <li class="header__menu-item">
+                                <a href="../case-thuc-te/index.html" class="header__menu-link">Case Thực Tế</a>
+                            </li>
+                        </ul>
+                    </nav>
 
                 <!-- 4. Hành động (Giỏ hàng & Nút mở menu mobile) -->
                 <div class="header__actions">
@@ -148,362 +153,461 @@
            DATA OBJECT (TOÀN BỘ DỮ LIỆU 4 TABS CHUẨN XÁC 100%)
            ========================================================================== */
         const singleServicesData = {
-            /* ==================== TAB 1: LASER ==================== */
-            laser: {
-                id: "laser",
-                tabName: "LASER",
-                sections: [
+    /* ==================== TAB 1: LASER ==================== */
+    laser: {
+        id: "laser",
+        tabName: "LASER",
+        sections: [
+            {
+                sectionTitle: "LASER ĐẶC TRỊ VÙNG MẶT",
+                layout: "grid",
+                items: [
                     {
-                        sectionTitle: "LASER ĐẶC TRỊ VÙNG MẶT",
-                        layout: "grid",
-                        items: [
-                            {
-                                id: "laser-co2-fractional",
-                                title: "LASER CO2 FRACTIONAL",
-                                image: "images/laser-co2-fractional.jpg",
-                                isCompare: false,
-                                benefits: [
-                                    "Tạo các vi cột tổn thương nhiệt siêu nhỏ xuyên từ thượng bì xuống trung bì theo dạng phân đoạn",
-                                    "Kích thích cơ chế tái tạo mô tự nhiên & Thúc đẩy tăng sinh collagen và elastin mới",
-                                    "Hỗ trợ tái cấu trúc nền da và cải thiện kết cấu da",
-                                    "Giúp làm mịn bề mặt da và thu nhỏ lỗ chân lông",
-                                    "Hỗ trợ tăng độ săn chắc và cải thiện độ đàn hồi của da"
-                                ],
-                                indications: "Sẹo rỗ sau mụn, Lỗ chân lông to, Bề mặt da sần, kết cấu da không mịn, Da không đều màu.",
-                                price: "2.000.000 VNĐ"
-                            },
-                            {
-                                id: "dau-dot-vi-diem",
-                                title: "ĐẦU ĐỐT VI ĐIỂM",
-                                image: "images/dau-dot-vi-diem.jpg",
-                                isCompare: false,
-                                benefits: [
-                                    "Tạo vi tổn thương nhiệt rất nhỏ và chính xác trên bề mặt da",
-                                    "Hỗ trợ loại bỏ các mô da không mong muốn",
-                                    "Kích thích quá trình tái tạo mô mới",
-                                    "Thúc đẩy tăng sinh collagen, giúp da phục hồi tốt hơn",
-                                    "Hỗ trợ làm phẳng và cải thiện bề mặt da"
-                                ],
-                                indications: "Sẹo rỗ, Sẹo lồi nhỏ, U mềm treo (skin tag), Mụn thịt.",
-                                price: "1.500.000 VNĐ"
-                            },
-                            {
-                                id: "laser-pt",
-                                title: "LASER PT",
-                                image: "images/laser-pt.jpg",
-                                isCompare: false,
-                                benefits: [
-                                    "Giúp làm dịu nhanh các nốt mụn viêm, mụn sưng đỏ",
-                                    "Hỗ trợ giảm vi khuẩn gây mụn và hạn chế mụn lan rộng",
-                                    "Giúp giảm sưng, hỗ trợ mụn xẹp nhanh hơn",
-                                    "Hỗ trợ phục hồi da và hạn chế thâm sau mụn",
-                                    "Góp phần ổn định nền da và giảm nguy cơ tái phát mụn"
-                                ],
-                                indications: "Sẹo rỗ, sẹo lồi nhỏ, mụn thịt, u mềm treo",
-                                price: "2.000.000 VNĐ"
-                            },
-                            {
-                                id: "laser-fractional",
-                                title: "LASER FRACTIONAL",
-                                image: "images/laser-fractional.jpg",
-                                isCompare: false,
-                                benefits: [
-                                    "Kích thích tăng sinh Collagen & Elastin, tái cấu trúc nền da",
-                                    "Làm đầy sẹo rỗ, se khít lỗ chân lông, làm mịn bề mặt da",
-                                    "Tăng độ săn chắc, đàn hồi và giúp da đều màu"
-                                ],
-                                indications: "Sẹo rỗ sau mụn, lỗ chân lông to, da sần sùi kém mịn, da lão hóa chùng nhão nhẹ, da không đều màu",
-                                price: "3.000.000 VNĐ"
-                            },
-                            {
-                                id: "laser-1064",
-                                title: "LASER 1064",
-                                image: "images/laser-1064.jpg",
-                                isCompare: false,
-                                benefits: [
-                                    "Tác động vào sắc tố nằm sâu trong da, hỗ trợ cải thiện các vấn đề tăng sắc tố sâu",
-                                    "Hỗ trợ giảm viêm và làm dịu vùng da tổn thương",
-                                    "Kích thích hoạt động của nguyên bào sợi, thúc đẩy quá trình tăng sinh collagen",
-                                    "Hỗ trợ phục hồi cấu trúc da và cải thiện độ đàn hồi",
-                                    "Góp phần ổn định nền da và hỗ trợ quá trình tái tạo da"
-                                ],
-                                indications: "Da đang có tình trạng viêm hoặc tổn thương sau mụn, Da có sắc tố sâu, thâm, nám.",
-                                price: "3.000.000 VNĐ"
-                            },
-                            {
-                                id: "laser-532",
-                                title: "LASER 532",
-                                image: "images/laser-532.jpg",
-                                isCompare: false,
-                                benefits: [
-                                    "Hỗ trợ phá vỡ sắc tố nông, giúp cải thiện thâm sau mụn",
-                                    "Tác động vào các mao mạch giãn ở vùng viêm, giúp giảm đỏ và làm dịu da",
-                                    "Hỗ trợ giảm viêm và ổn định vùng da đang có mụn",
-                                    "Góp phần làm sáng và đều màu da sau quá trình điều trị mụn"
-                                ],
-                                indications: "Thâm sau mụn (PIH), Nám nông, tàn nhang nhẹ, Đốm nâu, tăng sắc tố bề mặt, Hồng ban sau viêm, Da không đều màu, xỉn màu.",
-                                price: "2.000.000 VNĐ"
-                            }
-                        ]
+                        id: "laser-co2-fractional",
+                        title: "LASER CO2 FRACTIONAL",
+                        image: "images/laser-co2-fractional.jpg",
+                        isCompare: false,
+                        benefits: [
+                            "Tạo các vi cột tổn thương nhiệt siêu nhỏ xuyên từ thượng bì xuống trung bì theo dạng phân đoạn",
+                            "Kích thích cơ chế tái tạo mô tự nhiên & Thúc đẩy tăng sinh collagen và elastin mới",
+                            "Hỗ trợ tái cấu trúc nền da và cải thiện kết cấu da",
+                            "Giúp làm mịn bề mặt da và thu nhỏ lỗ chân lông",
+                            "Hỗ trợ tăng độ săn chắc và cải thiện độ đàn hồi của da"
+                        ],
+                        indications: "Sẹo rỗ sau mụn, Lỗ chân lông to, Bề mặt da sần, kết cấu da không mịn, Da không đều màu.",
+                        price: "2.000.000 VNĐ"
                     },
                     {
-                        sectionTitle: "LASER PHỤC HỒI & TÁI TẠO BODY",
-                        layout: "grid",
-                        items: [
-                            {
-                                id: "laser-fractional-body",
-                                title: "LASER FRACTIONAL (BODY/LƯNG)",
-                                image: "images/laser-body-fractional.jpg",
-                                isCompare: true,
-                                benefits: [
-                                    "Kích thích tăng sinh collagen & elastin, làm phẳng sẹo và vết thâm body",
-                                    "Tái tạo bề mặt da mịn màng, se khít lỗ chân lông và ngừa dày sừng trên da"
-                                ],
-                                indications: "Thâm mụn lưng/ngực/mông, sẹo rỗ body, viêm nang lông",
-                                price: "5.000.000 VNĐ"
-                            },
-                            {
-                                id: "laser-toning",
-                                title: "LASER TONING",
-                                image: "images/laser-body-toning.jpg",
-                                isCompare: true,
-                                benefits: [
-                                    "Phá vỡ melanin dưới da, làm mờ thâm nám, tàn nhang & thâm sạm trên da",
-                                    "Trẻ hóa nền da, se khít lỗ chân lông và làm đều màu da toàn diện"
-                                ],
-                                indications: "Nám mảng, nám sâu, tàn nhang, đốm nâu, da xỉn màu",
-                                price: "5.000.000 VNĐ"
-                            },
-                            {
-                                id: "laser-nach-2in1",
-                                title: "LASER NÁCH 2IN1",
-                                image: "images/laser-body-nach.jpg",
-                                isCompare: true,
-                                benefits: [
-                                    "Khử thâm sạm sâu, làm sáng mịn và đều màu vùng da dưới cánh tay",
-                                    "Thu nhỏ lỗ chân lông, hạn chế tiết mồ hôi và giảm sần sùi"
-                                ],
-                                indications: "Thâm nách sau cạo/nhổ/wax, da nách sần sùi, lỗ chân lông to",
-                                price: "3.000.000 VNĐ"
-                            },
-                            {
-                                id: "laser-fractional-toning-combo",
-                                title: "LASER FRACTIONAL + TONING (COMBO CHUYÊN SÂU)",
-                                image: "images/laser-body-combo.jpg",
-                                isCompare: true,
-                                benefits: [
-                                    "Tác động kép: Vừa làm phẳng kết cấu da sần/sẹo, vừa xử lý sắc tố thâm sạm tầng sâu",
-                                    "Phục hồi, tái sinh toàn diện nền da sáng khỏe và mịn màng tối đa"
-                                ],
-                                indications: "Tình trạng kết hợp thâm đốm, thâm sạm nặng và sẹo/sần bề mặt diện rộng",
-                                price: "8.000.000 VNĐ"
-                            }
-                        ]
-                    }
-                ]
-            },
-
-            /* ==================== TAB 2: PEEL ==================== */
-            peel: {
-                id: "peel",
-                tabName: "PEEL",
-                sections: [
-                    {
-                        sectionTitle: "PEEL ĐẶC TRỊ VÙNG MẶT",
-                        layout: "grid",
-                        items: [
-                            {
-                                id: "peel-tri-seo",
-                                title: "PEEL TRỊ SẸO",
-                                image: "images/peel-tri-seo.jpg",
-                                isCompare: true,
-                                benefits: [
-                                    "Loại bỏ tế bào sừng già cỗi, thúc đẩy tái tạo tế bào mới",
-                                    "Tăng sinh collagen, làm đầy sẹo lõm và làm mịn bề mặt da",
-                                    "Thông thoáng lỗ chân lông, giúp da khỏe và hấp thụ dưỡng chất tối ưu"
-                                ],
-                                indications: "Sẹo rỗ/sẹo lõm, da sần sùi kém mịn, da không đều màu",
-                                price: "1.500.000 VNĐ"
-                            },
-                            {
-                                id: "peel-sac-to-da",
-                                title: "PEEL SẮC TỐ DA",
-                                image: "images/peel-sac-to.jpg",
-                                isCompare: true,
-                                benefits: [
-                                    "Đào thải lớp tế bào sừng chứa melanin tích tụ trên bề mặt",
-                                    "Làm mờ nám, tàn nhang và các đốm nâu tăng sắc tố",
-                                    "Tái tạo nền da sáng mịn, đều màu và tăng khả năng hấp thu dưỡng chất"
-                                ],
-                                indications: "Nám nông, tàn nhang, thâm sạm, da xỉn màu và không đều màu trên da",
-                                price: "1.500.000 VNĐ"
-                            },
-                            {
-                                id: "peel-tri-mun",
-                                title: "PEEL TRỊ MỤN",
-                                image: "images/peel-tri-mun.jpg",
-                                isCompare: true,
-                                benefits: [
-                                    "Loại bỏ da chết và bã nhờn tích tụ trên da, giải phóng bít tắc cổ nang lông",
-                                    "Hỗ trợ gom khô cồi mụn, giảm sưng viêm nhanh chóng",
-                                    "Làm sạch sâu, giúp bề mặt da thông thoáng và ổn định nền da"
-                                ],
-                                indications: "Mụn ẩn, mụn đầu đen, mụn viêm sưng, trên da nhiều dầu thừa bít tắc",
-                                price: "1.500.000 VNĐ"
-                            },
-                            {
-                                id: "cham-peel-seo",
-                                title: "CHẤM PEEL SẸO",
-                                image: "images/peel-tri-seo.jpg",
-                                isCompare: true,
-                                benefits: [
-                                    "Tác động tập trung vào từng nốt sẹo, hỗ trợ thu hẹp và làm nông sẹo",
-                                    "Kích thích tái tạo collagen, giúp sẹo dần mềm và bề mặt da mịn hơn",
-                                    "Cải thiện tình trạng da sần, không đồng đều"
-                                ],
-                                indications: "Sẹo rỗ chân đáy nhọn/nhỏ, sẹo rỗ sâu, lâu năm",
-                                price: "1.500.000 VNĐ"
-                            },
-                        ]
+                        id: "dau-dot-vi-diem",
+                        title: "ĐẦU ĐỐT VI ĐIỂM",
+                        image: "images/dau-dot-vi-diem.jpg",
+                        isCompare: false,
+                        benefits: [
+                            "Tạo vi tổn thương nhiệt rất nhỏ và chính xác trên bề mặt da",
+                            "Hỗ trợ loại bỏ các mô da không mong muốn",
+                            "Kích thích quá trình tái tạo mô mới",
+                            "Thúc đẩy tăng sinh collagen, giúp da phục hồi tốt hơn",
+                            "Hỗ trợ làm phẳng và cải thiện bề mặt da"
+                        ],
+                        indications: "Sẹo rỗ, Sẹo lồi nhỏ, U mềm treo (skin tag), Mụn thịt.",
+                        price: "1.500.000 VNĐ"
                     },
                     {
-                        sectionTitle: "PEEL PHỤC HỒI & TÁI TẠO BODY",
-                        layout: "grid",
-                        items: [
-                            {
-                                id: "peel-nguc",
-                                title: "PEEL NGỰC",
-                                image: "images/peel-body-nguc.jpg",
-                                isCompare: true,
-                                benefits: [
-                                    "Đào thải bã nhờn, thông thoáng cổ nang lông và gom cồi mụn vùng ngực",
-                                    "Mờ thâm mụn, loại bỏ tế bào sừng già cỗi giúp bề mặt da sáng mịn"
-                                ],
-                                indications: "Mụn viêm, mụn ẩn, thâm mụn, da vùng ngực sần sùi kém mịn",
-                                price: "3.500.000 VNĐ"
-                            },
-                            {
-                                id: "peel-mong",
-                                title: "PEEL MÔNG",
-                                image: "images/peel-body-mong.jpg",
-                                isCompare: true,
-                                benefits: [
-                                    "Xử lý triệt để lớp sừng dày, chai sần tích tụ do ma sát và ngồi nhiều",
-                                    "Đào thải hắc sắc tố, làm sáng hồng và mịn màng vùng da mông"
-                                ],
-                                indications: "Mông thâm sạm, da mông thô ráp sần sùi, mụn li ti hạt kê vùng mông",
-                                price: "3.000.000 VNĐ"
-                            },
-                            {
-                                id: "peel-nach",
-                                title: "PEEL NÁCH",
-                                image: "images/peel-body-nach.jpg",
-                                isCompare: true,
-                                benefits: [
-                                    "Phá hủy hắc sắc tố bề mặt, làm sáng và đều màu vùng da dưới cánh tay",
-                                    "Làm mịn bề mặt, se khít lỗ chân lông và giảm tình trạng sần da gà do cạo/nhổ"
-                                ],
-                                indications: "Vùng da nách thâm & sạm màu, sần sùi, thô ráp sau tẩy/triệt lông nhiều lần",
-                                price: "1.500.000 VNĐ"
-                            },
-                            {
-                                id: "peel-lung-tay-chan",
-                                title: "PEEL LƯNG / 2 TAY / 2 CHÂN",
-                                image: "images/peel-body-lung-tay-chan.jpg",
-                                isCompare: true,
-                                benefits: [
-                                    "Giải phóng bít tắc nang lông, giảm viêm sưng và ngăn ngừa mụn body lây lan",
-                                    "Đào thải sắc tố sạm xỉn, cải thiện viêm nang lông và làm đều màu da diện rộng"
-                                ],
-                                indications: "Mụn lưng, thâm mụn body, viêm nang lông, da tay chân thô ráp",
-                                price: "5.000.000 VNĐ"
-                            }
-                        ]
+                        id: "laser-pt",
+                        title: "LASER PT",
+                        image: "images/laser-pt.jpg",
+                        isCompare: false,
+                        benefits: [
+                            "Giúp làm dịu nhanh các nốt mụn viêm, mụn sưng đỏ",
+                            "Hỗ trợ giảm vi khuẩn gây mụn và hạn chế mụn lan rộng",
+                            "Giúp giảm sưng, hỗ trợ mụn xẹp nhanh hơn",
+                            "Hỗ trợ phục hồi da và hạn chế thâm sau mụn",
+                            "Góp phần ổn định nền da và giảm nguy cơ tái phát mụn"
+                        ],
+                        indications: "Sẹo rỗ, sẹo lồi nhỏ, mụn thịt, u mềm treo",
+                        price: "2.000.000 VNĐ"
+                    },
+                    {
+                        id: "laser-fractional",
+                        title: "LASER FRACTIONAL",
+                        image: "images/laser-fractional.jpg",
+                        isCompare: false,
+                        benefits: [
+                            "Kích thích tăng sinh Collagen & Elastin, tái cấu trúc nền da",
+                            "Làm đầy sẹo rỗ, se khít lỗ chân lông, làm mịn bề mặt da",
+                            "Tăng độ săn chắc, đàn hồi và giúp da đều màu"
+                        ],
+                        indications: "Sẹo rỗ sau mụn, lỗ chân lông to, da sần sùi kém mịn, da lão hóa chùng nhão nhẹ, da không đều màu",
+                        price: "3.000.000 VNĐ"
+                    },
+                    {
+                        id: "laser-1064",
+                        title: "LASER 1064",
+                        image: "images/laser-1064.jpg",
+                        isCompare: false,
+                        benefits: [
+                            "Tác động vào sắc tố nằm sâu trong da, hỗ trợ cải thiện các vấn đề tăng sắc tố sâu",
+                            "Hỗ trợ giảm viêm và làm dịu vùng da tổn thương",
+                            "Kích thích hoạt động của nguyên bào sợi, thúc đẩy quá trình tăng sinh collagen",
+                            "Hỗ trợ phục hồi cấu trúc da và cải thiện độ đàn hồi",
+                            "Góp phần ổn định nền da và hỗ trợ quá trình tái tạo da"
+                        ],
+                        indications: "Da đang có tình trạng viêm hoặc tổn thương sau mụn, Da có sắc tố sâu, thâm, nám.",
+                        price: "3.000.000 VNĐ"
+                    },
+                    {
+                        id: "laser-532",
+                        title: "LASER 532",
+                        image: "images/laser-532.jpg",
+                        isCompare: false,
+                        benefits: [
+                            "Hỗ trợ phá vỡ sắc tố nông, giúp cải thiện thâm sau mụn",
+                            "Tác động vào các mao mạch giãn ở vùng viêm, giúp giảm đỏ và làm dịu da",
+                            "Hỗ trợ giảm viêm và ổn định vùng da đang có mụn",
+                            "Góp phần làm sáng và đều màu da sau quá trình điều trị mụn"
+                        ],
+                        indications: "Thâm sau mụn (PIH), Nám nông, tàn nhang nhẹ, Đốm nâu, tăng sắc tố bề mặt, Hồng ban sau viêm, Da không đều màu, xỉn màu.",
+                        price: "2.000.000 VNĐ"
                     }
                 ]
             },
-
-            /* ==================== TAB 3: LĂN KIM ==================== */
-            "lan-kim": {
-                id: "lan-kim",
-                tabName: "LĂN KIM",
-                sections: [
+            {
+                sectionTitle: "LASER PHỤC HỒI & TÁI TẠO BODY",
+                layout: "grid",
+                items: [
                     {
-                        sectionTitle: "",
-                        layout: "wide",
-                        items: [
-                            {
-                                id: "lan-kim-dac-tri-seo-ro",
-                                title: "LĂN KIM ĐẶC TRỊ SẸO RỖ",
-                                image: "images/lan-kim-dac-tri-seo.jpg",
-                                isCompare: false,
-                                benefits: [
-                                    "Tạo vi tổn thương cơ học, kích hoạt cơ chế tự phục hồi tự nhiên của da",
-                                    "Tăng sinh collagen & elastin mạnh mẽ, tái tạo và làm săn chắc cấu trúc da",
-                                    "Cải thiện độ mịn màng, làm mờ thâm và se khít lỗ chân lông"
-                                ],
-                                indications: "Sẹo rỗ sau mụn, thâm sau mụn, lỗ chân lông to, da sần sùi, không đều màu",
-                                price: "2.000.000 VNĐ"
-                            }
-                        ]
-                    }
-                ]
-            },
-
-            /* ==================== TAB 4: PHI KIM ==================== */
-            "phi-kim": {
-                id: "phi-kim",
-                tabName: "PHI KIM",
-                sections: [
+                        id: "laser-fractional-body",
+                        title: "LASER FRACTIONAL (BODY/LƯNG)",
+                        image: "images/laser-body-fractional.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Kích thích tăng sinh collagen & elastin, làm phẳng sẹo và vết thâm body",
+                            "Tái tạo bề mặt da mịn màng, se khít lỗ chân lông và ngừa dày sừng trên da"
+                        ],
+                        indications: "Thâm mụn lưng/ngực/mông, sẹo rỗ body, viêm nang lông",
+                        price: "5.000.000 VNĐ"
+                    },
                     {
-                        sectionTitle: "",
-                        layout: "wide",
-                        items: [
-                            {
-                                id: "phi-kim-tai-tao-da",
-                                title: "PHI KIM TÁI TẠO DA",
-                                image: "images/phi-kim-tai-tao-da.jpg",
-                                isCompare: false,
-                                benefits: [
-                                    "Đầu kim di chuyển thẳng đứng tác động chính xác, hạn chế tối đa xâm lấn bề mặt",
-                                    "Kích thích tăng sinh collagen & elastin, tái tạo tế bào mới chuyên sâu",
-                                    "Tăng khả năng hấp thụ dưỡng chất, phục hồi nền da mịn màng và sáng khỏe"
-                                ],
-                                indications: "Sẹo rỗ sau mụn, lỗ chân lông to, thâm sau mụn, da sần sùi, không đều màu",
-                                price: "2.000.000 VNĐ"
-                            }
-                        ]
-                    }
-                ]
-            },
-
-            /* ==================== TAB 5: TÁCH ĐÁY ==================== */
-            "tach-day": {
-                id: "tach-day",
-                tabName: "TÁCH ĐÁY",
-                sections: [
+                        id: "laser-toning",
+                        title: "LASER TONING",
+                        image: "images/laser-body-toning.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Phá vỡ melanin dưới da, làm mờ thâm nám, tàn nhang & thâm sạm trên da",
+                            "Trẻ hóa nền da, se khít lỗ chân lông và làm đều màu da toàn diện"
+                        ],
+                        indications: "Nám mảng, nám sâu, tàn nhang, đốm nâu, da xỉn màu",
+                        price: "5.000.000 VNĐ"
+                    },
                     {
-                        sectionTitle: "",
-                        layout: "wide",
-                        items: [
-                            {
-                                id: "tach-day-seo",
-                                title: "TÁCH ĐÁY SẸO",
-                                image: "images/tach-day-seo.jpg",
-                                isCompare: false,
-                                benefits: [
-                                    "Giải phóng các dải xơ kéo lõm bề mặt da, hỗ trợ làm đầy vùng sẹo",
-                                    "Cải thiện độ sâu và bề mặt sẹo, giúp da trông phẳng và đồng đều hơn",
-                                    "Tạo điều kiện để da tái tạo, hỗ trợ nâng cao hiệu quả cải thiện sẹo rỗ"
-                                ],
-                                indications: "Sẹo rỗ, sẹo lõm lâu năm mà bề mặt da bị các dải xơ cứng bên dưới kéo dính và ghì chặt xuống",
-                                price: "2.000.000 VNĐ"
-                            }
-                        ]
+                        id: "laser-nach-2in1",
+                        title: "LASER NÁCH 2IN1",
+                        image: "images/laser-body-nach.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Khử thâm sạm sâu, làm sáng mịn và đều màu vùng da dưới cánh tay",
+                            "Thu nhỏ lỗ chân lông, hạn chế tiết mồ hôi và giảm sần sùi"
+                        ],
+                        indications: "Thâm nách sau cạo/nhổ/wax, da nách sần sùi, lỗ chân lông to",
+                        price: "3.000.000 VNĐ"
+                    },
+                    {
+                        id: "laser-fractional-toning-combo",
+                        title: "LASER FRACTIONAL + TONING (COMBO CHUYÊN SÂU)",
+                        image: "images/laser-body-combo.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Tác động kép: Vừa làm phẳng kết cấu da sần/sẹo, vừa xử lý sắc tố thâm sạm tầng sâu",
+                            "Phục hồi, tái sinh toàn diện nền da sáng khỏe và mịn màng tối đa"
+                        ],
+                        indications: "Tình trạng kết hợp thâm đốm, thâm sạm nặng và sẹo/sần bề mặt diện rộng",
+                        price: "8.000.000 VNĐ"
                     }
                 ]
             }
-        };
+        ]
+    },
+
+    /* ==================== TAB 2: PEEL ==================== */
+    peel: {
+        id: "peel",
+        tabName: "PEEL",
+        sections: [
+            {
+                sectionTitle: "PEEL ĐẶC TRỊ VÙNG MẶT",
+                layout: "grid",
+                items: [
+                    {
+                        id: "peel-tri-seo",
+                        title: "PEEL TRỊ SẸO",
+                        image: "images/peel-tri-seo.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Loại bỏ tế bào sừng già cỗi, thúc đẩy tái tạo tế bào mới",
+                            "Tăng sinh collagen, làm đầy sẹo lõm và làm mịn bề mặt da",
+                            "Thông thoáng lỗ chân lông, giúp da khỏe và hấp thụ dưỡng chất tối ưu"
+                        ],
+                        indications: "Sẹo rỗ/sẹo lõm, da sần sùi kém mịn, da không đều màu",
+                        price: "1.500.000 VNĐ"
+                    },
+                    {
+                        id: "peel-sac-to-da",
+                        title: "PEEL SẮC TỐ DA",
+                        image: "images/peel-sac-to.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Đào thải lớp tế bào sừng chứa melanin tích tụ trên bề mặt",
+                            "Làm mờ nám, tàn nhang và các đốm nâu tăng sắc tố",
+                            "Tái tạo nền da sáng mịn, đều màu và tăng khả năng hấp thu dưỡng chất"
+                        ],
+                        indications: "Nám nông, tàn nhang, thâm sạm, da xỉn màu và không đều màu trên da",
+                        price: "1.500.000 VNĐ"
+                    },
+                    {
+                        id: "peel-tri-mun",
+                        title: "PEEL TRỊ MỤN",
+                        image: "images/peel-tri-mun.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Loại bỏ da chết và bã nhờn tích tụ trên da, giải phóng bít tắc cổ nang lông",
+                            "Hỗ trợ gom khô cồi mụn, giảm sưng viêm nhanh chóng",
+                            "Làm sạch sâu, giúp bề mặt da thông thoáng và ổn định nền da"
+                        ],
+                        indications: "Mụn ẩn, mụn đầu đen, mụn viêm sưng, trên da nhiều dầu thừa bít tắc",
+                        price: "1.500.000 VNĐ"
+                    },
+                    {
+                        id: "cham-peel-seo",
+                        title: "CHẤM PEEL SẸO",
+                        image: "images/peel-tri-seo.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Tác động tập trung vào từng nốt sẹo, hỗ trợ thu hẹp và làm nông sẹo",
+                            "Kích thích tái tạo collagen, giúp sẹo dần mềm và bề mặt da mịn hơn",
+                            "Cải thiện tình trạng da sần, không đồng đều"
+                        ],
+                        indications: "Sẹo rỗ chân đáy nhọn/nhỏ, sẹo rỗ sâu, lâu năm",
+                        price: "1.500.000 VNĐ"
+                    }
+                ]
+            },
+            {
+                sectionTitle: "PEEL PHỤC HỒI & TÁI TẠO BODY",
+                layout: "grid",
+                items: [
+                    {
+                        id: "peel-nguc",
+                        title: "PEEL NGỰC",
+                        image: "images/peel-body-nguc.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Đào thải bã nhờn, thông thoáng cổ nang lông và gom cồi mụn vùng ngực",
+                            "Mờ thâm mụn, loại bỏ tế bào sừng già cỗi giúp bề mặt da sáng mịn"
+                        ],
+                        indications: "Mụn viêm, mụn ẩn, thâm mụn, da vùng ngực sần sùi kém mịn",
+                        price: "3.500.000 VNĐ"
+                    },
+                    {
+                        id: "peel-mong",
+                        title: "PEEL MÔNG",
+                        image: "images/peel-body-mong.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Xử lý triệt để lớp sừng dày, chai sần tích tụ do ma sát và ngồi nhiều",
+                            "Đào thải hắc sắc tố, làm sáng hồng và mịn màng vùng da mông"
+                        ],
+                        indications: "Mông thâm sạm, da mông thô ráp sần sùi, mụn li ti hạt kê vùng mông",
+                        price: "3.000.000 VNĐ"
+                    },
+                    {
+                        id: "peel-nach",
+                        title: "PEEL NÁCH",
+                        image: "images/peel-body-nach.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Phá hủy hắc sắc tố bề mặt, làm sáng và đều màu vùng da dưới cánh tay",
+                            "Làm mịn bề mặt, se khít lỗ chân lông và giảm tình trạng sần da gà do cạo/nhổ"
+                        ],
+                        indications: "Vùng da nách thâm & sạm màu, sần sùi, thô ráp sau tẩy/triệt lông nhiều lần",
+                        price: "1.500.000 VNĐ"
+                    },
+                    {
+                        id: "peel-lung-tay-chan",
+                        title: "PEEL LƯNG / 2 TAY / 2 CHÂN",
+                        image: "images/peel-body-lung-tay-chan.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Giải phóng bít tắc nang lông, giảm viêm sưng và ngăn ngừa mụn body lây lan",
+                            "Đào thải sắc tố sạm xỉn, cải thiện viêm nang lông và làm đều màu da diện rộng"
+                        ],
+                        indications: "Mụn lưng, thâm mụn body, viêm nang lông, da tay chân thô ráp",
+                        price: "5.000.000 VNĐ"
+                    }
+                ]
+            }
+        ]
+    },
+
+    /* ==================== TAB 3: MESO ==================== */
+    meso: {
+        id: "meso",
+        tabName: "MESO",
+        sections: [
+            {
+                sectionTitle: "",
+                layout: "grid",
+                items: [
+                    {
+                        id: "meso-mun",
+                        title: "MESO MỤN",
+                        image: "images/services/meso-mun.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Giúp hỗ trợ điều trị mụn viêm và mụn ẩn thông qua việc đưa các hoạt chất chuyên biệt trực tiếp vào da",
+                            "Hỗ trợ giảm viêm, kiểm soát bã nhờn và cải thiện bít tắc",
+                            "Làm dịu vùng da mụn, hỗ trợ gom cồi và phục hồi da",
+                            "Giúp da thông thoáng, ổn định hơn và mụn được cải thiện"
+                        ],
+                        indications: "Phù hợp với da mụn viêm, mụn ẩn, da dầu dễ bít tắc và mụn tái phát nhiều lần",
+                        price: "3.000.000 - 5.000.000 VNĐ"
+                    },
+                    {
+                        id: "meso-seo",
+                        title: "MESO SẸO",
+                        image: "images/services/meso-seo.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Giúp hỗ trợ cải thiện sẹo rỗ thông qua việc đưa các hoạt chất chuyên biệt vào da",
+                            "Hỗ trợ kích thích tái tạo mô, tăng sinh collagen và phục hồi vùng da tổn thương",
+                            "Cải thiện dần, bề mặt da mịn và đồng đều hơn"
+                        ],
+                        indications: "Phù hợp với da có sẹo rỗ, sẹo lõm sau mụn hoặc sau thủy đậu",
+                        price: "7.000.000 - 15.000.000 VNĐ"
+                    },
+                    {
+                        id: "meso-sac-to",
+                        title: "MESO SẮC TỐ",
+                        image: "images/services/meso-sac-to.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Giúp hỗ trợ cải thiện sắc tố da bằng cách đưa các hoạt chất chuyên biệt trực tiếp vào da",
+                            "Hỗ trợ ức chế hình thành melanin, làm sáng vùng da sạm nám và giảm thâm sau mụn"
+                        ],
+                        indications: "Phù hợp với da tăng sắc tố, thâm sau mụn, sạm màu, nám và da không đều màu",
+                        price: "3.000.000 - 18.000.000 VNĐ"
+                    },
+                    {
+                        id: "meso-phuc-hoi",
+                        title: "MESO PHỤC HỒI",
+                        image: "images/services/meso-phuc-hoi.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Giúp hỗ trợ phục hồi và củng cố hàng rào bảo vệ da thông qua việc đưa các hoạt chất chuyên biệt trực tiếp vào da",
+                            "Cấp ẩm và cải thiện tình trạng da yếu, nhạy cảm"
+                        ],
+                        indications: "Phù hợp với da yếu, nhạy cảm, khô thiếu ẩm hoặc da cần phục hồi sau các liệu trình điều trị chuyên sâu",
+                        price: "3.000.000 - 8.000.000 VNĐ"
+                    },
+                    {
+                        id: "meso-cap-am-cang-bong",
+                        title: "MESO CẤP ẨM, CĂNG BÓNG",
+                        image: "images/services/meso-cap-am-cang-bong.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Giúp cấp ẩm chuyên sâu cho da thông qua việc đưa các hoạt chất dưỡng ẩm trực tiếp vào da",
+                            "Hỗ trợ cải thiện tình trạng khô, thiếu ẩm, tăng độ mềm mịn và độ căng bóng"
+                        ],
+                        indications: "Phù hợp với da khô, thiếu ẩm, da xỉn màu hoặc bề mặt da kém mịn, thiếu sức sống.",
+                        price: "5.000.000 - 15.000.000 VNĐ"
+                    },
+                    {
+                        id: "meso-mat",
+                        title: "MESO MẮT",
+                        image: "images/services/meso-mat.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Giúp phục hồi và tái tạo vùng da mắt mỏng yếu, hỗ trợ cải thiện quầng thâm, nếp nhăn nhỏ và độ đàn hồi, đồng thời cấp ẩm, làm vùng da quanh mắt mịn màng và tươi sáng hơn."
+                        ],
+                        indications: "Phù hợp với vùng da mắt mỏng yếu, khô thiếu ẩm, quầng thâm, nếp nhăn nhỏ và kém đàn hồi",
+                        price: "5.000.000 - 7.000.000 VNĐ"
+                    },
+                    {
+                        id: "meso-toc",
+                        title: "MESO TÓC",
+                        image: "images/services/meso-toc.jpg",
+                        isCompare: true,
+                        benefits: [
+                            "Giúp kích thích nang tóc và thúc đẩy mọc tóc, hỗ trợ cải thiện tình trạng rụng tóc, tóc thưa và tóc yếu. Đồng thời giúp tăng cường tuần hoàn da đầu, nuôi dưỡng và củng cố chân tóc, giúp tóc mọc khỏe và dày hơn."
+                        ],
+                        indications: "Phù hợp với tình trạng rụng tóc, tóc thưa, tóc yếu, chân tóc kém chắc khỏe và tóc mọc chậm.",
+                        price: "3.000.000 - 10.000.000 VNĐ"
+                    }
+                ]
+            }
+        ]
+    },
+
+    /* ==================== TAB 4: LĂN KIM ==================== */
+    "lan-kim": {
+        id: "lan-kim",
+        tabName: "LĂN KIM",
+        sections: [
+            {
+                sectionTitle: "",
+                layout: "wide",
+                items: [
+                    {
+                        id: "lan-kim-dac-tri-seo-ro",
+                        title: "LĂN KIM ĐẶC TRỊ SẸO RỖ",
+                        image: "images/lan-kim-dac-tri-seo.jpg",
+                        isCompare: false,
+                        benefits: [
+                            "Tạo vi tổn thương cơ học, kích hoạt cơ chế tự phục hồi tự nhiên của da",
+                            "Tăng sinh collagen & elastin mạnh mẽ, tái tạo và làm săn chắc cấu trúc da",
+                            "Cải thiện độ mịn màng, làm mờ thâm và se khít lỗ chân lông"
+                        ],
+                        indications: "Sẹo rỗ sau mụn, thâm sau mụn, lỗ chân lông to, da sần sùi, không đều màu",
+                        price: "2.000.000 VNĐ"
+                    }
+                ]
+            }
+        ]
+    },
+
+    /* ==================== TAB 5: PHI KIM ==================== */
+    "phi-kim": {
+        id: "phi-kim",
+        tabName: "PHI KIM",
+        sections: [
+            {
+                sectionTitle: "",
+                layout: "wide",
+                items: [
+                    {
+                        id: "phi-kim-tai-tao-da",
+                        title: "PHI KIM TÁI TẠO DA",
+                        image: "images/phi-kim-tai-tao-da.jpg",
+                        isCompare: false,
+                        benefits: [
+                            "Đầu kim di chuyển thẳng đứng tác động chính xác, hạn chế tối đa xâm lấn bề mặt",
+                            "Kích thích tăng sinh collagen & elastin, tái tạo tế bào mới chuyên sâu",
+                            "Tăng khả năng hấp thụ dưỡng chất, phục hồi nền da mịn màng và sáng khỏe"
+                        ],
+                        indications: "Sẹo rỗ sau mụn, lỗ chân lông to, thâm sau mụn, da sần sùi, không đều màu",
+                        price: "2.000.000 VNĐ"
+                    }
+                ]
+            }
+        ]
+    },
+
+    /* ==================== TAB 6: TÁCH ĐÁY ==================== */
+    "tach-day": {
+        id: "tach-day",
+        tabName: "TÁCH ĐÁY",
+        sections: [
+            {
+                sectionTitle: "",
+                layout: "wide",
+                items: [
+                    {
+                        id: "tach-day-seo",
+                        title: "TÁCH ĐÁY SẸO",
+                        image: "images/tach-day-seo.jpg",
+                        isCompare: false,
+                        benefits: [
+                            "Giải phóng các dải xơ kéo lõm bề mặt da, hỗ trợ làm đầy vùng sẹo",
+                            "Cải thiện độ sâu và bề mặt sẹo, giúp da trông phẳng và đồng đều hơn",
+                            "Tạo điều kiện để da tái tạo, hỗ trợ nâng cao hiệu quả cải thiện sẹo rỗ"
+                        ],
+                        indications: "Sẹo rỗ, sẹo lõm lâu năm mà bề mặt da bị các dải xơ cứng bên dưới kéo dính và ghì chặt xuống",
+                        price: "2.000.000 VNĐ"
+                    }
+                ]
+            }
+        ]
+    }
+};
 
         /* ==========================================================================
            RENDER ENGINE & TAB SWITCHING LOGIC

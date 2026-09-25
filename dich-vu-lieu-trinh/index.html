@@ -44,6 +44,7 @@
                                     <a href="../dich-vu-buoi-le/index.html" class="header__submenu-title">Buổi Lẻ</a>
                                     <a href="../dich-vu-buoi-le/index.html#laser" class="header__submenu-link">LASER</a>
                                     <a href="../dich-vu-buoi-le/index.html#peel" class="header__submenu-link">PEEL</a>
+                                    <a href="../dich-vu-buoi-le/index.html#meso" class="header__submenu-link">MESO</a>
                                     <a href="../dich-vu-buoi-le/index.html#lan-kim" class="header__submenu-link">LĂN KIM</a>
                                     <a href="../dich-vu-buoi-le/index.html#phi-kim" class="header__submenu-link">PHI KIM</a>
                                     <a href="../dich-vu-buoi-le/index.html#tach-day" class="header__submenu-link">TÁCH ĐÁY</a>
@@ -53,6 +54,7 @@
                                     <a href="../dich-vu-lieu-trinh/index.html#dieu-tri-mun" class="header__submenu-link">ĐIỀU TRỊ MỤN</a>
                                     <a href="../dich-vu-lieu-trinh/index.html#dieu-tri-seo" class="header__submenu-link">ĐIỀU TRỊ SẸO</a>
                                     <a href="../dich-vu-lieu-trinh/index.html#lieu-trinh-body" class="header__submenu-link">LIỆU TRÌNH BODY</a>
+                                    <a href="../dich-vu-lieu-trinh/index.html#the-lieu-trinh" class="header__submenu-link">THẺ LIỆU TRÌNH</a>
                                 </div>
                             </div>
                         </li>
@@ -84,12 +86,15 @@
                                     <a href="../san-pham/index.html#meso" class="header__submenu-link">MESO</a>
                                     <a href="../san-pham/index.html#bap" class="header__submenu-link">BAP</a>
                                     <a href="../san-pham/index.html#filler" class="header__submenu-link">FILLER</a>
-                                    <a href="../san-pham/index.html#botox" class="header__submenu-link">BOTOX</a>
+<a href="../san-pham/index.html#botox" class="header__submenu-link">BOTOX</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
+                            </li>
+                            <li class="header__menu-item">
+                                <a href="../case-thuc-te/index.html" class="header__menu-link">Case Thực Tế</a>
+                            </li>
+                        </ul>
+                    </nav>
 
                 <!-- 4. Hành động (Giỏ hàng & Nút mở menu mobile) -->
                 <div class="header__actions">
@@ -139,161 +144,229 @@
    ========================================================================== */
 
         const packageServicesData = {
-            /* ==========================================================================
-               TAB 1: ĐIỀU TRỊ MỤN (2 GÓI LIỆU TRÌNH)
-               ========================================================================== */
-            "dieu-tri-mun": {
-                id: "dieu-tri-mun",
-                tabName: "ĐIỀU TRỊ MỤN",
-                items: [
-                    {
-                        id: "mun-co-ban",
-                        title: "LIỆU TRÌNH ĐIỀU TRỊ MỤN CƠ BẢN",
-                        beforeImg: "images/mun-co-ban-before.jpg",
-                        afterImg: "images/mun-co-ban-after.jpg",
-                        inclusions: [
-                            "3 BUỔI PEEL",
-                            "2 BUỔI LASER/ MESO",
-                            { prefix: "TẶNG 3 THÁNG", suffix: "CHĂM SÓC DA MIỄN PHÍ", highlight: true }
-                        ],
-                        benefits: [
-                            "Đào thải bã nhờn, dứt điểm mụn ẩn & mụn viêm nhẹ",
-                            "Làm dịu da, mờ thâm mới và hạn chế tổn thương sau mụn",
-                            "Giúp bề mặt da thông thoáng, mịn màng và sáng khỏe"
-                        ],
-                        price: "10.000.000 VNĐ"
-                    },
-                    {
-                        id: "mun-chuyen-sau",
-                        title: "LIỆU TRÌNH ĐIỀU TRỊ MỤN CHUYÊN SÂU",
-                        beforeImg: "images/mun-chuyen-sau-before.jpg",
-                        afterImg: "images/mun-chuyen-sau-after.jpg",
-                        inclusions: [
-                            "4 BUỔI PEEL",
-                            "4 BUỔI LASER/ MESO",
-                            "4 BUỔI LASER PT",
-                            { prefix: "TẶNG 6 THÁNG", suffix: "CHĂM SÓC DA MIỄN PHÍ", highlight: true }
-                        ],
-                        benefits: [
-                            "Dứt điểm mụn viêm dai dẳng, mụn tái phát nhiều lần",
-                            "Làm dịu kích ứng, mờ thâm và ngăn ngừa hình thành sẹo rỗ",
-                            "Phục hồi hàng rào bảo vệ, giúp nền da khỏe mịn toàn diện"
-                        ],
-                        price: "20.000.000 VNĐ"
-                    }
-                ]
+    /* ==========================================================================
+       TAB 1: ĐIỀU TRỊ MỤN (2 GÓI LIỆU TRÌNH)
+       ========================================================================== */
+    "dieu-tri-mun": {
+        id: "dieu-tri-mun",
+        tabName: "ĐIỀU TRỊ MỤN",
+        items: [
+            {
+                id: "mun-co-ban",
+                title: "LIỆU TRÌNH ĐIỀU TRỊ MỤN CƠ BẢN",
+                beforeImg: "images/mun-co-ban-before.jpg",
+                afterImg: "images/mun-co-ban-after.jpg",
+                inclusions: [
+                    "3 BUỔI PEEL",
+                    "2 BUỔI LASER/ MESO",
+                    { prefix: "TẶNG 3 THÁNG", suffix: "CHĂM SÓC DA MIỄN PHÍ", highlight: true }
+                ],
+                benefits: [
+                    "Đào thải bã nhờn, dứt điểm mụn ẩn & mụn viêm nhẹ",
+                    "Làm dịu da, mờ thâm mới và hạn chế tổn thương sau mụn",
+                    "Giúp bề mặt da thông thoáng, mịn màng và sáng khỏe"
+                ],
+                price: "10.000.000 VNĐ"
             },
-
-            /* ==========================================================================
-               TAB 2: ĐIỀU TRỊ SẸO (3 GÓI LIỆU TRÌNH)
-               ========================================================================== */
-            "dieu-tri-seo": {
-                id: "dieu-tri-seo",
-                tabName: "ĐIỀU TRỊ SẸO",
-                items: [
-                    {
-                        id: "seo-co-ban",
-                        title: "LIỆU TRÌNH ĐIỀU TRỊ SẸO CƠ BẢN",
-                        beforeImg: "images/seo-co-ban-before.jpg",
-                        afterImg: "images/seo-co-ban-after.jpg",
-                        inclusions: [
-                            "6 BUỔI ĐIỀU TRỊ SẸO 5IN1",
-                            { prefix: "TẶNG 6 THÁNG", suffix: "CHĂM SÓC DA MIỄN PHÍ", highlight: true }
-                        ],
-                        benefits: [
-                            "Làm đầy 50–70% sẹo rỗ nông, se khít lỗ chân lông, cải thiện bề mặt da"
-                        ],
-                        price: "29.000.000 VNĐ"
-                    },
-                    {
-                        id: "seo-chuyen-sau",
-                        title: "LIỆU TRÌNH ĐIỀU TRỊ SẸO CHUYÊN SÂU",
-                        beforeImg: "images/seo-chuyen-sau-before.jpg",
-                        afterImg: "images/seo-chuyen-sau-after.jpg",
-                        inclusions: [
-                            "6 BUỔI SẸO 5IN1",
-                            "3 BUỔI MESO",
-                            "2 BUỔI LASER 2IN1",
-                            { prefix: "TẶNG 12 THÁNG", suffix: "CHĂM SÓC DA MIỄN PHÍ", highlight: true }
-                        ],
-                        benefits: [
-                            "Đầy 70–85% sẹo rỗ lâu năm, phục hồi nền da dày khỏe, thu nhỏ lỗ chân lông rõ rệt"
-                        ],
-                        price: "39.000.000 VNĐ"
-                    },
-                    {
-                        id: "seo-da-tang",
-                        title: "LIỆU TRÌNH ĐIỀU TRỊ SẸO ĐA TẦNG",
-                        beforeImg: "images/seo-da-tang-before.jpg",
-                        afterImg: "images/seo-da-tang-after.jpg",
-                        inclusions: [
-                            "6 BUỔI SẸO 5IN1",
-                            "6 BUỔI MESO",
-                            "6 BUỔI LASER 3IN1",
-                            "CHĂM SÓC DA MIỄN PHÍ TRỌN ĐỜI"
-                        ],
-                        benefits: [
-                            "Đầy 85–95% sẹo rỗ phức tạp, sẹo xơ cứng lâu năm; tái sinh nền da căng bóng, săn chắc toàn diện"
-                        ],
-                        price: "80.000.000 VNĐ"
-                    }
-                ]
-            },
-
-            /* ==========================================================================
-               TAB 3: LIỆU TRÌNH BODY (3 GÓI LIỆU TRÌNH)
-               ========================================================================== */
-            "lieu-trinh-body": {
-                id: "lieu-trinh-body",
-                tabName: "LIỆU TRÌNH BODY",
-                items: [
-                    {
-                        id: "body-vung-nho",
-                        title: "VÙNG NHỎ <br> (NÁCH / 1 TAY / 1 CHÂN)",
-                        beforeImg: "images/body-vung-nho-before.jpg",
-                        afterImg: "images/body-vung-nho-after.jpg",
-                        inclusions: [
-                            "3 BUỔI LASER TONING",
-                            "3 BUỔI CHEMICAL PEEL"
-                        ],
-                        benefits: [
-                            "Mờ thâm sạm rõ rệt, se khít lỗ chân lông, giảm tình trạng sần da gà do cạo/nhổ"
-                        ],
-                        price: "10.000.000 VNĐ"
-                    },
-                    {
-                        id: "body-vung-trung-binh",
-                        title: "VÙNG TRUNG BÌNH (NGỰC/MÔNG)",
-                        beforeImg: "images/body-vung-tb-before.jpg",
-                        afterImg: "images/body-vung-tb-after.jpg",
-                        inclusions: [
-                            "3 BUỔI LASER TONING/ FRACTIONAL",
-                            "3 BUỔI CHEMICAL PEEL"
-                        ],
-                        benefits: [
-                            "Trị dứt điểm mụn lưng, mờ thâm mụn body, cải thiện viêm nang lông, trả lại làn da mịn màng, sáng khỏe"
-                        ],
-                        price: "15.000.000 VNĐ"
-                    },
-                    {
-                        id: "body-vung-lon",
-                        title: "VÙNG LỚN <br> (LƯNG / 2 TAY / 2 CHÂN)",
-                        beforeImg: "images/body-vung-lon-before.jpg",
-                        afterImg: "images/body-vung-lon-after.jpg",
-                        inclusions: [
-                            "3 BUỔI LASER TONING/ FRACTIONAL",
-                            "3 BUỔI CHEMICAL PEEL"
-                        ],
-                        benefits: [
-                            "Trị dứt điểm mụn lưng, mờ thâm mụn body, cải thiện viêm nang lông, trả lại làn da mịn màng, sáng khỏe"
-                        ],
-                        price: "22.000.000 VNĐ"
-                    }
-                ]
+            {
+                id: "mun-chuyen-sau",
+                title: "LIỆU TRÌNH ĐIỀU TRỊ MỤN CHUYÊN SÂU",
+                beforeImg: "images/mun-chuyen-sau-before.jpg",
+                afterImg: "images/mun-chuyen-sau-after.jpg",
+                inclusions: [
+                    "4 BUỔI PEEL",
+                    "4 BUỔI LASER/ MESO",
+                    "4 BUỔI LASER PT",
+                    { prefix: "TẶNG 6 THÁNG", suffix: "CHĂM SÓC DA MIỄN PHÍ", highlight: true }
+                ],
+                benefits: [
+                    "Dứt điểm mụn viêm dai dẳng, mụn tái phát nhiều lần",
+                    "Làm dịu kích ứng, mờ thâm và ngăn ngừa hình thành sẹo rỗ",
+                    "Phục hồi hàng rào bảo vệ, giúp nền da khỏe mịn toàn diện"
+                ],
+                price: "20.000.000 VNĐ"
             }
+        ]
+    },
+
+    /* ==========================================================================
+       TAB 2: ĐIỀU TRỊ SẸO (3 GÓI LIỆU TRÌNH)
+       ========================================================================== */
+    "dieu-tri-seo": {
+        id: "dieu-tri-seo",
+        tabName: "ĐIỀU TRỊ SẸO",
+        items: [
+            {
+                id: "seo-co-ban",
+                title: "LIỆU TRÌNH ĐIỀU TRỊ SẸO CƠ BẢN",
+                beforeImg: "images/seo-co-ban-before.jpg",
+                afterImg: "images/seo-co-ban-after.jpg",
+                inclusions: [
+                    "6 BUỔI ĐIỀU TRỊ SẸO 5IN1",
+                    { prefix: "TẶNG 6 THÁNG", suffix: "CHĂM SÓC DA MIỄN PHÍ", highlight: true }
+                ],
+                benefits: [
+                    "Làm đầy 50–70% sẹo rỗ nông, se khít lỗ chân lông, cải thiện bề mặt da"
+                ],
+                price: "29.000.000 VNĐ"
+            },
+            {
+                id: "seo-chuyen-sau",
+                title: "LIỆU TRÌNH ĐIỀU TRỊ SẸO CHUYÊN SÂU",
+                beforeImg: "images/seo-chuyen-sau-before.jpg",
+                afterImg: "images/seo-chuyen-sau-after.jpg",
+                inclusions: [
+                    "6 BUỔI SẸO 5IN1",
+                    "3 BUỔI MESO",
+                    "2 BUỔI LASER 2IN1",
+                    { prefix: "TẶNG 12 THÁNG", suffix: "CHĂM SÓC DA MIỄN PHÍ", highlight: true }
+                ],
+                benefits: [
+                    "Đầy 70–85% sẹo rỗ lâu năm, phục hồi nền da dày khỏe, thu nhỏ lỗ chân lông rõ rệt"
+                ],
+                price: "39.000.000 VNĐ"
+            },
+            {
+                id: "seo-da-tang",
+                title: "LIỆU TRÌNH ĐIỀU TRỊ SẸO ĐA TẦNG",
+                beforeImg: "images/seo-da-tang-before.jpg",
+                afterImg: "images/seo-da-tang-after.jpg",
+                inclusions: [
+                    "6 BUỔI SẸO 5IN1",
+                    "6 BUỔI MESO",
+                    "6 BUỔI LASER 3IN1",
+                    "CHĂM SÓC DA MIỄN PHÍ TRỌN ĐỜI"
+                ],
+                benefits: [
+                    "Đầy 85–95% sẹo rỗ phức tạp, sẹo xơ cứng lâu năm; tái sinh nền da căng bóng, săn chắc toàn diện"
+                ],
+                price: "80.000.000 VNĐ"
+            }
+        ]
+    },
+
+    /* ==========================================================================
+       TAB 3: LIỆU TRÌNH BODY (3 GÓI LIỆU TRÌNH)
+       ========================================================================== */
+    "lieu-trinh-body": {
+        id: "lieu-trinh-body",
+        tabName: "LIỆU TRÌNH BODY",
+        items: [
+            {
+                id: "body-vung-nho",
+                title: "VÙNG NHỎ <br> (NÁCH / 1 TAY / 1 CHÂN)",
+                beforeImg: "images/body-vung-nho-before.jpg",
+                afterImg: "images/body-vung-nho-after.jpg",
+                inclusions: [
+                    "3 BUỔI LASER TONING",
+                    "3 BUỔI CHEMICAL PEEL"
+                ],
+                benefits: [
+                    "Mờ thâm sạm rõ rệt, se khít lỗ chân lông, giảm tình trạng sần da gà do cạo/nhổ"
+                ],
+                price: "10.000.000 VNĐ"
+            },
+            {
+                id: "body-vung-trung-binh",
+                title: "VÙNG TRUNG BÌNH (NGỰC/MÔNG)",
+                beforeImg: "images/body-vung-tb-before.jpg",
+                afterImg: "images/body-vung-tb-after.jpg",
+                inclusions: [
+                    "3 BUỔI LASER TONING/ FRACTIONAL",
+                    "3 BUỔI CHEMICAL PEEL"
+                ],
+                benefits: [
+                    "Trị dứt điểm mụn lưng, mờ thâm mụn body, cải thiện viêm nang lông, trả lại làn da mịn màng, sáng khỏe"
+                ],
+                price: "15.000.000 VNĐ"
+            },
+            {
+                id: "body-vung-lon",
+                title: "VÙNG LỚN <br> (LƯNG / 2 TAY / 2 CHÂN)",
+                beforeImg: "images/body-vung-lon-before.jpg",
+                afterImg: "images/body-vung-lon-after.jpg",
+                inclusions: [
+                    "3 BUỔI LASER TONING/ FRACTIONAL",
+                    "3 BUỔI CHEMICAL PEEL"
+                ],
+                benefits: [
+                    "Trị dứt điểm mụn lưng, mờ thâm mụn body, cải thiện viêm nang lông, trả lại làn da mịn màng, sáng khỏe"
+                ],
+                price: "22.000.000 VNĐ"
+            }
+        ]
+    },
+
+    /* ==========================================================================
+       TAB 4: THẺ LIỆU TRÌNH (3 GÓI THẺ VIP)
+       ========================================================================== */
+    "the-lieu-trinh": {
+        id: "the-lieu-trinh",
+        tabName: "THẺ LIỆU TRÌNH",
+        items: [
+            {
+                id: "the-vip-1",
+                title: "Thẻ VIP 1",
+                image: "images/the-vip-1.jpg",
+                inclusions: [
+                    "Thẻ liệu trình",
+                    "Tặng 2 buổi 2IN1",
+                    "6 tháng chăm sóc da toàn diện"
+                ],
+                benefits: [],
+                price: "20.000.000 VNĐ"
+            },
+            {
+                id: "the-vip-2",
+                title: "Thẻ VIP 2",
+                image: "images/the-vip-2.jpg",
+                inclusions: [
+                    "Thẻ liệu trình",
+                    "Tặng 4 buổi 2IN1",
+                    "1 năm chăm sóc da toàn diện"
+                ],
+                benefits: [],
+                price: "30.000.000 VNĐ"
+            },
+            {
+                id: "the-vip-3",
+                title: "Thẻ VIP 3",
+                image: "images/the-vip-3.jpg",
+                inclusions: [
+                    "Thẻ liệu trình",
+                    "Tặng 5 buổi Multi Layer",
+                    "Tặng 5 buổi Mesotherapy",
+                    "Trọn đời chăm sóc da toàn diện"
+                ],
+                benefits: [],
+                price: "50.000.000 VNĐ"
+            }
+        ]
+    }
+};
+
+        // 2. Hàm Render Ảnh: card Thẻ Liệu Trình chỉ có 1 ảnh, các gói khác có Before/After
+        const renderMedia = (item) => {
+            if (item.image) {
+                return `
+        <div class="package-services__media">
+          <div class="package-services__media-item package-services__media-item--active">
+            <img src="${item.image}" alt="${item.title}" class="package-services__media-img" loading="lazy">
+          </div>
+        </div>`;
+            }
+            return `
+        <div class="package-services__media">
+          <div class="package-services__media-item package-services__media-item--active">
+            <img src="${item.beforeImg}" alt="Tình trạng trước điều trị" class="package-services__media-img" loading="lazy">
+          </div>
+          <div class="package-services__media-item">
+            <img src="${item.afterImg}" alt="Kết quả sau liệu trình" class="package-services__media-img" loading="lazy">
+          </div>
+        </div>`;
         };
 
-        // 2. Hàm Render & Xử Lý Tab
+        // 3. Hàm Render & Xử Lý Tab
         function initPackageServices() {
             const tabsContainer = document.getElementById("package-services-tabs");
             const contentContainer = document.getElementById("package-services-content");
@@ -313,15 +386,8 @@
                         (item) => `
         <article class="package-services__card" data-aos="fade-up">
           
-          <!-- Cột Trái: Ảnh Before & After -->
-          <div class="package-services__media">
-            <div class="package-services__media-item package-services__media-item--active">
-              <img src="${item.beforeImg}" alt="Tình trạng trước điều trị" class="package-services__media-img" loading="lazy">
-            </div>
-            <div class="package-services__media-item">
-              <img src="${item.afterImg}" alt="Kết quả sau liệu trình" class="package-services__media-img" loading="lazy">
-            </div>
-          </div>
+          <!-- Cột Trái: Ảnh Before & After (hoặc ảnh đơn cho Thẻ Liệu Trình) -->
+          ${renderMedia(item)}
 
           <!-- Cột Phải: Nội Dung Chi Tiết Gói -->
           <div class="package-services__body">

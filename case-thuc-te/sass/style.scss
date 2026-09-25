@@ -1,0 +1,348 @@
+.banner {
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+.clinical-cases {
+    position: relative;
+    width: 100%;
+    background-color: var(--color-white);
+    padding: 4.5rem 0;
+
+    @media (max-width: 991.98px) {
+        padding: 3rem 0;
+    }
+
+    /* ==========================================================
+     TIÊU ĐỀ
+     ========================================================== */
+    &__title {
+        font-family: var(--font-sans);
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        font-weight: 800;
+        color: var(--color-primary); // Xanh ngọc #3ab8b8
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 2rem;
+    }
+
+    /* ==========================================================
+     THANH TABS
+     ========================================================== */
+    &__tabs-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+
+        @media (max-width: 767.98px) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__tabs {
+        display: inline-flex;
+        align-items: center;
+        background-color: var(--color-primary);
+        border-radius: 9999px;
+        padding: 4px;
+        box-shadow: 0 4px 16px rgba(58, 184, 184, 0.2);
+        max-width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__tab-btn {
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--color-white);
+        background-color: transparent;
+        border: none;
+        padding: 0.65rem 2.25rem;
+        border-radius: 9999px;
+        cursor: pointer;
+        white-space: nowrap;
+        text-transform: uppercase;
+        transition: all 0.25s ease;
+
+        &:hover:not(&--active) {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        &--active {
+            background-color: var(--color-white);
+            color: var(--color-primary);
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 575.98px) {
+            padding: 0.5rem 1.15rem;
+            font-size: 0.825rem;
+        }
+    }
+
+    /* ==========================================================
+     DANH SÁCH THẺ CASE
+     ========================================================== */
+    &__list {
+        max-width: 680px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+
+        @media (max-width: 767.98px) {
+            gap: 1.75rem;
+        }
+    }
+
+    /* ==========================================================
+     THẺ CASE CARD
+     ========================================================== */
+    &__card {
+        background-color: #f8fafb;
+        border-radius: 20px;
+        padding: 1.75rem 2rem;
+        box-shadow: var(--color-shadow-soft);
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 12px 28px rgba(58, 184, 184, 0.15);
+        }
+
+        @media (max-width: 575.98px) {
+            padding: 1.25rem;
+            border-radius: 16px;
+        }
+
+        /* Trạng thái mở rộng (Expanded) */
+        &--expanded {
+            .clinical-cases__journey-drawer {
+                grid-template-rows: 1fr;
+            }
+
+            .clinical-cases__toggle-icon {
+                transform: rotate(180deg);
+                background-color: var(--color-primary);
+                color: var(--color-white);
+            }
+        }
+    }
+
+    &__card-title {
+        font-family: var(--font-sans);
+        font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+        font-weight: 800;
+        color: var(--color-primary);
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: -0.3px;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Khung Ảnh Before - After */
+    &__media {
+        position: relative;
+        width: 100%;
+        border-radius: 14px;
+        overflow: hidden;
+        // aspect-ratio: 16 / 10;
+        background-color: var(--color-white);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+        &-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    /* Khối Thông Tin */
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    &__treatment-name {
+        font-family: var(--font-sans);
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        text-transform: uppercase;
+        margin-bottom: 0.35rem;
+        line-height: 1.3;
+    }
+
+    &__meta-item {
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        color: var(--color-primary);
+        font-weight: 500;
+        line-height: 1.4;
+
+        span {
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+    }
+
+    /* Nút Bấm Toggle "Xem Hành Trình" */
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 0.25rem;
+        padding-top: 0.75rem;
+    }
+
+    &__toggle-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    &__toggle-text {
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--color-primary);
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: var(--color-accent-hover);
+        }
+    }
+
+    &__toggle-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 1.5px solid var(--color-primary);
+        color: var(--color-primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    /* ==========================================================
+     CHI TIẾT HÀNH TRÌNH TỪNG BUỔI (HIỂN THỊ 3.5 ITEM / MÀN HÌNH)
+     ========================================================== */
+    &__journey-drawer {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &__journey-inner {
+        overflow: hidden;
+    }
+
+    & &__journey-track {
+        display: flex;
+        gap: 0.75rem;
+        overflow-x: auto;
+        padding: 1.25rem 0 0.75rem 0;
+        cursor: grab;
+        user-select: none; // Tránh bôi đen chữ khi rê chuột kéo
+        -webkit-user-select: none;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+
+        &:active,
+        &.is-dragging {
+            cursor: grabbing; // Đổi icon bàn tay nắm lại khi đang kéo
+            scroll-behavior: auto; // Tắt smooth animation để bám sát chuyển động chuột
+        }
+
+        &::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--color-primary);
+            border-radius: 4px;
+        }
+    }
+
+    &__journey-item {
+        flex: 0 0 calc((100% - (3 * 0.75rem)) / 3.5);
+        max-width: calc((100% - (3 * 0.75rem)) / 3.5);
+        border: 1.5px solid var(--color-border);
+        border-radius: 16px;
+        overflow: hidden;
+        background-color: var(--color-white);
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        user-select: none;
+
+        @media (max-width: 767.98px) {
+            flex: 0 0 calc((100% - (2 * 0.75rem)) / 2.5);
+            max-width: calc((100% - (2 * 0.75rem)) / 2.5);
+        }
+
+        @media (max-width: 575.98px) {
+            flex: 0 0 calc((100% - (1.5 * 0.5rem)) / 2.2);
+            max-width: calc((100% - (1.5 * 0.5rem)) / 2.2);
+            border-radius: 12px;
+        }
+    }
+
+    &__journey-media {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+        background-color: var(--color-primary);
+        padding: 5px;
+    }
+
+    &__journey-img {
+        border-radius: 8px;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none; // Vô hiệu hóa kéo ảnh bóng ma của trình duyệt
+        -webkit-user-drag: none;
+    }
+
+    &__journey-badge {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        text-align: center;
+        padding: 0.5rem 0.25rem;
+
+        @media (max-width: 575.98px) {
+            font-size: 0.75rem;
+            padding: 0.35rem 0.2rem;
+        }
+    }
+}
